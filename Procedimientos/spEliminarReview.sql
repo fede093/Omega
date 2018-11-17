@@ -1,0 +1,7 @@
+CREATE PROCEDURE spEliminarReview
+(
+@COD_REVIEW int
+)
+AS
+DELETE Review WHERE Cod_Review = @COD_REVIEW
+RETURN

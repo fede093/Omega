@@ -1,0 +1,9 @@
+C:\Users\Fede_\Desktop\Omega\DATOS\bin\Debug\DATOS.dll
+C:\Users\Fede_\Desktop\Omega\DATOS\bin\Debug\DATOS.pdb
+C:\Users\Fede_\Desktop\Omega\DATOS\bin\Debug\ENTIDAD.dll
+C:\Users\Fede_\Desktop\Omega\DATOS\bin\Debug\ENTIDAD.pdb
+C:\Users\Fede_\Desktop\Omega\DATOS\obj\Debug\DATOS.csprojAssemblyReference.cache
+C:\Users\Fede_\Desktop\Omega\DATOS\obj\Debug\DATOS.csproj.CoreCompileInputs.cache
+C:\Users\Fede_\Desktop\Omega\DATOS\obj\Debug\DATOS.csproj.CopyComplete
+C:\Users\Fede_\Desktop\Omega\DATOS\obj\Debug\DATOS.dll
+C:\Users\Fede_\Desktop\Omega\DATOS\obj\Debug\DATOS.pdb

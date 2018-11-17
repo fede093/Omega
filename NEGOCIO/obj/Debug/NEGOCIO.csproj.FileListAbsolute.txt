@@ -1,0 +1,11 @@
+C:\Users\Fede_\Desktop\Omega\NEGOCIO\bin\Debug\NEGOCIO.dll
+C:\Users\Fede_\Desktop\Omega\NEGOCIO\bin\Debug\NEGOCIO.pdb
+C:\Users\Fede_\Desktop\Omega\NEGOCIO\bin\Debug\DATOS.dll
+C:\Users\Fede_\Desktop\Omega\NEGOCIO\bin\Debug\ENTIDAD.dll
+C:\Users\Fede_\Desktop\Omega\NEGOCIO\bin\Debug\DATOS.pdb
+C:\Users\Fede_\Desktop\Omega\NEGOCIO\bin\Debug\ENTIDAD.pdb
+C:\Users\Fede_\Desktop\Omega\NEGOCIO\obj\Debug\NEGOCIO.csprojAssemblyReference.cache
+C:\Users\Fede_\Desktop\Omega\NEGOCIO\obj\Debug\NEGOCIO.csproj.CoreCompileInputs.cache
+C:\Users\Fede_\Desktop\Omega\NEGOCIO\obj\Debug\NEGOCIO.csproj.CopyComplete
+C:\Users\Fede_\Desktop\Omega\NEGOCIO\obj\Debug\NEGOCIO.dll
+C:\Users\Fede_\Desktop\Omega\NEGOCIO\obj\Debug\NEGOCIO.pdb

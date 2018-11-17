@@ -1,0 +1,30 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body {
+    background: #d9d9d9;
+    font-family: "Roboto", sans-serif;
+}
+
+.LinksButtons {
+    margin: auto;
+    padding: 0 2.0%;
+}
+
+#div_nav {
+    text-align: center;
+    padding: 2.5% 0;
+    background-color: #a6a6a6;
+}
+
+.Label {
+    padding-bottom:20px;
+}
+
+#div_label{
+    padding: 2.5% 0;
+    text-align:center;
+}
+
+.tabla{
+    padding-bottom: 40px;
+}

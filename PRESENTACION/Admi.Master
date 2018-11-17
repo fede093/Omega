@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admi.master.cs" Inherits="PRESENTACION.Admi" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="css/Admin.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="div_nav">
+            <asp:LinkButton ID="lbUsuarios" runat="server" CssClass="LinksButtons" OnClick="lbUsuarios_Click">Usuarios</asp:LinkButton>
+            <asp:LinkButton ID="lbJuegos" runat="server" CssClass="LinksButtons" OnClick="lbJuegos_Click">Juegos</asp:LinkButton>
+            <asp:LinkButton ID="lbGeneros" runat="server" CssClass="LinksButtons" OnClick="lbGeneros_Click">Generos</asp:LinkButton>
+            <asp:LinkButton ID="lbPais" runat="server" CssClass="LinksButtons" OnClick="lbPais_Click">Pais</asp:LinkButton>
+            <asp:LinkButton ID="lbMedio" runat="server" CssClass="LinksButtons" OnClick="lbMedio_Click">Medios de Pago</asp:LinkButton>
+            <asp:LinkButton ID="lbCompras" runat="server" CssClass="LinksButtons" OnClick="lbCompras_Click">Compras</asp:LinkButton>
+            <asp:LinkButton ID="lbReview" runat="server" CssClass="LinksButtons" OnClick="lbReview_Click">Review</asp:LinkButton>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,9 @@
+﻿.search {
+    text-align: center;
+    padding: 10px 10px;
+}
+
+.search input[type=text] {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}

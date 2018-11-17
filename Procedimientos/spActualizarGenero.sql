@@ -1,0 +1,12 @@
+CREATE PROCEDURE spActualizarGenero
+(
+@COD_GENERO INT,
+@NOMBRE NVARCHAR(50)
+)
+AS
+UPDATE Genero
+SET
+NombreGenero=@NOMBRE
+WHERE Cod_Genero=@COD_GENERO
+RETURN
+GO
