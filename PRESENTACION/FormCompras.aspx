@@ -9,7 +9,7 @@
         <asp:Label ID="Label3" runat="server" Text="Listado de compras" Font-Bold="True"></asp:Label>
     </div>
     <div>
-        <asp:GridView ID="gvCompras" runat="server" AllowPaging="True" AutoGenerateColumns="False" AutoGenerateEditButton="True" PageSize="5" CssClass="auto-style5">
+        <asp:GridView ID="gvCompras" runat="server" AllowPaging="True" AutoGenerateColumns="False" PageSize="5" CssClass="auto-style5">
             <Columns>
                 <asp:TemplateField HeaderText="Codigo de compra">
                     <ItemTemplate>

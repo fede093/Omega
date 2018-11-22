@@ -64,6 +64,7 @@ namespace PRESENTACION
 
             gvPaises.EditIndex = -1;
             cargarGrilla();
+            lblExito.Text = "";
         }
 
         protected void gvPaises_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -78,6 +79,7 @@ namespace PRESENTACION
             n_pais.eliminarPais(pais);
 
             cargarGrilla();
+            lblExito.Text = "";
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)

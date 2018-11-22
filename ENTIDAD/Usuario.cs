@@ -15,6 +15,7 @@ namespace ENTIDAD
         private String s_contra;
         private String s_telefono;
         private int i_codPais;
+        private bool b_administrador;
         
         public String usuario
         {
@@ -56,6 +57,12 @@ namespace ENTIDAD
         {
             set { i_codPais = value; }
             get { return i_codPais; }
+        }
+
+        public bool administrador
+        {
+            set { b_administrador = value; }
+            get { return b_administrador; }
         }
     }
 }

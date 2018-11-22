@@ -23,6 +23,7 @@ namespace PRESENTACION
             if (!IsPostBack)
             {
                 cargarGrilla();
+                cargarDDL();
             }
         }
 
@@ -31,6 +32,16 @@ namespace PRESENTACION
             n_Juego n_juego = new n_Juego();
             gvJuegos.DataSource = n_juego.getTabla();
             gvJuegos.DataBind();
+        }
+
+        public void cargarDDL()
+        {
+            n_Genero n_genero = new n_Genero();
+            ddlGenero.DataTextField = "NombreGenero";
+            ddlGenero.DataValueField = "Cod_Genero";
+            ddlGenero.DataSource = n_genero.getTablaG();
+            ddlGenero.DataBind();
+            ddlGenero.Items.Insert(0, "---Nada selecionado---");
         }
 
         protected void gvMedios_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -88,14 +99,79 @@ namespace PRESENTACION
             cargarGrilla();
         }
 
-        //protected void Button1_Click(object sender, EventArgs e)
-        //{
-        //    String pathCarpeta = @"img\covers\";
-        //    String savePath = Server.MapPath("~") + pathCarpeta;
-        //    String fileName = fileImagen.FileName;
-        //    String pathCompleta = savePath + fileName;
+        protected void gvJuegos_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            String s_Cod = ((Label)gvJuegos.Rows[e.RowIndex].FindControl("lblCod")).Text;
+            DateTime nullValue = new DateTime();
 
-        //    fileImagen.SaveAs(pathCompleta);
-        //}
+            Juego juego = new Juego();
+            juego.nombre = "";
+            juego.id_juego = int.Parse(s_Cod);
+            juego.descripcion = "";
+            juego.fecha_lanzamiento = nullValue;
+            juego.desarrollador = "";
+            juego.distribuidor = "";
+            juego.cod_genero = 0;
+            juego.idioma = "";
+            juego.precio = 0;
+            juego.ruta_imagen = "";
+            juego.clasificacion = "";
+            juego.pagina = "";
+
+            n_Juego n_juego = new n_Juego();
+            n_juego.eliminarJuego(juego);
+
+            cargarGrilla();
+        }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && rfv6.IsValid && rfv7.IsValid
+                && rfv8.IsValid && rfv9.IsValid && rfv10.IsValid && rfv11.IsValid && revFecha.IsValid)
+            {
+                String pathCarpeta = @"img\covers\";
+                String savePath = Server.MapPath("~") + pathCarpeta;
+                String fileName = fileImagen.FileName;
+                String pathCompleta = savePath + fileName;
+
+                Juego juego = new Juego();
+                juego.nombre = txtNombre.Text;
+                juego.descripcion = txtDescripcion.Text;
+                juego.clasificacion = txtClasificacion.Text;
+                juego.desarrollador = txtDesarrollador.Text;
+                juego.distribuidor = txtDistribuidor.Text;
+                juego.fecha_lanzamiento = DateTime.Parse(txtFecha.Text);
+                juego.cod_genero = int.Parse(ddlGenero.SelectedValue);
+                juego.pagina = txtPagina.Text;
+                juego.idioma = txtIdioma.Text;
+                juego.precio = float.Parse(txtPrecio.Text);
+                juego.id_juego = 0;
+
+                String rutaBase = "~/img/covers/" + fileName;
+                juego.ruta_imagen = rutaBase;
+
+                n_Juego n_juego = new n_Juego();
+
+                if (n_juego.agregarJuego(juego))
+                {
+                    fileImagen.SaveAs(pathCompleta);
+                    lblExito.Text = "Exito al agregar";
+                    lblExito.ForeColor = System.Drawing.Color.Green;
+                    lblValidacion.Text = "";
+                    cargarGrilla();
+                }
+                else
+                {
+                    lblExito.Text = "Error al agregar.";
+                    lblExito.ForeColor = System.Drawing.Color.Red;
+                }
+            }
+            else if (!revFecha.IsValid)
+            {
+                lblValidacion.Text = "";
+            }
+            else
+                lblValidacion.Text = "Campos obligatorios";
+        }
     }
 }

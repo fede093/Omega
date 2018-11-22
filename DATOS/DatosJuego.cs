@@ -58,5 +58,23 @@ namespace DATOS
             else
                 return false;
         }
+
+        public int eliminarJuegos(Juego juego)
+        {
+            SqlCommand comando = new SqlCommand();
+            armarParametros(ref comando, juego);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "spEliminarJuego");
+        }
+
+        public bool insertarJuego(Juego juego)
+        {
+            SqlCommand Comando = new SqlCommand();
+            armarParametros(ref Comando, juego);
+            int filasInsertadas = ds.EjecutarProcedimientoAlmacenado(Comando, "spInsertarJuego");
+            if (filasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
     }
 }

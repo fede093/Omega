@@ -22,5 +22,17 @@ namespace NEGOCIO
             DatosJuego da = new DatosJuego();
             return da.ActualizarJuegos(juego);
         }
+
+        public int eliminarJuego(Juego juego)
+        {
+            DatosJuego da = new DatosJuego();
+            return da.eliminarJuegos(juego);
+        }
+
+        public bool agregarJuego(Juego juego)
+        {
+            DatosJuego da = new DatosJuego();
+            return da.insertarJuego(juego);
+        }
     }
 }

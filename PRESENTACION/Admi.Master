@@ -13,6 +13,7 @@
 <body>
     <form id="form1" runat="server">
         <div id="div_nav">
+            <a href="inicio.aspx" class="inicio">Inicio</a>
             <asp:LinkButton ID="lbUsuarios" runat="server" CssClass="LinksButtons" OnClick="lbUsuarios_Click">Usuarios</asp:LinkButton>
             <asp:LinkButton ID="lbJuegos" runat="server" CssClass="LinksButtons" OnClick="lbJuegos_Click">Juegos</asp:LinkButton>
             <asp:LinkButton ID="lbGeneros" runat="server" CssClass="LinksButtons" OnClick="lbGeneros_Click">Generos</asp:LinkButton>

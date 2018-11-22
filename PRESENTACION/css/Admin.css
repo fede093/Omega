@@ -28,3 +28,12 @@ body {
 .tabla{
     padding-bottom: 40px;
 }
+
+.inicio {
+    float: left;
+    margin: auto;
+    padding: 0 2.0%;
+    background-color: #80bfff;
+    text-decoration: none;
+    color: #21242b;
+}

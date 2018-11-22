@@ -5,7 +5,7 @@
             height: 25px;
         }
         .auto-style2 {
-            height: 24px;
+            height: 35px;
         }
         .auto-style3 {
             height: 24px;
@@ -32,6 +32,10 @@
             height: 24px;
             width: 212px;
         }
+        .auto-style10 {
+            height: 35px;
+            width: 212px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -51,7 +55,7 @@
                     <asp:TextBox ID="txtUsuario" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style9">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUsuario" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txtUsuario" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -62,7 +66,7 @@
                     <asp:TextBox ID="txtNombre" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtNombre" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txtNombre" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -73,7 +77,7 @@
                     <asp:TextBox ID="txtApellido" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtApellido" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="txtApellido" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -84,7 +88,7 @@
                     <asp:TextBox ID="txtEmail" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -95,7 +99,7 @@
                     <asp:TextBox ID="txtContra" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtContra" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtContra" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -106,9 +110,9 @@
                     <asp:TextBox ID="txtContra_repit" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtContra_repit" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="txtContra_repit" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
 &nbsp;
-                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtContra" ControlToValidate="txtContra_repit" ErrorMessage="Contraseñas distintas" ForeColor="Red"></asp:CompareValidator>
+                    <asp:CompareValidator ID="cmv1" runat="server" ControlToCompare="txtContra" ControlToValidate="txtContra_repit" ErrorMessage="Contraseñas distintas" ForeColor="Red" ValidationGroup="add"></asp:CompareValidator>
                 </td>
             </tr>
             <tr>
@@ -119,28 +123,40 @@
                     <asp:TextBox ID="txtTelefono" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtTelefono" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                </td>
+                    <asp:RequiredFieldValidator ID="rfv7" runat="server" ControlToValidate="txtTelefono" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                &nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style2">
                     <asp:Label ID="Label12" runat="server" Text="Pais:"></asp:Label>
                     </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlPais" runat="server" Height="17px" Width="211px">
+                    <asp:DropDownList ID="ddlPais" runat="server" Height="32px" Width="211px">
                     </asp:DropDownList>
                 </td>
-                <td class="auto-style9">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddlPais" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                <td class="auto-style10">
+                    <asp:RequiredFieldValidator ID="rfv8" runat="server" ControlToValidate="ddlPais" ErrorMessage="*" ForeColor="Red" ValidationGroup="add" InitialValue="---Nada selecionado---"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style4">Administrador:</td>
+                <td class="auto-style7">
+                    <asp:RadioButtonList ID="rblAdmi" runat="server">
+                        <asp:ListItem>True</asp:ListItem>
+                        <asp:ListItem>False</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+                <td class="auto-style8">
+                    <asp:RequiredFieldValidator ID="rfv9" runat="server" ControlToValidate="rblAdmi" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style4">&nbsp;</td>
                 <td class="auto-style7">
-                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Height="29px" Width="139px"/>
+                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Height="29px" Width="139px" ValidationGroup="add" OnClick="btnAgregar_Click"/>
                 </td>
                 <td class="auto-style8">
-                    <asp:Label ID="lblValidacion" runat="server"></asp:Label>
+                    <asp:Label ID="lblValidacion" runat="server" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -156,17 +172,72 @@
         <asp:Label ID="Label3" runat="server" Text="Listado Usuarios" Font-Bold="True"></asp:Label>
     </div>
     <div>
-        <asp:GridView ID="gvUsuarios" runat="server" AllowPaging="True" AutoGenerateColumns="False" AutoGenerateEditButton="True" AutoGenerateDeleteButton="True" PageSize="5" CssClass="auto-style5">
+        <asp:GridView ID="gvUsuarios" runat="server" AllowPaging="True" AutoGenerateColumns="False" AutoGenerateEditButton="True" AutoGenerateDeleteButton="True" PageSize="5" CssClass="auto-style5" OnPageIndexChanging="gvUsuarios_PageIndexChanging" OnRowCancelingEdit="gvUsuarios_RowCancelingEdit" OnRowDeleting="gvUsuarios_RowDeleting" OnRowEditing="gvUsuarios_RowEditing" OnRowUpdating="gvUsuarios_RowUpdating">
             <Columns>
                 <asp:TemplateField HeaderText="Usuario">
+                    <EditItemTemplate>
+                        <asp:Label ID="lblUsuario_edit" runat="server" Text='<%# Bind("Usuario") %>'></asp:Label>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lblUsuario" runat="server" Text='<%# Bind("Usuario") %>'></asp:Label>
+                    </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Nombre">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtNombre_edit" runat="server" Text='<%# Bind("Nombre") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lblNombre" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
+                    </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Apellido"></asp:TemplateField>
-                <asp:TemplateField HeaderText="Email"></asp:TemplateField>
-                <asp:TemplateField HeaderText="Contraseña"></asp:TemplateField>
-                <asp:TemplateField HeaderText="Telefono"></asp:TemplateField>
-                <asp:TemplateField HeaderText="Pais"></asp:TemplateField>
+                <asp:TemplateField HeaderText="Apellido">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtApellido_edit" runat="server" Text='<%# Bind("Apellido") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lblApellido" runat="server" Text='<%# Bind("Apellido") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Email">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtEmail_edit" runat="server" Text='<%# Bind("Email") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lblEmail" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Contraseña">
+                    <EditItemTemplate>
+                        <asp:Label ID="lblContra_edit" runat="server" Text='<%# Bind("Contraseña") %>'></asp:Label>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lblContra" runat="server" Text='<%# Bind("Contraseña") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Telefono">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtTelefono_edit" runat="server" Text='<%# Bind("Telefono") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lblTelefono" runat="server" Text='<%# Bind("Telefono") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Pais">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtPais_edit" runat="server" Text='<%# Bind("Cod_Pais") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lblPais" runat="server" Text='<%# Bind("Cod_Pais") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Administrador">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtAdmi_edit" runat="server" Text='<%# Bind("Administrador") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lblAdmi" runat="server" Text='<%# Bind("Administrador") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <HeaderStyle BackColor="Red" />
             <PagerStyle BackColor="Red" />

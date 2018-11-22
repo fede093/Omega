@@ -38,6 +38,18 @@
             height: 22px;
             width: 597px;
         }
+        .auto-style11 {
+            height: 41px;
+            width: 367px;
+        }
+        .auto-style12 {
+            height: 41px;
+            width: 123px;
+        }
+        .auto-style13 {
+            height: 41px;
+            width: 269px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -57,7 +69,7 @@
                     <asp:TextBox ID="txtNombre" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style2">
-                    <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txtNombre" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -68,7 +80,7 @@
                     <asp:TextBox ID="txtDescripcion" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style9">
-                    <asp:RequiredFieldValidator ID="rfvNombre0" runat="server" ControlToValidate="txtDescripcion" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txtDescripcion" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -79,7 +91,7 @@
                     <asp:TextBox ID="txtFecha" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style9">
-                    <asp:RequiredFieldValidator ID="rfvNombre1" runat="server" ControlToValidate="txtFecha" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="txtFecha" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                     &nbsp;&nbsp;
                     <asp:RegularExpressionValidator ID="revFecha" runat="server" ControlToValidate="txtFecha" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" Font-Size="Small" ValidationGroup="add"></asp:RegularExpressionValidator>
                 </td>
@@ -92,7 +104,7 @@
                     <asp:TextBox ID="txtDesarrollador" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="rfvNombre2" runat="server" ControlToValidate="txtDesarrollador" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txtDesarrollador" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -103,19 +115,19 @@
                     <asp:TextBox ID="txtDistribuidor" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="rfvNombre3" runat="server" ControlToValidate="txtDistribuidor" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txtDistribuidor" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style3">
+                <td class="auto-style11">
                     <asp:Label ID="Label9" runat="server" Text="Genero:"></asp:Label>
                 </td>
-                <td class="auto-style6">
+                <td class="auto-style12">
                     <asp:DropDownList ID="ddlGenero" runat="server" Height="24px" Width="211px">
                     </asp:DropDownList>
                 </td>
-                <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="rfvNombre4" runat="server" ControlToValidate="ddlGenero" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                <td class="auto-style13">
+                    <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="ddlGenero" ErrorMessage="*" ForeColor="Red" ValidationGroup="add" InitialValue="---Nada selecionado---"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -126,7 +138,7 @@
                     <asp:TextBox ID="txtIdioma" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="rfvNombre5" runat="server" ControlToValidate="txtIdioma" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv7" runat="server" ControlToValidate="txtIdioma" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -137,7 +149,7 @@
                     <asp:TextBox ID="txtPrecio" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="rfvNombre6" runat="server" ControlToValidate="txtPrecio" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv8" runat="server" ControlToValidate="txtPrecio" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -148,7 +160,7 @@
                     <asp:FileUpload ID="fileImagen" runat="server" Width="185px" />
                 </td>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="rfvNombre7" runat="server" ControlToValidate="fileImagen" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv9" runat="server" ControlToValidate="fileImagen" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -159,7 +171,7 @@
                     <asp:TextBox ID="txtClasificacion" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="rfvNombre8" runat="server" ControlToValidate="txtClasificacion" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv10" runat="server" ControlToValidate="txtClasificacion" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -170,16 +182,16 @@
                     <asp:TextBox ID="txtPagina" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="rfvNombre9" runat="server" ControlToValidate="txtPagina" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv11" runat="server" ControlToValidate="txtPagina" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style3">&nbsp;</td>
                 <td class="auto-style6">
-                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Height="29px" Width="139px" ValidationGroup="add" />
+                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Height="29px" Width="139px" ValidationGroup="add" OnClick="btnAgregar_Click" />
                 </td>
                 <td class="auto-style8">
-                    <asp:Label ID="lblValidacion" runat="server"></asp:Label>
+                    <asp:Label ID="lblValidacion" runat="server" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -195,7 +207,7 @@
         <asp:Label ID="Label3" runat="server" Text="Listado de juegos" Font-Bold="True"></asp:Label>
     </div>
     <div>
-        <asp:GridView ID="gvJuegos" runat="server" AllowPaging="True" AutoGenerateColumns="False" AutoGenerateEditButton="True" AutoGenerateDeleteButton="True" PageSize="5" CssClass="auto-style5" OnPageIndexChanging="gvMedios_PageIndexChanging" OnRowEditing="gvJuegos_RowEditing" OnRowCancelingEdit="gvJuegos_RowCancelingEdit" OnRowUpdating="gvJuegos_RowUpdating">
+        <asp:GridView ID="gvJuegos" runat="server" AllowPaging="True" AutoGenerateColumns="False" AutoGenerateEditButton="True" AutoGenerateDeleteButton="True" PageSize="5" CssClass="auto-style5" OnPageIndexChanging="gvMedios_PageIndexChanging" OnRowEditing="gvJuegos_RowEditing" OnRowCancelingEdit="gvJuegos_RowCancelingEdit" OnRowUpdating="gvJuegos_RowUpdating" OnRowDeleting="gvJuegos_RowDeleting">
             <Columns>
                 <asp:TemplateField HeaderText="Codigo del juego">
                     <EditItemTemplate>

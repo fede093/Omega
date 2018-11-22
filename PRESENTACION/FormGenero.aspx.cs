@@ -88,6 +88,7 @@ namespace PRESENTACION
 
             gvGeneros.EditIndex = -1;
             cargarGrilla();
+            lblExito.Text = "";
         }
 
         protected void gvGeneros_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -102,6 +103,7 @@ namespace PRESENTACION
             n_gen.eliminarGenero(gen);
 
             cargarGrilla();
+            lblExito.Text = "";
         }
     }
 }

@@ -63,7 +63,7 @@
             <tr>
                 <td class="auto-style4">&nbsp;</td>
                 <td class="auto-style7">
-                    <asp:Label ID="lblExito" runat="server"></asp:Label>
+                    <asp:Label ID="lblExito" runat="server" ForeColor="#00CC00"></asp:Label>
                 </td>
                 <td>&nbsp;</td>
             </tr>

@@ -64,6 +64,7 @@ namespace PRESENTACION
 
             gvMedios.EditIndex = -1;
             cargarGrilla();
+            lblExito.Text = "";
         }
 
         protected void gvMedios_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -78,6 +79,7 @@ namespace PRESENTACION
             n_medio.eliminarMedio(medio);
 
             cargarGrilla();
+            lblExito.Text = "";
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
