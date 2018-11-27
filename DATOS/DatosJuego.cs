@@ -18,6 +18,18 @@ namespace DATOS
             return tabla;
         }
 
+        public DataTable getTablaJuegos(String nombre)
+        {
+            DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego where Nombre='"+ nombre + "'");
+            return tabla;
+        }
+
+        public DataTable getTablaJuegos(int id)
+        {
+            DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego where Genero=" + id);
+            return tabla;
+        }
+
         public void armarParametros(ref SqlCommand Comando, Juego juego)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -26,7 +38,7 @@ namespace DATOS
             SqlParametros.Value = juego.id_juego;
             SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.NVarChar, 50);
             SqlParametros.Value = juego.nombre;
-            SqlParametros = Comando.Parameters.Add("@DESCRIPCION", SqlDbType.NVarChar, 50);
+            SqlParametros = Comando.Parameters.Add("@DESCRIPCION", SqlDbType.NVarChar, 1000);
             SqlParametros.Value = juego.descripcion;
             SqlParametros = Comando.Parameters.Add("@FECHA", SqlDbType.Date);
             SqlParametros.Value = juego.fecha_lanzamiento;

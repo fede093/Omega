@@ -17,6 +17,18 @@ namespace NEGOCIO
             return da.getTablaJuegos();
         }
 
+        public DataTable getTabla(String nombre)
+        {
+            DatosJuego da = new DatosJuego();
+            return da.getTablaJuegos(nombre);
+        }
+
+        public DataTable getTabla(int id)
+        {
+            DatosJuego da = new DatosJuego();
+            return da.getTablaJuegos(id);
+        }
+
         public bool editarJuego(Juego juego)
         {
             DatosJuego da = new DatosJuego();
