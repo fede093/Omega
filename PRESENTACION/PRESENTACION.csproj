@@ -85,6 +85,7 @@
     <Content Include="img\facebook-wrap.png" />
     <Content Include="img\Link.png" />
     <Content Include="img\ori.png" />
+    <Content Include="img\userlarge.png" />
     <Content Include="img\User_48px.png" />
     <Content Include="inicio.aspx" />
     <Content Include="juego.aspx" />

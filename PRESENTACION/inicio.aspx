@@ -27,7 +27,7 @@
             <asp:ListView ID="lvJuegos" runat="server" GroupItemCount="3">
                 <AlternatingItemTemplate>
                     <td runat="server" style="">
-                        <asp:ImageButton ID="ImageButton1" runat="server" Height="300px" ImageUrl='<%# Bind("Imagen") %>' Width="200px" />
+                        <asp:ImageButton ID="ImageButton1" runat="server" Height="300px" ImageUrl='<%# Bind("Imagen") %>' Width="200px" CommandArgument='<%# Bind("Id_juego") %>' CommandName="imageClick" OnCommand="ImageButton1_Command" />
                         <br />
                         Nombre:
                         <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
@@ -80,7 +80,7 @@
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <td runat="server" style="">
-                        <asp:ImageButton ID="ImageButton1" runat="server" Height="300px" ImageUrl='<%# Bind("Imagen") %>' Width="200px" />
+                        <asp:ImageButton ID="ImageButton1" runat="server" Height="300px" ImageUrl='<%# Bind("Imagen") %>' Width="200px" CommandName="imageClick" OnCommand="ImageButton1_Command" />
                         <br />
                         Nombre:
                         <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
@@ -116,6 +116,6 @@
                 </SelectedItemTemplate>
             </asp:ListView>
         </div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OmegaConnectionString %>" SelectCommand="SELECT [Nombre], [Desarrollador] FROM [Juego]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OmegaConnectionString %>" SelectCommand="SELECT [Nombre], [Desarrollador], [Imagen] FROM [Juego]"></asp:SqlDataSource>
     </div>
 </asp:Content>

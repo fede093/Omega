@@ -1,0 +1,2 @@
+-cambiar en formsUsuarios la contraseña a oculta o sacar ese campo
+-agragar validaciones telefono, numero, email, etc.

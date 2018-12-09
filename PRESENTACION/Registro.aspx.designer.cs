@@ -22,13 +22,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.TextBox txtUsuario;
         
         /// <summary>
-        /// Control rfvUsuario.
+        /// Control rfv1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUsuario;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv1;
         
         /// <summary>
         /// Control txtNombre.
@@ -40,13 +40,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
         
         /// <summary>
-        /// Control rfvNombre.
+        /// Control rfv2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv2;
         
         /// <summary>
         /// Control txtApellido.
@@ -58,13 +58,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.TextBox txtApellido;
         
         /// <summary>
-        /// Control rfvApellido.
+        /// Control rfv3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvApellido;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv3;
         
         /// <summary>
         /// Control txtContra.
@@ -76,13 +76,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.TextBox txtContra;
         
         /// <summary>
-        /// Control rfvContra.
+        /// Control rfv4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvContra;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv4;
         
         /// <summary>
         /// Control txtEmail.
@@ -94,13 +94,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// Control rfvEmail.
+        /// Control rfv5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv5;
         
         /// <summary>
         /// Control txtTelefono.
@@ -112,13 +112,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
         
         /// <summary>
-        /// Control rvfTelefono.
+        /// Control rvf6.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvfTelefono;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvf6;
         
         /// <summary>
         /// Control ddlPais.
@@ -130,13 +130,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.DropDownList ddlPais;
         
         /// <summary>
-        /// Control rfvPais.
+        /// Control rfv7.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPais;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv7;
         
         /// <summary>
         /// Control btnCrear.
@@ -146,5 +146,14 @@ namespace PRESENTACION {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCrear;
+        
+        /// <summary>
+        /// Control lblError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ENTIDAD;
 using DATOS;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace NEGOCIO
 {
@@ -15,6 +16,18 @@ namespace NEGOCIO
         {
             DatosUsuarios da = new DatosUsuarios();
             return da.getTablaUsuarios();
+        }
+
+        public DataTable getTabla(String usuario)
+        {
+            DatosUsuarios da = new DatosUsuarios();
+            return da.getTablaUsuarios(usuario);
+        }
+
+        public DataTable getTabla(int cod_pais)
+        {
+            DatosUsuarios da = new DatosUsuarios();
+            return da.getTablaUsuarios(cod_pais);
         }
 
         public bool editarUsuario(Usuario usuario)
@@ -33,6 +46,24 @@ namespace NEGOCIO
         {
             DatosUsuarios da = new DatosUsuarios();
             return da.insertarUsuario(usuario);
+        }
+
+        public DataTable cargarUsuario(String usuario)
+        {
+            DatosUsuarios da = new DatosUsuarios();
+            return da.getTablaUsuario(usuario);
+        }
+
+        public bool estaRegistrado(String usuario, String clave)
+        {
+            DatosUsuarios da = new DatosUsuarios();
+            return da.estaRegistrado(usuario, clave);
+        }
+
+        public bool esAdministrador(String usuario)
+        {
+            DatosUsuarios da = new DatosUsuarios();
+            return da.esAdministrador(usuario);
         }
     }
 }

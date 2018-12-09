@@ -54,7 +54,7 @@ namespace DATOS
             if (cn != null)
             {
                 SqlCommand cmd;
-                String sql = "INSERT INTO Pais (Nombre)" +
+                String sql = "INSERT INTO Pais (NombrePais)" +
                               "VALUES('" + pais.nombre + "')";
 
                 cmd = new SqlCommand(sql, cn);

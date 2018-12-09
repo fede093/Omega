@@ -37,7 +37,7 @@ namespace PRESENTACION
         {
             n_Pais n_pais = new n_Pais();
             
-            ddlPais.DataTextField = "Nombre";
+            ddlPais.DataTextField = "NombrePais";
             ddlPais.DataValueField = "Cod_Pais";
             ddlPais.DataSource = n_pais.getTabla();          
             ddlPais.DataBind();

@@ -59,10 +59,10 @@
             <Columns>
                 <asp:TemplateField HeaderText="Pais">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtPais_edit" runat="server" Text='<%# Bind("Nombre") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtPais_edit" runat="server" Text='<%# Bind("NombrePais") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lblNombre" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
+                        <asp:Label ID="lblNombre" runat="server" Text='<%# Bind("NombrePais") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Codigo del pais">

@@ -18,6 +18,86 @@ namespace DATOS
             return tabla;
         }
 
+        public DataTable getTablaUsuarios(String usuario)
+        {
+            DataTable tabla = ds.ObtenerTabla("Usuario", "Select * from Usuario where Usuario='" + usuario + "'");
+            return tabla;
+        }
+
+        public DataTable getTablaUsuarios(int cod_pais)
+        {
+            DataTable tabla = ds.ObtenerTabla("Usuario", "Select * from Usuario where Cod_Pais=" + cod_pais);
+            return tabla;
+        }
+        public DataTable getTablaUsuario(String Usuario)
+        {
+            DataTable tabla = ds.ObtenerTabla("Usuario", "Select * from Usuario INNER JOIN Pais on Usuario.Cod_Pais = Pais.Cod_Pais" +
+                " where Usuario='" + Usuario + "'");
+            return tabla;
+        }
+
+        public bool estaRegistrado(String usuario, String clave)
+        {
+            SqlConnection cn = ds.ObtenerConexion();
+            SqlCommand cmd;
+            SqlDataReader dr;
+            String sql =
+            "Select * From Usuario Where Usuario='" + usuario + "' AND Contraseña='" + clave + "'";
+            if (cn != null)
+            {
+                cmd = new SqlCommand(sql, cn);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+                return false;
+        }
+
+        public bool esAdministrador(String usuario)
+        {
+            SqlConnection cn = ds.ObtenerConexion();
+            SqlCommand cmd;
+            SqlDataReader dr;
+            String sql =
+            "Select * From Usuario Where Usuario='"+usuario+"' AND Administrador='True'";
+            if (cn != null)
+            {
+                cmd = new SqlCommand(sql, cn);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+                return false;
+        }
+
         public void armarParametros(ref SqlCommand Comando, Usuario usuario)
         {
             SqlParameter SqlParametros = new SqlParameter();

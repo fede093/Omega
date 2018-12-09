@@ -67,9 +67,19 @@
             <a href="inicio.aspx" id="pasamouse" class="selected" style="padding: 14px 16px">Inicio</a>
             <a href="usuarios.aspx" id="pasamouse" style="padding: 14px 16px">Usuarios</a>
             <a href="reportes.aspx" id="pasamouse" style="padding: 14px 16px">Reportes</a>
+            <div class="nav navbar-nav" id="log_out" runat="server">
+                <asp:LinkButton ID="lbLogOut" runat="server" CssClass="user_link" OnClick="lbLogOut_Click">
+                    <span class="glyphicon glyphicon-log-out" style="margin: 0 10px;"></span>Cerrar sesion
+                </asp:LinkButton>
+            </div>
             <div class="nav navbar-nav" id="perfilUsuario" runat="server">
-                <a class="user_link" href="#">
+                <a class="user_link" href="perfil.aspx">
                     <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </div>
+            <div class="nav navbar-nav" id="adminLink" runat="server">
+                <a class="user_link" href="FormJuegos.aspx">
+                    <span class="glyphicon glyphicon-cog"></span>
                 </a>
             </div>
             <ul class="nav navbar-nav navbar-right" style="margin: 0 20px;" id="userLogin" runat="server">

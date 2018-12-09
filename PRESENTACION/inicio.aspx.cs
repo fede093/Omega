@@ -75,5 +75,13 @@ namespace PRESENTACION
             cargarList();
             txtBuscar.Text = "";
         }
+
+        protected void ImageButton1_Command(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "imageClick")
+            {
+                Response.Redirect("juego.aspx");
+            }
+        }
     }
 }
