@@ -58,6 +58,7 @@ namespace PRESENTACION
             MedioPago medio = new MedioPago();
             medio.descripcion = s_Descripcion;
             medio.cod_medio = int.Parse(s_Cod);
+            medio.estado = true;
 
             n_Medio n_medio = new n_Medio();
             n_medio.editarMedio(medio);            
@@ -74,6 +75,7 @@ namespace PRESENTACION
             MedioPago medio = new MedioPago();
             medio.descripcion = s_Descripcion;
             medio.cod_medio = int.Parse(s_Cod);
+            medio.estado = false;
 
             n_Medio n_medio = new n_Medio();
             n_medio.eliminarMedio(medio);

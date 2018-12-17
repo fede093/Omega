@@ -206,14 +206,6 @@
                         <asp:Label ID="lblEmail" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Contraseña">
-                    <EditItemTemplate>
-                        <asp:Label ID="lblContra_edit" runat="server" Text='<%# Bind("Contraseña") %>'></asp:Label>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="lblContra" runat="server" Text='<%# Bind("Contraseña") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Telefono">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtTelefono_edit" runat="server" Text='<%# Bind("Telefono") %>'></asp:TextBox>

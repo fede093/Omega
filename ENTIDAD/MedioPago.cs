@@ -10,6 +10,13 @@ namespace ENTIDAD
     {
         private String s_descripcion;
         private int i_codMedio;
+        private bool b_estado;
+
+        public bool estado
+        {
+            set { b_estado = value; }
+            get { return b_estado; }
+        }
 
         public String descripcion
         {

@@ -15,7 +15,7 @@ namespace DATOS
         public DataTable getTablaMedios()
         {
             List<MedioPago> lista = new List<MedioPago>();
-            DataTable tabla = ds.ObtenerTabla("MedioPago", "Select * from MedioPago");
+            DataTable tabla = ds.ObtenerTabla("MedioPago", "Select * from MedioPago where Estado=1");
             return tabla;
         }
 
@@ -27,6 +27,8 @@ namespace DATOS
             SqlParametros.Value = medio.cod_medio;
             SqlParametros = Comando.Parameters.Add("@DESCRIPCION", SqlDbType.NVarChar, 50);
             SqlParametros.Value = medio.descripcion;
+            SqlParametros = Comando.Parameters.Add("@ESTADO", SqlDbType.Bit);
+            SqlParametros.Value = medio.estado;
         }
 
         public bool ActualizarMedios(MedioPago medio)
@@ -54,8 +56,8 @@ namespace DATOS
             if (cn != null)
             {
                 SqlCommand cmd;
-                String sql = "INSERT INTO MedioPago (Descripcion)" +
-                              "VALUES('" + medio.descripcion + "')";
+                String sql = "INSERT INTO MedioPago (Descripcion, Estado)" +
+                              "VALUES('" + medio.descripcion + "', 'true')";
 
                 cmd = new SqlCommand(sql, cn);
                 try

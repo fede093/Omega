@@ -20,10 +20,17 @@ namespace ENTIDAD
         private String s_rutaImagen;
         private String s_clasificacion;
         private String s_pagina;
+        private bool b_estado;
 
         public Juego()
         {
 
+        }
+
+        public bool estado
+        {
+            set { b_estado = value; }
+            get { return b_estado; }
         }
 
         public int id_juego

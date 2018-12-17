@@ -59,7 +59,6 @@ namespace PRESENTACION
             if (e.CommandName == "comando")
             {
                 int id = int.Parse(e.CommandArgument.ToString());
-                //txtBuscar.Text = e.CommandArgument.ToString();
                 cargarList(id);
             }
         }
@@ -80,7 +79,7 @@ namespace PRESENTACION
         {
             if (e.CommandName == "imageClick")
             {
-                Response.Redirect("juego.aspx");
+                Response.Redirect("juego.aspx?cod=" + e.CommandArgument.ToString());
             }
         }
     }

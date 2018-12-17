@@ -16,7 +16,14 @@ namespace ENTIDAD
         private String s_telefono;
         private int i_codPais;
         private bool b_administrador;
+        private bool b_estado;
         
+        public bool estado
+        {
+            set { b_estado = value; }
+            get { return b_estado; }
+        }
+
         public String usuario
         {
             set { s_usuario = value; }

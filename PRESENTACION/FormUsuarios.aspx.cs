@@ -69,7 +69,6 @@ namespace PRESENTACION
             String s_Nombre = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtNombre_edit")).Text;
             String s_Apellido = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtApellido_edit")).Text;
             String s_Email = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtEmail_edit")).Text;
-            String s_Contraseña = ((Label)gvUsuarios.Rows[e.RowIndex].FindControl("lblContra_edit")).Text;
             String s_Telefono = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtTelefono_edit")).Text;
             String s_Cod = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtPais_edit")).Text;
             String s_Administrador = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtAdmi_edit")).Text;
@@ -79,10 +78,11 @@ namespace PRESENTACION
             usuario.nombre = s_Nombre;
             usuario.apelido = s_Apellido;
             usuario.email = s_Email;
-            usuario.contra = s_Contraseña;
+            usuario.contra = "";
             usuario.telefono = s_Telefono;
             usuario.cod_pais = int.Parse(s_Cod);
             usuario.administrador = bool.Parse(s_Administrador);
+            usuario.estado = true;
 
             n_Usuario n_usuario = new n_Usuario();
             n_usuario.editarUsuario(usuario);
@@ -129,6 +129,7 @@ namespace PRESENTACION
                 usuario.telefono = txtTelefono.Text;
                 usuario.administrador = bool.Parse(rblAdmi.SelectedItem.ToString());
                 usuario.cod_pais = int.Parse(ddlPais.SelectedValue);
+                usuario.estado = true;
 
                 n_Usuario n_usuario = new n_Usuario();
 

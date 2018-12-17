@@ -91,6 +91,7 @@ namespace PRESENTACION
             juego.ruta_imagen = s_Ruta;
             juego.clasificacion = s_Clasificacion;
             juego.pagina = s_Pagina;
+            juego.estado = true;
 
             n_Juego n_juego = new n_Juego();
             n_juego.editarJuego(juego);
@@ -117,6 +118,7 @@ namespace PRESENTACION
             juego.ruta_imagen = "";
             juego.clasificacion = "";
             juego.pagina = "";
+            juego.estado = false;
 
             n_Juego n_juego = new n_Juego();
             n_juego.eliminarJuego(juego);
@@ -146,6 +148,7 @@ namespace PRESENTACION
                 juego.idioma = txtIdioma.Text;
                 juego.precio = float.Parse(txtPrecio.Text);
                 juego.id_juego = 0;
+                juego.estado = true;
 
                 String rutaBase = "~/img/covers/" + fileName;
                 juego.ruta_imagen = rutaBase;

@@ -15,7 +15,7 @@ namespace DATOS
         public DataTable getTablaPaises()
         {
             List<Pais> lista = new List<Pais>();
-            DataTable tabla = ds.ObtenerTabla("Pais", "Select * from Pais");
+            DataTable tabla = ds.ObtenerTabla("Pais", "Select * from Pais where estado=1");
             return tabla;
         }
 
@@ -27,6 +27,8 @@ namespace DATOS
             SqlParametros.Value = pais.cod_pais;
             SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.NVarChar, 50);
             SqlParametros.Value = pais.nombre;
+            SqlParametros = Comando.Parameters.Add("@ESTADO", SqlDbType.Bit);
+            SqlParametros.Value = pais.estado;
         }
 
         public bool ActualizarPaises(Pais pais)
@@ -54,8 +56,8 @@ namespace DATOS
             if (cn != null)
             {
                 SqlCommand cmd;
-                String sql = "INSERT INTO Pais (NombrePais)" +
-                              "VALUES('" + pais.nombre + "')";
+                String sql = "INSERT INTO Pais (NombrePais, Estado)" +
+                              "VALUES('" + pais.nombre + "', 'true')";
 
                 cmd = new SqlCommand(sql, cn);
                 try

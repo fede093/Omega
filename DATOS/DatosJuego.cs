@@ -14,19 +14,21 @@ namespace DATOS
         AccesoDatos ds = new AccesoDatos();
         public DataTable getTablaJuegos()
         {
-            DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego inner join Genero on Juego.Genero = Genero.Cod_Genero;");
+            DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego inner join Genero on Juego.Genero = Genero.Cod_Genero where Juego.Estado=1");
             return tabla;
         }
 
         public DataTable getTablaJuegos(String nombre)
         {
-            DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego where Nombre='"+ nombre + "'");
+            DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego inner join " +
+                "Genero on Juego.Genero = Genero.Cod_Genero where Nombre='"+ nombre + "' and Juego.Estado=1");
             return tabla;
         }
 
         public DataTable getTablaJuegos(int id)
         {
-            DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego where Genero=" + id);
+            DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego inner join " +
+                "Genero on Juego.Genero = Genero.Cod_Genero where id_juego='" + id + "' and Juego.Estado=1");
             return tabla;
         }
 
@@ -58,6 +60,8 @@ namespace DATOS
             SqlParametros.Value = juego.clasificacion;
             SqlParametros = Comando.Parameters.Add("@PAGINA_OFICIAL", SqlDbType.NVarChar, 50);
             SqlParametros.Value = juego.pagina;
+            SqlParametros = Comando.Parameters.Add("@ESTADO", SqlDbType.Bit);
+            SqlParametros.Value = juego.estado;
         }
 
         public bool ActualizarJuegos(Juego juego)

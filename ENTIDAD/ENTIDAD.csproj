@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Compra.cs" />
+    <Compile Include="DetallesCompra.cs" />
     <Compile Include="Genero.cs" />
     <Compile Include="Juego.cs" />
+    <Compile Include="juegoXusuario.cs" />
     <Compile Include="MedioPago.cs" />
     <Compile Include="Pais.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

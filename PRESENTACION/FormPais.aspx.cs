@@ -58,6 +58,7 @@ namespace PRESENTACION
             Pais pais = new Pais();
             pais.nombre = s_Nombre;
             pais.cod_pais = int.Parse(s_Cod);
+            pais.estado = true;
 
             n_Pais n_pais = new n_Pais();
             n_pais.editarPais(pais);
@@ -74,6 +75,7 @@ namespace PRESENTACION
             Pais pais = new Pais();
             pais.nombre = s_Nombre;
             pais.cod_pais = int.Parse(s_Cod);
+            pais.estado = false;
 
             n_Pais n_pais = new n_Pais();
             n_pais.eliminarPais(pais);

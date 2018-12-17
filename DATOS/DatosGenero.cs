@@ -14,7 +14,7 @@ namespace DATOS
         AccesoDatos ds = new AccesoDatos();
         public DataTable getTablaGeneros()
         {
-            DataTable tabla = ds.ObtenerTabla("Genero", "Select * from Genero");
+            DataTable tabla = ds.ObtenerTabla("Genero", "Select * from Genero where estado=1");
             return tabla;
         }
 
@@ -25,8 +25,8 @@ namespace DATOS
             if (cn != null)
             {
                 SqlCommand cmd;
-                String sql = "INSERT INTO Genero (NombreGenero)" +
-                              "VALUES('" + gen.nombre + "')";
+                String sql = "INSERT INTO Genero (NombreGenero, Estado)" +
+                              "VALUES('" + gen.nombre + "', 'true')";
 
                 cmd = new SqlCommand(sql, cn);
                 try
@@ -55,6 +55,8 @@ namespace DATOS
             SqlParametros.Value = gen.cod_genero;
             SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.NVarChar, 50);
             SqlParametros.Value = gen.nombre;
+            SqlParametros = Comando.Parameters.Add("@ESTADO", SqlDbType.Bit);
+            SqlParametros.Value = gen.estado;
         }
 
         public bool ActualizarGeneros(Genero gen)

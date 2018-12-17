@@ -14,25 +14,36 @@ namespace DATOS
         AccesoDatos ds = new AccesoDatos();
         public DataTable getTablaUsuarios()
         {
-            DataTable tabla = ds.ObtenerTabla("Usuario", "Select * from Usuario");
+            DataTable tabla = ds.ObtenerTabla("Usuario", "Select * from Usuario where estado=1");
             return tabla;
         }
 
         public DataTable getTablaUsuarios(String usuario)
         {
-            DataTable tabla = ds.ObtenerTabla("Usuario", "Select * from Usuario where Usuario='" + usuario + "'");
+            DataTable tabla = ds.ObtenerTabla("Usuario", "Select * from Usuario where Usuario='" + usuario + "' and estado=1");
             return tabla;
         }
 
         public DataTable getTablaUsuarios(int cod_pais)
         {
-            DataTable tabla = ds.ObtenerTabla("Usuario", "Select * from Usuario where Cod_Pais=" + cod_pais);
+            DataTable tabla = ds.ObtenerTabla("Usuario", "Select * from Usuario where Cod_Pais='" + cod_pais + "' and estado=1");
             return tabla;
         }
+
         public DataTable getTablaUsuario(String Usuario)
         {
             DataTable tabla = ds.ObtenerTabla("Usuario", "Select * from Usuario INNER JOIN Pais on Usuario.Cod_Pais = Pais.Cod_Pais" +
-                " where Usuario='" + Usuario + "'");
+                " where Usuario='" + Usuario + "' and Usuario.estado=1");
+            return tabla;
+        }
+
+        public DataTable getJuegosComprados(String usuario)
+        {
+            DataTable tabla = ds.ObtenerTabla("Usuario", "SELECT Juego.Imagen, Juego.Nombre, juegoXusuario.Cod_Usuario, DetallesCompra.fecha_compra, MedioPago.Cod_MPago, MedioPago.Descripcion, Juego.Id_juego FROM Juego " +
+                "INNER JOIN juegoXusuario ON Juego.Id_juego = juegoXusuario.Id_juego " +
+                "INNER JOIN DetallesCompra ON juegoXusuario.Cod_Compra = DetallesCompra.cod_compra " +
+                "INNER JOIN MedioPago ON DetallesCompra.cod_medio = MedioPago.Cod_MPago WHERE Cod_Usuario = '" + usuario + "' and " +
+                "DetallesCompra.Estado = 1 and Juego.Estado = 1");
             return tabla;
         }
 
@@ -42,7 +53,7 @@ namespace DATOS
             SqlCommand cmd;
             SqlDataReader dr;
             String sql =
-            "Select * From Usuario Where Usuario='" + usuario + "' AND Contraseña='" + clave + "'";
+            "Select * From Usuario Where Usuario='" + usuario + "' AND Contraseña='" + clave + "' and estado=1";
             if (cn != null)
             {
                 cmd = new SqlCommand(sql, cn);
@@ -73,7 +84,7 @@ namespace DATOS
             SqlCommand cmd;
             SqlDataReader dr;
             String sql =
-            "Select * From Usuario Where Usuario='"+usuario+"' AND Administrador='True'";
+            "Select * From Usuario Where Usuario='"+usuario+"' AND Administrador='True' and estado=1";
             if (cn != null)
             {
                 cmd = new SqlCommand(sql, cn);
@@ -118,6 +129,8 @@ namespace DATOS
             SqlParametros.Value = usuario.cod_pais;
             SqlParametros = Comando.Parameters.Add("@ADMINISTRADOR", SqlDbType.Bit);
             SqlParametros.Value = usuario.administrador;
+            SqlParametros = Comando.Parameters.Add("@ESTADO", SqlDbType.Bit);
+            SqlParametros.Value = usuario.estado;
         }
 
         public bool ActualizarUsuarios(Usuario usuario)

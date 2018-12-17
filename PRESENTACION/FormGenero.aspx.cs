@@ -82,6 +82,7 @@ namespace PRESENTACION
             Genero gen = new Genero();
             gen.nombre = s_Nombre;
             gen.cod_genero = int.Parse(s_Cod);
+            gen.estado = true;
 
             n_Genero n_genero = new n_Genero();
             n_genero.editarGenero(gen);
@@ -98,6 +99,7 @@ namespace PRESENTACION
             Genero gen = new Genero();
             gen.nombre = s_Nombre;
             gen.cod_genero = int.Parse(s_Cod);
+            gen.estado = false;
 
             n_Genero n_gen = new n_Genero();
             n_gen.eliminarGenero(gen);

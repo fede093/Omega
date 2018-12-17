@@ -80,7 +80,7 @@
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <td runat="server" style="">
-                        <asp:ImageButton ID="ImageButton1" runat="server" Height="300px" ImageUrl='<%# Bind("Imagen") %>' Width="200px" CommandName="imageClick" OnCommand="ImageButton1_Command" />
+                        <asp:ImageButton ID="ImageButton1" runat="server" Height="300px" ImageUrl='<%# Bind("Imagen") %>' Width="200px" CommandName="imageClick" OnCommand="ImageButton1_Command" CommandArgument='<%# Bind("Id_juego") %>' />
                         <br />
                         Nombre:
                         <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />

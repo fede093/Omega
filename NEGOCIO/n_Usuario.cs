@@ -30,6 +30,12 @@ namespace NEGOCIO
             return da.getTablaUsuarios(cod_pais);
         }
 
+        public DataTable getJuegosComprados(String usuario)
+        {
+            DatosUsuarios da = new DatosUsuarios();
+            return da.getJuegosComprados(usuario);
+        }
+
         public bool editarUsuario(Usuario usuario)
         {
             DatosUsuarios da = new DatosUsuarios();

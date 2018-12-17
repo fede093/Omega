@@ -28,6 +28,7 @@ namespace PRESENTACION
                 }
                 cargarLabelUsuario(usuario);
                 cargarListDetalles(usuario);
+                cargarListComprados(usuario);
                 Session["clickPerfil"] = null;
             }
         }
@@ -44,6 +45,21 @@ namespace PRESENTACION
             n_Usuario n_usuario = new n_Usuario();
             dlDetalles.DataSource = n_usuario.cargarUsuario(usuario);
             dlDetalles.DataBind();
+        }
+
+        public void cargarListComprados(String usuario)
+        {
+            n_Usuario n_usuario = new n_Usuario();
+            lvComprados.DataSource = n_usuario.getJuegosComprados(usuario);
+            lvComprados.DataBind();
+        }
+
+        protected void ImageButton2_Command(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "Click")
+            {
+                Response.Redirect("juego.aspx?cod=" + e.CommandArgument.ToString());
+            }
         }
     }
 }
