@@ -1,2 +1,0 @@
--agragar validaciones telefono, numero, email, etc.
--descripcion en compras y review(admin)

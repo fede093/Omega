@@ -1,0 +1,12 @@
+-Al agregar limpiar los campos
+-Listado de juegos admin agregar buscaqueda
+- En editar sobre grilla agregar lista desplegables (ejemplo editar peliculas,que aparezcan los generos en desplegables, lo mismo paises, etc)...
+- Trabajat con compras y detalles de compras(Actualmente solo se puede vincular un juego con una compra) 
+-Falta trabajar con reviews en usuario comun
+-Falta reportes
+-Hacer un carrito de compras, que el usuario selecione, elimine productos que no quiera, corfirma la compra, etc
+-Editar datos personales del usuario
+
+---------Errores mios----------
+-agregar validaciones telefono, numero, email, etc.
+-descripcion en compras y review(admin)

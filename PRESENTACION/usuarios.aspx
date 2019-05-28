@@ -9,7 +9,7 @@
             <asp:Label ID="Label1" runat="server" Text="Paises" Font-Size="Large"></asp:Label>
             <asp:DataList ID="dlPaises" runat="server">
                 <ItemTemplate>
-                    <asp:LinkButton ID="lbPais" runat="server" CommandArgument='<%# Bind("Cod_Pais") %>' CommandName="comando" OnCommand="lbPais_Command" Text='<%# Bind("NombrePais") %>'></asp:LinkButton>
+                    <asp:LinkButton ID="lbPais" runat="server" CommandArgument='<%# Bind("Cod_Pais") %>' CommandName="comando" OnCommand="lbPais_Command" Text='<%# Bind("Nombre") %>'></asp:LinkButton>
                 </ItemTemplate>
             </asp:DataList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OmegaConnectionString %>" SelectCommand="SELECT [Usuario], [Nombre], [Email] FROM [Usuario]"></asp:SqlDataSource>

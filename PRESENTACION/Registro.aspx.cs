@@ -23,7 +23,7 @@ namespace PRESENTACION
         {
             n_Pais n_pais = new n_Pais();
 
-            ddlPais.DataTextField = "NombrePais";
+            ddlPais.DataTextField = "Nombre";
             ddlPais.DataValueField = "Cod_Pais";
             ddlPais.DataSource = n_pais.getTabla();
             ddlPais.DataBind();
@@ -43,6 +43,7 @@ namespace PRESENTACION
                 usuario.telefono = txtTelefono.Text;
                 usuario.administrador = false;
                 usuario.cod_pais = int.Parse(ddlPais.SelectedValue);
+                usuario.estado = true;
 
                 n_Usuario n_usuario = new n_Usuario();
 

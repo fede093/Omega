@@ -9,27 +9,14 @@ namespace ENTIDAD
     public class Compra
     {
         private int i_codCompra;
-        private int i_idJuego;
-        private String i_codUsuario;
         private int i_codMedio;
         private DateTime d_fechaCompra;
+        private int i_numeroJuegos;
 
         public int cod_compra
         {
             set { i_codCompra = value; }
             get { return i_codCompra; }
-        }
-
-        public int id_juego
-        {
-            set { i_idJuego = value; }
-            get { return i_idJuego; }
-        }
-
-        public String cod_usuario
-        {
-            set { i_codUsuario = value; }
-            get { return i_codUsuario; }
         }
 
         public int cod_medio
@@ -43,5 +30,12 @@ namespace ENTIDAD
             set { d_fechaCompra = value; }
             get { return d_fechaCompra; }
         }
+
+        public int numero_juegos
+        {
+            set { i_numeroJuegos = value; }
+            get { return i_numeroJuegos; }
+        }
+
     }
 }

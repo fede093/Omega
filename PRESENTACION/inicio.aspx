@@ -11,7 +11,7 @@
             <br />
             <asp:DataList ID="dlGeneros" runat="server">
                 <ItemTemplate>
-                    <asp:LinkButton ID="lbGeneros" runat="server" CommandArgument='<%# Bind("Cod_Genero") %>' CommandName="comando" OnCommand="lbGeneros_Command" Text='<%# Bind("NombreGenero") %>'></asp:LinkButton>
+                    <asp:LinkButton ID="lbGeneros" runat="server" CommandArgument='<%# Bind("Cod_Genero") %>' CommandName="comando" OnCommand="lbGeneros_Command" Text='<%# Bind("Nombre") %>'></asp:LinkButton>
                 </ItemTemplate>
             </asp:DataList>
         </div>

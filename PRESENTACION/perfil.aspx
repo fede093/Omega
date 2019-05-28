@@ -36,7 +36,7 @@
                     <asp:Label ID="Label7" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
                     <br />
                     Pais:
-                    <asp:Label ID="Label8" runat="server" Text='<%# Bind("NombrePais") %>'></asp:Label>
+                    <asp:Label ID="Label8" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
                 </ItemTemplate>
             </asp:DataList>
         </div>

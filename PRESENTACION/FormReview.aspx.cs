@@ -34,20 +34,20 @@ namespace PRESENTACION
 
         protected void gvReviews_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            String s_CodJuego = ((Label)gvReviews.Rows[e.RowIndex].FindControl("lblJuego")).Text;
-            String s_CodReview = ((Label)gvReviews.Rows[e.RowIndex].FindControl("lblCod")).Text;
-            String s_Usuario = ((Label)gvReviews.Rows[e.RowIndex].FindControl("lblUsuario")).Text;
-            String s_Review = ((Label)gvReviews.Rows[e.RowIndex].FindControl("lblReview")).Text;
-            Review review = new Review();
-            review.id_juego = int.Parse(s_CodJuego);
-            review.cod_review = int.Parse(s_CodReview);
-            review.cod_usuario = s_Usuario;
-            review.review = s_Review;
+            //String s_CodJuego = ((Label)gvReviews.Rows[e.RowIndex].FindControl("lblJuego")).Text;
+            //String s_CodReview = ((Label)gvReviews.Rows[e.RowIndex].FindControl("lblCod")).Text;
+            //String s_Usuario = ((Label)gvReviews.Rows[e.RowIndex].FindControl("lblUsuario")).Text;
+            //String s_Review = ((Label)gvReviews.Rows[e.RowIndex].FindControl("lblReview")).Text;
+            //Review review = new Review();
+            //review.id_juego = int.Parse(s_CodJuego);
+            //review.cod_review = int.Parse(s_CodReview);
+            //review.cod_usuario = s_Usuario;
+            //review.review = s_Review;
 
-            n_Review n_review = new n_Review();
-            n_review.eliminarReview(review);
+            //n_Review n_review = new n_Review();
+            //n_review.eliminarReview(review);
 
-            cargarGrilla();
+            //cargarGrilla();
         }
     }
 }

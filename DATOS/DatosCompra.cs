@@ -14,6 +14,7 @@ namespace DATOS
         AccesoDatos ds = new AccesoDatos();
         public DataTable getTablaCompras()
         {
+            ///////////////MODIFICAR ESTO
             List<Compra> lista = new List<Compra>();
             DataTable tabla = ds.ObtenerTabla("Compra", "SELECT DetallesCompra.cod_compra, cod_medio, fecha_compra, Id_juego, Cod_Usuario " +
                 "FROM DetallesCompra INNER JOIN juegoXusuario ON DetallesCompra.cod_compra = juegoXusuario.Cod_Compra;");

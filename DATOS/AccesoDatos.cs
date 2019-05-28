@@ -51,8 +51,32 @@ namespace DATOS
             DataSet ds = new DataSet();
             SqlConnection Conexion = ObtenerConexion();
             SqlDataAdapter adp = ObtenerAdaptador(Sql, Conexion);
-            adp.Fill(ds, NombreTabla);
-            Conexion.Close();
+            try
+            {                
+                adp.Fill(ds, NombreTabla);
+                Conexion.Close();
+            }
+            catch (SqlException ex)
+            {
+                SqlError err = ex.Errors[0];
+                string mensaje = string.Empty;
+                switch (err.Number)
+                {
+                    case 109:
+                        mensaje = "Problemas con insert"; break;
+                    case 110:
+                        mensaje = "Más problemas con insert"; break;
+                    case 113:
+                        mensaje = "Problemas con comentarios"; break;
+                    case 156:
+                        mensaje = "Error de sintaxis"; break;
+                    default:
+                        mensaje = err.ToString();
+                        break;
+                }
+                System.Diagnostics.Debug.WriteLine("Error con BBDD: {0}", mensaje);
+            }
+            
             return ds.Tables[NombreTabla];
         }
 

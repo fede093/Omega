@@ -9,9 +9,9 @@ namespace ENTIDAD
     public class Review
     {
         private int i_codReview;
-        private int i_idJuego;
-        private String s_codUsuario;
-        private String s_review;
+        private String s_detalle;
+        private DateTime d_fechaReview;
+        private bool b_estado;
 
         public int cod_review
         {
@@ -19,22 +19,22 @@ namespace ENTIDAD
             get { return i_codReview; }
         }
 
-        public int id_juego
+        public  String detalle
         {
-            set { i_idJuego = value; }
-            get { return i_idJuego; }
+            set { s_detalle = value; }
+            get { return s_detalle; }
         }
 
-        public String cod_usuario
+        public DateTime fecha_review
         {
-            set { s_codUsuario = value; }
-            get { return s_codUsuario; }
+            set { d_fechaReview = value; }
+            get { return d_fechaReview; }
         }
 
-        public String review
+        public bool estado
         {
-            set { s_review = value; }
-            get { return s_review; }
+            set { b_estado = value; }
+            get { return b_estado; }
         }
     }
 }

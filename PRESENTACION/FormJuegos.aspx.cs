@@ -37,7 +37,7 @@ namespace PRESENTACION
         public void cargarDDL()
         {
             n_Genero n_genero = new n_Genero();
-            ddlGenero.DataTextField = "NombreGenero";
+            ddlGenero.DataTextField = "Nombre";
             ddlGenero.DataValueField = "Cod_Genero";
             ddlGenero.DataSource = n_genero.getTablaG();
             ddlGenero.DataBind();

@@ -21,7 +21,7 @@ namespace DATOS
         public DataTable getTablaJuegos(String nombre)
         {
             DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego inner join " +
-                "Genero on Juego.Genero = Genero.Cod_Genero where Nombre='"+ nombre + "' and Juego.Estado=1");
+                "Genero on Juego.Genero = Genero.Cod_Genero where Juego.Nombre='" + nombre + "' and Juego.Estado=1");
             return tabla;
         }
 

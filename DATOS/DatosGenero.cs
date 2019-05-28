@@ -25,7 +25,7 @@ namespace DATOS
             if (cn != null)
             {
                 SqlCommand cmd;
-                String sql = "INSERT INTO Genero (NombreGenero, Estado)" +
+                String sql = "INSERT INTO Genero (Nombre, Estado)" +
                               "VALUES('" + gen.nombre + "', 'true')";
 
                 cmd = new SqlCommand(sql, cn);
