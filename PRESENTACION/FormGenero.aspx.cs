@@ -56,21 +56,41 @@ namespace PRESENTACION
             if (rfvNombre.IsValid == true)
             {
                 Genero gen = new Genero();
+                n_Genero n_gen = new n_Genero();
+                
                 gen.nombre = txtNombre.Text;
                 gen.cod_genero = 0;
-
-                n_Genero n_gen = new n_Genero();
-                if (n_gen.agregarGen(gen))
+                gen.estado = true;
+                
+                if (n_gen.existeGenero(gen.nombre))   ///////////ACA ENTRA SI EXSITE EL GENERO Y A LA VEZ ESTA DADO DE BAJA
                 {
-                    lblExito.Text = "Exito al agregar";
-                    lblExito.ForeColor = System.Drawing.Color.Green;
-                    cargarGrilla();
+                    gen.cod_genero = int.Parse(n_gen.getTablaPorNombre(gen.nombre));
+                    if (n_gen.editarGenero(gen))
+                    {
+                        lblExito.Text = "Exito al agregar";
+                        lblExito.ForeColor = System.Drawing.Color.Green;
+                        cargarGrilla();
+                    }
+                    else
+                    {
+                        lblExito.Text = "Error al agregar.";
+                        lblExito.ForeColor = System.Drawing.Color.Red;
+                    }
                 }
-
                 else
                 {
-                    lblExito.Text = "Error al agregar.";
-                    lblExito.ForeColor = System.Drawing.Color.Red;
+                    if (n_gen.agregarGen(gen))
+                    {
+                        lblExito.Text = "Exito al agregar.";
+                        lblExito.ForeColor = System.Drawing.Color.Green;
+                        cargarGrilla();
+                    }
+
+                    else
+                    {
+                        lblExito.Text = "Error al agregar.";
+                        lblExito.ForeColor = System.Drawing.Color.Red;
+                    }
                 }
             }
         }

@@ -17,6 +17,15 @@ namespace NEGOCIO
             return da.getTablaGeneros();
         }
 
+        public String getTablaPorNombre(String nombre)
+        {
+            String cod = "";
+            DatosGenero da = new DatosGenero();
+            DataTable dt = da.getTablaGeneroNombre(nombre);
+            cod = dt.Rows[0][0].ToString();
+            return cod;
+        }
+
         public bool agregarGen(Genero gen)
         {
             DatosGenero da = new DatosGenero();
@@ -33,6 +42,12 @@ namespace NEGOCIO
         {
             DatosGenero da = new DatosGenero();
             return da.eliminarGeneros(genero);
+        }
+
+        public bool existeGenero(String genero)
+        {
+            DatosGenero da = new DatosGenero();
+            return da.generoExiste(genero);
         }
     }
 }

@@ -64,6 +64,16 @@ namespace DATOS
             SqlParametros.Value = juego.estado;
         }
 
+        public void armarParametros2(ref SqlCommand Comando, Juego juego)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+
+            SqlParametros = Comando.Parameters.Add("@COD_JUEGO", SqlDbType.Int);
+            SqlParametros.Value = juego.id_juego;            
+            SqlParametros = Comando.Parameters.Add("@ESTADO", SqlDbType.Bit);
+            SqlParametros.Value = juego.estado;
+        }
+
         public bool ActualizarJuegos(Juego juego)
         {
             SqlCommand Comando = new SqlCommand();
@@ -78,7 +88,7 @@ namespace DATOS
         public int eliminarJuegos(Juego juego)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametros(ref comando, juego);
+            armarParametros2(ref comando, juego);
             return ds.EjecutarProcedimientoAlmacenado(comando, "spEliminarJuego");
         }
 

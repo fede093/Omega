@@ -27,7 +27,7 @@
                     &nbsp;<asp:Label ID="Label11" runat="server" Text='<%# Bind("Distribuidor") %>'></asp:Label>
                     <br />
                     <asp:Label ID="Label21" runat="server" Font-Bold="True" Text="Genero:"></asp:Label>
-                    &nbsp;<asp:Label ID="Label12" runat="server" Text='<%# Bind("NombreGenero") %>'></asp:Label>
+                    &nbsp;<asp:Label ID="Label12" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
                     <br />
                     <asp:Label ID="Label22" runat="server" Font-Bold="True" Text="Idioma:"></asp:Label>
                     &nbsp;<asp:Label ID="Label13" runat="server" Text='<%# Bind("Idioma") %>'></asp:Label>
