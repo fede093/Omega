@@ -4,3 +4,9 @@ C:\Users\Fede_\Desktop\Omega\ENTIDAD\obj\Debug\ENTIDAD.csprojAssemblyReference.c
 C:\Users\Fede_\Desktop\Omega\ENTIDAD\obj\Debug\ENTIDAD.csproj.CoreCompileInputs.cache
 C:\Users\Fede_\Desktop\Omega\ENTIDAD\obj\Debug\ENTIDAD.dll
 C:\Users\Fede_\Desktop\Omega\ENTIDAD\obj\Debug\ENTIDAD.pdb
+C:\Users\Fede\Documents\GitHub\Omega\ENTIDAD\bin\Debug\ENTIDAD.dll
+C:\Users\Fede\Documents\GitHub\Omega\ENTIDAD\bin\Debug\ENTIDAD.pdb
+C:\Users\Fede\Documents\GitHub\Omega\ENTIDAD\obj\Debug\ENTIDAD.csprojAssemblyReference.cache
+C:\Users\Fede\Documents\GitHub\Omega\ENTIDAD\obj\Debug\ENTIDAD.csproj.CoreCompileInputs.cache
+C:\Users\Fede\Documents\GitHub\Omega\ENTIDAD\obj\Debug\ENTIDAD.dll
+C:\Users\Fede\Documents\GitHub\Omega\ENTIDAD\obj\Debug\ENTIDAD.pdb

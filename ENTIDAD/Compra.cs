@@ -12,6 +12,7 @@ namespace ENTIDAD
         private int i_codMedio;
         private DateTime d_fechaCompra;
         private int i_numeroJuegos;
+        private bool b_estado;
 
         public int cod_compra
         {
@@ -37,5 +38,10 @@ namespace ENTIDAD
             get { return i_numeroJuegos; }
         }
 
+        public bool estado
+        {
+            set { b_estado = value; }
+            get { return b_estado; }
+        }
     }
 }

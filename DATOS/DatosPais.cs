@@ -31,6 +31,16 @@ namespace DATOS
             SqlParametros.Value = pais.estado;
         }
 
+        public void armarParametrosCorto(ref SqlCommand Comando, Pais pais)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+
+            SqlParametros = Comando.Parameters.Add("@COD_PAIS", SqlDbType.Int);
+            SqlParametros.Value = pais.cod_pais;            
+            SqlParametros = Comando.Parameters.Add("@ESTADO", SqlDbType.Bit);
+            SqlParametros.Value = pais.estado;
+        }
+
         public bool ActualizarPaises(Pais pais)
         {
             SqlCommand Comando = new SqlCommand();
@@ -45,7 +55,7 @@ namespace DATOS
         public int eliminarPais(Pais pais)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametros(ref comando, pais);
+            armarParametrosCorto(ref comando, pais);
             return ds.EjecutarProcedimientoAlmacenado(comando, "spEliminarPais");
         }
 

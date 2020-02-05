@@ -71,5 +71,11 @@ namespace NEGOCIO
             DatosUsuarios da = new DatosUsuarios();
             return da.esAdministrador(usuario);
         }
+
+        public bool enBaseDatos(String usuario)
+        {
+            DatosUsuarios da = new DatosUsuarios();
+            return da.enBaseDatos(usuario);
+        }
     }
 }

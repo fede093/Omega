@@ -31,6 +31,16 @@ namespace DATOS
             SqlParametros.Value = medio.estado;
         }
 
+        public void armarParametrosCorto(ref SqlCommand Comando, MedioPago medio)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+
+            SqlParametros = Comando.Parameters.Add("@COD_MEDIO", SqlDbType.Int);
+            SqlParametros.Value = medio.cod_medio;            
+            SqlParametros = Comando.Parameters.Add("@ESTADO", SqlDbType.Bit);
+            SqlParametros.Value = medio.estado;
+        }
+
         public bool ActualizarMedios(MedioPago medio)
         {
             SqlCommand Comando = new SqlCommand();
@@ -45,7 +55,7 @@ namespace DATOS
         public int eliminarMedios(MedioPago medio)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametros(ref comando, medio);
+            armarParametrosCorto(ref comando, medio);
             return ds.EjecutarProcedimientoAlmacenado(comando, "spEliminarMedio");
         }
 

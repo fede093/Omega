@@ -78,6 +78,37 @@ namespace DATOS
                 return false;
         }
 
+        public bool enBaseDatos(String usuario)  ///PARA SABER SI ESTA EN LA BASE DE DATOS
+        {
+            SqlConnection cn = ds.ObtenerConexion();
+            SqlCommand cmd;
+            SqlDataReader dr;
+            String sql =
+            "Select * From Usuario Where Usuario='" + usuario + "'";
+            if (cn != null)
+            {
+                cmd = new SqlCommand(sql, cn);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+                return false;
+        }
+
         public bool esAdministrador(String usuario)
         {
             SqlConnection cn = ds.ObtenerConexion();
@@ -133,6 +164,16 @@ namespace DATOS
             SqlParametros.Value = usuario.estado;
         }
 
+        public void armarParametrosCorto(ref SqlCommand Comando, Usuario usuario)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+
+            SqlParametros = Comando.Parameters.Add("@USUARIO", SqlDbType.NVarChar, 50);
+            SqlParametros.Value = usuario.usuario;            
+            SqlParametros = Comando.Parameters.Add("@ESTADO", SqlDbType.Bit);
+            SqlParametros.Value = usuario.estado;
+        }
+
         public bool ActualizarUsuarios(Usuario usuario)
         {
             SqlCommand Comando = new SqlCommand();
@@ -147,7 +188,7 @@ namespace DATOS
         public int eliminarUsuarios(Usuario usuario)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametros(ref comando, usuario);
+            armarParametrosCorto(ref comando, usuario);
             return ds.EjecutarProcedimientoAlmacenado(comando, "spEliminarUsuario");
         }
 

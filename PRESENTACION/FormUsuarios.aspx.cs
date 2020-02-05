@@ -133,6 +133,8 @@ namespace PRESENTACION
 
                 n_Usuario n_usuario = new n_Usuario();
 
+                //////////////////  AGREGAR ACA CORRECCION
+
                 if (n_usuario.agregarUsuario(usuario))
                 {
                     lblExito.Text = "Exito al agregar";

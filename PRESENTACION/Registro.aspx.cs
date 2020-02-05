@@ -47,6 +47,8 @@ namespace PRESENTACION
 
                 n_Usuario n_usuario = new n_Usuario();
 
+                //////////AGREGAR AQUI CORRECCION
+
                 if (n_usuario.agregarUsuario(usuario))
                 {
                     lblError.Text = "Exito al agregar";
