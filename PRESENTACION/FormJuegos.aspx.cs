@@ -37,7 +37,7 @@ namespace PRESENTACION
         public void cargarDDL()
         {
             n_Genero n_genero = new n_Genero();
-            ddlGenero.DataTextField = "Nombre";
+            ddlGenero.DataTextField = "NombreGenero";
             ddlGenero.DataValueField = "Cod_Genero";
             ddlGenero.DataSource = n_genero.getTablaG();
             ddlGenero.DataBind();
@@ -85,7 +85,7 @@ namespace PRESENTACION
             juego.fecha_lanzamiento = DateTime.Parse(s_Fecha);
             juego.desarrollador = s_Desarrollador;
             juego.distribuidor = s_Distribuidor;
-            juego.cod_genero = int.Parse(s_Genero);
+            juego.cod_genero = int.Parse(s_Genero); ///va a tirar error
             juego.idioma = s_Idioma;
             juego.precio = float.Parse(s_Precio);
             juego.ruta_imagen = s_Ruta;
@@ -137,6 +137,8 @@ namespace PRESENTACION
                 String pathCompleta = savePath + fileName;
 
                 Juego juego = new Juego();
+                n_Juego n_juego = new n_Juego();
+
                 juego.nombre = txtNombre.Text;
                 juego.descripcion = txtDescripcion.Text;
                 juego.clasificacion = txtClasificacion.Text;
@@ -153,21 +155,39 @@ namespace PRESENTACION
                 String rutaBase = "~/img/covers/" + fileName;
                 juego.ruta_imagen = rutaBase;
 
-                n_Juego n_juego = new n_Juego();
-
-                if (n_juego.agregarJuego(juego))
+                if (n_juego.existeJuego(juego.nombre))
                 {
-                    fileImagen.SaveAs(pathCompleta);
-                    lblExito.Text = "Exito al agregar";
-                    lblExito.ForeColor = System.Drawing.Color.Green;
-                    lblValidacion.Text = "";
-                    cargarGrilla();
+                    juego.id_juego = int.Parse(n_juego.getTablaPorNombre(juego.nombre));
+                    if (n_juego.editarJuego(juego))
+                    {
+                        lblExito.Text = "Exito al agregar";
+                        lblExito.ForeColor = System.Drawing.Color.Green;
+                        vaciarTextBox();
+                        cargarGrilla();
+                    }
+                    else
+                    {
+                        lblExito.Text = "Error al agregar.";
+                        lblExito.ForeColor = System.Drawing.Color.Red;
+                    }
                 }
                 else
                 {
-                    lblExito.Text = "Error al agregar.";
-                    lblExito.ForeColor = System.Drawing.Color.Red;
-                }
+                    if (n_juego.agregarJuego(juego))
+                    {
+                        fileImagen.SaveAs(pathCompleta);
+                        lblExito.Text = "Exito al agregar";
+                        lblExito.ForeColor = System.Drawing.Color.Green;
+                        lblValidacion.Text = "";
+                        vaciarTextBox();
+                        cargarGrilla();
+                    }
+                    else
+                    {
+                        lblExito.Text = "Error al agregar.";
+                        lblExito.ForeColor = System.Drawing.Color.Red;
+                    }
+                }                
             }
             else if (!revFecha.IsValid)
             {
@@ -175,6 +195,21 @@ namespace PRESENTACION
             }
             else
                 lblValidacion.Text = "Campos obligatorios";
+        }
+
+        public void vaciarTextBox()
+        {
+            txtNombre.Text = "";
+            txtDescripcion.Text = "";
+            txtFecha.Text = "";
+            txtDesarrollador.Text = "";
+            txtDistribuidor.Text = "";
+            txtIdioma.Text = "";
+            txtPrecio.Text = "";
+            txtClasificacion.Text = "";
+            txtPagina.Text = "";
+            ddlGenero.SelectedIndex = 0;
+            fileImagen.Dispose();
         }
     }
 }

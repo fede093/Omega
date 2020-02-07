@@ -46,5 +46,20 @@ namespace NEGOCIO
             DatosJuego da = new DatosJuego();
             return da.insertarJuego(juego);
         }
+
+        public String getTablaPorNombre(String nombre)
+        {
+            String cod = "";
+            DatosJuego da = new DatosJuego();
+            DataTable dt = da.getTablaJuegoNombre(nombre);
+            cod = dt.Rows[0][0].ToString();
+            return cod;
+        }
+
+        public bool existeJuego(String juego)
+        {
+            DatosJuego da = new DatosJuego();
+            return da.juegoExiste(juego);
+        }
     }
 }

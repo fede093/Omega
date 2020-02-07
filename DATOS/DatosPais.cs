@@ -19,6 +19,12 @@ namespace DATOS
             return tabla;
         }
 
+        public DataTable getTablaPaisNombre(String nombre)
+        {
+            DataTable tabla = ds.ObtenerTabla("Pais", "Select * from Pais where Nombre='" + nombre + "'");
+            return tabla;
+        }
+
         public void armarParametros(ref SqlCommand Comando, Pais pais)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -74,6 +80,37 @@ namespace DATOS
                 {
                     cmd.ExecuteNonQuery();
                     return true;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+                return false;
+        }
+
+        public bool paisExiste(String pais)
+        {
+            SqlConnection cn = ds.ObtenerConexion();
+            SqlCommand cmd;
+            SqlDataReader dr;
+            String sql =
+            "Select * From Pais Where Nombre='" + pais + "'and Estado=0";
+            if (cn != null)
+            {
+                cmd = new SqlCommand(sql, cn);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
                 }
                 catch (SqlException ex)
                 {

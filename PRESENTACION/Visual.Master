@@ -87,7 +87,7 @@
                 <a href="Registro.aspx" id="iconLogin"><span class="glyphicon glyphicon-user" style="margin: 0 10px;"></span>Registrarse</a>
             </ul>
         </nav>
-        <div>
+        <div class="arribaFooter">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>

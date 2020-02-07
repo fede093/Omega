@@ -2,6 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Omega</title>
+    <style type="text/css">
+        .auto-style2 {
+            margin-right: 0px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="contenedor">
@@ -11,7 +16,7 @@
             <br />
             <asp:DataList ID="dlGeneros" runat="server">
                 <ItemTemplate>
-                    <asp:LinkButton ID="lbGeneros" runat="server" CommandArgument='<%# Bind("Cod_Genero") %>' CommandName="comando" OnCommand="lbGeneros_Command" Text='<%# Bind("Nombre") %>'></asp:LinkButton>
+                    <asp:LinkButton ID="lbGeneros" runat="server" CommandArgument='<%# Bind("Cod_Genero") %>' CommandName="comando" OnCommand="lbGeneros_Command" Text='<%# Bind("NombreGenero") %>'></asp:LinkButton>
                 </ItemTemplate>
             </asp:DataList>
         </div>
@@ -24,16 +29,13 @@
                     <span class="glyphicon glyphicon-refresh"></span>
                 </button>
             </div>
-            <asp:ListView ID="lvJuegos" runat="server" GroupItemCount="3">
+            <asp:ListView ID="lvJuegos" runat="server" GroupItemCount="4">
                 <AlternatingItemTemplate>
                     <td runat="server" style="">
-                        <asp:ImageButton ID="ImageButton1" runat="server" Height="300px" ImageUrl='<%# Bind("Imagen") %>' Width="200px" CommandArgument='<%# Bind("Id_juego") %>' CommandName="imageClick" OnCommand="ImageButton1_Command" />
+                        <asp:ImageButton ID="ImageButton1" runat="server" CommandArgument='<%# Bind("Id_juego") %>' CommandName="imageClick" CssClass="auto-style2" Height="300px" ImageUrl='<%# Bind("Imagen") %>' OnCommand="ImageButton1_Command" Width="200px" />
                         <br />
-                        Nombre:
-                        <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
-                        <br />
-                        Desarrollador:
-                        <asp:Label ID="DesarrolladorLabel" runat="server" Text='<%# Eval("Desarrollador") %>' />
+                        
+                        <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' CssClass="Label_Juegos"/>
                         <br />
                     </td>
                 </AlternatingItemTemplate>
@@ -41,8 +43,8 @@
                     <td runat="server" style="">Nombre:
                         <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' />
                         <br />
-                        Desarrollador:
-                        <asp:TextBox ID="DesarrolladorTextBox" runat="server" Text='<%# Bind("Desarrollador") %>' />
+                        Imagen:
+                        <asp:TextBox ID="ImagenTextBox" runat="server" Text='<%# Bind("Imagen") %>' />
                         <br />
                         <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
                         <br />
@@ -69,8 +71,8 @@
                     <td runat="server" style="">Nombre:
                         <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' />
                         <br />
-                        Desarrollador:
-                        <asp:TextBox ID="DesarrolladorTextBox" runat="server" Text='<%# Bind("Desarrollador") %>' />
+                        Imagen:
+                        <asp:TextBox ID="ImagenTextBox" runat="server" Text='<%# Bind("Imagen") %>' />
                         <br />
                         <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
                         <br />
@@ -80,18 +82,18 @@
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <td runat="server" style="">
-                        <asp:ImageButton ID="ImageButton1" runat="server" Height="300px" ImageUrl='<%# Bind("Imagen") %>' Width="200px" CommandName="imageClick" OnCommand="ImageButton1_Command" CommandArgument='<%# Bind("Id_juego") %>' />
+                        <asp:ImageButton ID="ImageButton2" runat="server" CommandArgument='<%# Bind("Id_juego") %>' CommandName="imageClick" Height="300px" ImageUrl='<%# Bind("Imagen") %>' OnCommand="ImageButton1_Command" Width="200px" />
                         <br />
-                        Nombre:
-                        <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
-                        <br />
-                        Desarrollador:
-                        <asp:Label ID="DesarrolladorLabel" runat="server" Text='<%# Eval("Desarrollador") %>' />
+                        
+                        <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' CssClass="Label_Juegos" />
                         <br />
                     </td>
                 </ItemTemplate>
                 <LayoutTemplate>
                     <table runat="server">
+                        <tr runat="server">
+                            <td runat="server" style=""></td>
+                        </tr>
                         <tr runat="server">
                             <td runat="server">
                                 <table id="groupPlaceholderContainer" runat="server" border="0" style="">
@@ -100,22 +102,19 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr runat="server">
-                            <td runat="server" style=""></td>
-                        </tr>
                     </table>
                 </LayoutTemplate>
                 <SelectedItemTemplate>
                     <td runat="server" style="">Nombre:
                         <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
                         <br />
-                        Desarrollador:
-                        <asp:Label ID="DesarrolladorLabel" runat="server" Text='<%# Eval("Desarrollador") %>' />
+                        Imagen:
+                        <asp:Label ID="ImagenLabel" runat="server" Text='<%# Eval("Imagen") %>' />
                         <br />
                     </td>
                 </SelectedItemTemplate>
             </asp:ListView>
         </div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OmegaConnectionString %>" SelectCommand="SELECT [Nombre], [Desarrollador], [Imagen] FROM [Juego]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Omega %>" SelectCommand="SELECT [Nombre], [Imagen] FROM [Juego]"></asp:SqlDataSource>
     </div>
 </asp:Content>

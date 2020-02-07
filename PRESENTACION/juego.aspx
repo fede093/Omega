@@ -27,7 +27,7 @@
                     &nbsp;<asp:Label ID="Label11" runat="server" Text='<%# Bind("Distribuidor") %>'></asp:Label>
                     <br />
                     <asp:Label ID="Label21" runat="server" Font-Bold="True" Text="Genero:"></asp:Label>
-                    &nbsp;<asp:Label ID="Label12" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
+                    &nbsp;<asp:Label ID="Label12" runat="server" Text='<%# Bind("NombreGenero") %>'></asp:Label>
                     <br />
                     <asp:Label ID="Label22" runat="server" Font-Bold="True" Text="Idioma:"></asp:Label>
                     &nbsp;<asp:Label ID="Label13" runat="server" Text='<%# Bind("Idioma") %>'></asp:Label>
@@ -56,17 +56,8 @@
             </asp:DataList>
         </div>
         <div id="compra" runat="server">
-            <div id="dropDown">
-                <asp:DropDownList ID="ddlMedios" runat="server" CssClass="MediosdePago"></asp:DropDownList>
-            </div>
-            <div id="dataCompra">
-            <asp:DataList ID="dlPrecio" runat="server" HorizontalAlign="Center" CssClass="DDLCompra">
-                <ItemTemplate>
-                    <asp:Label ID="Label857" runat="server" Font-Bold="True" Text=" Precio:"></asp:Label>
-                    &nbsp;&nbsp;<asp:Label ID="Label1" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>&nbsp;
-                    <asp:Button ID="Button1" runat="server" Text="Comprar" CommandName="ClickComprar" OnCommand="Button1_Command" />
-                </ItemTemplate>
-            </asp:DataList>
-            </div>
+            
+            
         </div>
+     </div>
 </asp:Content>

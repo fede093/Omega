@@ -20,7 +20,7 @@ namespace DATOS
 
         public DataTable getTablaGeneroNombre(String nombre)
         {
-            DataTable tabla = ds.ObtenerTabla("Genero", "Select * from Genero where Nombre='" + nombre + "'");
+            DataTable tabla = ds.ObtenerTabla("Genero", "Select * from Genero where NombreGenero='" + nombre + "'");
             return tabla;
         }
 
@@ -31,7 +31,7 @@ namespace DATOS
             if (cn != null)
             {
                 SqlCommand cmd;
-                String sql = "INSERT INTO Genero (Nombre, Estado)" +
+                String sql = "INSERT INTO Genero (NombreGenero, Estado)" +
                               "VALUES('" + gen.nombre + "','" + gen.estado + "')";
 
                 cmd = new SqlCommand(sql, cn);
@@ -59,7 +59,7 @@ namespace DATOS
             SqlCommand cmd;
             SqlDataReader dr;
             String sql =
-            "Select * From Genero Where Nombre='" + genero + "'and Estado=0";
+            "Select * From Genero Where NombreGenero='" + genero + "'and Estado=0";
             if (cn != null)
             {
                 cmd = new SqlCommand(sql, cn);

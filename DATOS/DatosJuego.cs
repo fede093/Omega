@@ -32,6 +32,12 @@ namespace DATOS
             return tabla;
         }
 
+        public DataTable getTablaJuegoNombre(String nombre)
+        {
+            DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego where Nombre='" + nombre + "'");
+            return tabla;
+        }
+
         public void armarParametros(ref SqlCommand Comando, Juego juego)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -99,6 +105,37 @@ namespace DATOS
             int filasInsertadas = ds.EjecutarProcedimientoAlmacenado(Comando, "spInsertarJuego");
             if (filasInsertadas == 1)
                 return true;
+            else
+                return false;
+        }
+
+        public bool juegoExiste(String juego)
+        {
+            SqlConnection cn = ds.ObtenerConexion();
+            SqlCommand cmd;
+            SqlDataReader dr;
+            String sql =
+            "Select * From Juego Where Nombre='" + juego + "'and Estado=0";
+            if (cn != null)
+            {
+                cmd = new SqlCommand(sql, cn);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
             else
                 return false;
         }

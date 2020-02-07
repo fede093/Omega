@@ -11,6 +11,15 @@ namespace NEGOCIO
 {
     public class n_Medio
     {
+        public String getTablaPorDescripcion(String Descripcion)
+        {
+            String cod = "";
+            DatosMedios da = new DatosMedios();
+            DataTable dt = da.getTablaMedioDescripcion(Descripcion);
+            cod = dt.Rows[0][0].ToString();
+            return cod;
+        }
+
         public DataTable getTabla()
         {
             DatosMedios da = new DatosMedios();
@@ -33,6 +42,12 @@ namespace NEGOCIO
         {
             DatosMedios da = new DatosMedios();
             return da.agregarMedio(medio);
+        }
+
+        public bool existeMedio(String medio)
+        {
+            DatosMedios da = new DatosMedios();
+            return da.medioExiste(medio);
         }
     }
 }

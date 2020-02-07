@@ -121,6 +121,7 @@ namespace PRESENTACION
                 .IsValid && rfv7.IsValid && rfv8.IsValid && rfv9.IsValid && cmv1.IsValid)
             {
                 Usuario usuario = new Usuario();
+                n_Usuario n_usuario = new n_Usuario();
                 usuario.usuario = txtUsuario.Text;
                 usuario.nombre = txtNombre.Text;
                 usuario.apelido = txtApellido.Text;
@@ -129,24 +130,39 @@ namespace PRESENTACION
                 usuario.telefono = txtTelefono.Text;
                 usuario.administrador = bool.Parse(rblAdmi.SelectedItem.ToString());
                 usuario.cod_pais = int.Parse(ddlPais.SelectedValue);
-                usuario.estado = true;
+                usuario.estado = true;                
 
-                n_Usuario n_usuario = new n_Usuario();
-
-                //////////////////  AGREGAR ACA CORRECCION
-
-                if (n_usuario.agregarUsuario(usuario))
+                if (n_usuario.existeDadoBaja(usuario.usuario))
                 {
-                    lblExito.Text = "Exito al agregar";
-                    lblExito.ForeColor = System.Drawing.Color.Green;
-                    lblValidacion.Text = "";
-                    cargarGrilla();
+                    if (n_usuario.editarUsuario(usuario))
+                    {
+                        lblExito.Text = "Exito al agregar";
+                        lblExito.ForeColor = System.Drawing.Color.Green;
+                        vaciarTextBox();
+                        cargarGrilla();
+                    }
+                    else
+                    {
+                        lblExito.Text = "Error al agregar.";
+                        lblExito.ForeColor = System.Drawing.Color.Red;
+                    }
                 }
                 else
                 {
-                    lblExito.Text = "Error al agregar.";
-                    lblExito.ForeColor = System.Drawing.Color.Red;
-                }
+                    if (n_usuario.agregarUsuario(usuario))
+                    {
+                        lblExito.Text = "Exito al agregar";
+                        lblExito.ForeColor = System.Drawing.Color.Green;
+                        lblValidacion.Text = "";
+                        vaciarTextBox();
+                        cargarGrilla();
+                    }
+                    else
+                    {
+                        lblExito.Text = "Error al agregar.";
+                        lblExito.ForeColor = System.Drawing.Color.Red;
+                    }
+                }                
             }
             else if (!cmv1.IsValid)
             {
@@ -154,6 +170,19 @@ namespace PRESENTACION
             }
             else
                 lblValidacion.Text = "Campos Obligatorios";
+        }
+
+        public void vaciarTextBox()
+        {
+            txtUsuario.Text = "";
+            txtApellido.Text = "";
+            txtContra.Text = "";
+            txtContra_repit.Text = "";
+            txtEmail.Text = "";
+            txtNombre.Text = "";
+            txtTelefono.Text = "";
+            ddlPais.SelectedIndex = 0;
+            rblAdmi.ClearSelection();
         }
     }
 }

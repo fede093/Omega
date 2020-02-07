@@ -69,6 +69,7 @@ namespace PRESENTACION
                     {
                         lblExito.Text = "Exito al agregar";
                         lblExito.ForeColor = System.Drawing.Color.Green;
+                        vaciarTextBox();
                         cargarGrilla();
                     }
                     else
@@ -83,6 +84,7 @@ namespace PRESENTACION
                     {
                         lblExito.Text = "Exito al agregar.";
                         lblExito.ForeColor = System.Drawing.Color.Green;
+                        vaciarTextBox();
                         cargarGrilla();
                     }
 
@@ -93,6 +95,11 @@ namespace PRESENTACION
                     }
                 }
             }
+        }
+
+        public void vaciarTextBox()
+        {
+            txtNombre.Text = "";
         }
 
         protected void gvGeneros_RowUpdating(object sender, GridViewUpdateEventArgs e)

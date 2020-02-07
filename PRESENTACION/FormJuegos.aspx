@@ -259,10 +259,10 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Genero">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtGenero_edit" runat="server" Text='<%# Bind("Cod_genero") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtGenero_edit" runat="server" Text='<%# Bind("Genero") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lblGenero" runat="server" Text='<%# Bind("Genero") %>'></asp:Label>
+                        <asp:Label ID="lblGenero" runat="server" Text='<%# Bind("NombreGenero") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Idioma">

@@ -89,23 +89,50 @@ namespace PRESENTACION
             if (rfvNombre.IsValid == true)
             {
                 Pais pais = new Pais();
+                n_Pais n_pais = new n_Pais();
                 pais.nombre = txtPais.Text;
                 pais.cod_pais = 0;
+                pais.estado = true;
 
-                n_Pais n_pais = new n_Pais();
-                if (n_pais.agregarPais(pais))
+                if (n_pais.existePais(pais.nombre))
                 {
-                    lblExito.Text = "Exito al agregar";
-                    lblExito.ForeColor = System.Drawing.Color.Green;
-                    cargarGrilla();
+                    pais.cod_pais = int.Parse(n_pais.getTablaPorNombre(pais.nombre));
+                    if (n_pais.editarPais(pais))
+                    {
+                        lblExito.Text = "Exito al agregar";
+                        lblExito.ForeColor = System.Drawing.Color.Green;
+                        vaciarTextBox();
+                        cargarGrilla();
+                    }
+                    else
+                    {
+                        lblExito.Text = "Error al agregar.";
+                        lblExito.ForeColor = System.Drawing.Color.Red;
+                    }
+                    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Alerta", "alert('Pasa por aca')", true);
                 }
-
                 else
                 {
-                    lblExito.Text = "Error al agregar.";
-                    lblExito.ForeColor = System.Drawing.Color.Red;
-                }
+                    if (n_pais.agregarPais(pais))
+                    {
+                        lblExito.Text = "Exito al agregar";
+                        lblExito.ForeColor = System.Drawing.Color.Green;
+                        vaciarTextBox();
+                        cargarGrilla();
+                    }
+
+                    else
+                    {
+                        lblExito.Text = "Error al agregar.";
+                        lblExito.ForeColor = System.Drawing.Color.Red;
+                    }
+                }                
             }
+        }
+
+        public void vaciarTextBox()
+        {
+            txtPais.Text = "";
         }
     }
 }

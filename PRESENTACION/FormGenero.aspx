@@ -77,10 +77,10 @@
             <Columns>
                 <asp:TemplateField HeaderText="Genero">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtEdit_Nombre" runat="server" Text='<%# Bind("Nombre") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtEdit_Nombre" runat="server" Text='<%# Bind("NombreGenero") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lbl_nombre" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
+                        <asp:Label ID="lbl_nombre" runat="server" Text='<%# Bind("NombreGenero") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Codigo de Genero">

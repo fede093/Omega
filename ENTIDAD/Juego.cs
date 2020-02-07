@@ -14,6 +14,7 @@ namespace ENTIDAD
         private DateTime d_fechaLanzamiento;
         private String s_desarrollador;
         private String s_distribuidor;
+        //private String s_NombreGenero;
         private int i_codGenero;
         private String s_idioma;
         private float f_precio;
@@ -68,6 +69,12 @@ namespace ENTIDAD
             set { s_distribuidor = value; }
             get { return s_distribuidor; }
         }
+
+        //public String nombre_genero
+        //{
+        //    set { s_NombreGenero = value; }
+        //    get { return s_NombreGenero; }
+        //}
 
         public int cod_genero
         {

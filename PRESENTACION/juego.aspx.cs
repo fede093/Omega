@@ -28,8 +28,8 @@ namespace PRESENTACION
                 cargarImagen(int.Parse(id));
                 cargarDetalles(int.Parse(id));
                 cargarDescripcion(int.Parse(id));
-                cargarddlMedios();
-                cargarPrecio(int.Parse(id));
+                //cargarddlMedios();
+                //cargarPrecio(int.Parse(id));
             }
         }
 
@@ -54,22 +54,22 @@ namespace PRESENTACION
             dlDescripcion.DataBind();
         }
 
-        public void cargarddlMedios()
-        {
-            n_Medio n_medio = new n_Medio();
-            ddlMedios.DataTextField = "Descripcion";
-            ddlMedios.DataValueField = "Cod_MPago";
-            ddlMedios.DataSource = n_medio.getTabla();
-            ddlMedios.DataBind();
-            ddlMedios.Items.Insert(0, "---Nada selecionado---");
-        }
+        //public void cargarddlMedios()
+        //{
+        //    n_Medio n_medio = new n_Medio();
+        //    ddlMedios.DataTextField = "Descripcion";
+        //    ddlMedios.DataValueField = "Cod_MPago";
+        //    ddlMedios.DataSource = n_medio.getTabla();
+        //    ddlMedios.DataBind();
+        //    ddlMedios.Items.Insert(0, "---Nada selecionado---");
+        //}
 
-        public void cargarPrecio(int id)
-        {
-            n_Juego n_juego = new n_Juego();
-            dlPrecio.DataSource = n_juego.getTabla(id);
-            dlPrecio.DataBind();
-        }
+        //public void cargarPrecio(int id)
+        //{
+        //    n_Juego n_juego = new n_Juego();
+        //    dlPrecio.DataSource = n_juego.getTabla(id);
+        //    dlPrecio.DataBind();
+        //}
 
         protected void Button1_Command(object sender, CommandEventArgs e)
         {

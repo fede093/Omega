@@ -89,23 +89,50 @@ namespace PRESENTACION
             if (rfvNombre.IsValid == true)
             {
                 MedioPago medio = new MedioPago();
+                n_Medio n_medio = new n_Medio();
+
                 medio.descripcion = txtNombre.Text;
                 medio.cod_medio = 0;
+                medio.estado = true;
 
-                n_Medio n_medio = new n_Medio();
-                if (n_medio.agregarMedio(medio))
-                {
-                    lblExito.Text = "Exito al agregar";
-                    lblExito.ForeColor = System.Drawing.Color.Green;
-                    cargarGrilla();
+                if (n_medio.existeMedio(medio.descripcion))
+                {                    
+                    medio.cod_medio = int.Parse(n_medio.getTablaPorDescripcion(medio.descripcion));
+                    if (n_medio.editarMedio(medio))
+                    {
+                        lblExito.Text = "Exito al agregar";
+                        lblExito.ForeColor = System.Drawing.Color.Green;
+                        vaciarTextBox();
+                        cargarGrilla();
+                    }
+                    else
+                    {
+                        lblExito.Text = "Error al agregar.";
+                        lblExito.ForeColor = System.Drawing.Color.Red;
+                    }
                 }
-
                 else
                 {
-                    lblExito.Text = "Error al agregar.";
-                    lblExito.ForeColor = System.Drawing.Color.Red;
-                }
+                    if (n_medio.agregarMedio(medio))
+                    {
+                        lblExito.Text = "Exito al agregar";
+                        lblExito.ForeColor = System.Drawing.Color.Green;
+                        vaciarTextBox();
+                        cargarGrilla();
+                    }
+
+                    else
+                    {
+                        lblExito.Text = "Error al agregar.";
+                        lblExito.ForeColor = System.Drawing.Color.Red;
+                    }
+                }                
             }
+        }
+
+        public void vaciarTextBox()
+        {
+            txtNombre.Text = "";
         }
     }
 }

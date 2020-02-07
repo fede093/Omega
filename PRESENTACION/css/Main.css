@@ -12,28 +12,39 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+Input[type='image'] {
+    padding: 10px;
+}
+
+#ContentPlaceHolder1_lvJuegos_ctrl0_itemPlaceholderContainer {    
+    text-align: center;
+    font-size: 15px;
+}
+
+#ContentPlaceHolder1_lvJuegos_ctrl1_itemPlaceholderContainer {
+    text-align: center;
+    font-size: 15px;
+}
+
 /****************************
 DISEÑO DE LOS DIV
 *****************************/
-
 /************INICIO.ASPX y USUARIOS.APSX*****************/
-
 #izquierda {
-    height: 700px;
+    height: 2000px;
     background-color: #d9d9d9;
     float: left;
     width: 15%;
 }
 
 #derecha {
-    height: 700px;
+    height: 2000px;
     background-color: #e6e6e6;
     float: right;
-    width: 85%;
+    width: 85%;   
 }
 
 /************REPORTES.ASPX*****************/
-
 #izquierda_superior {
     height: 400px;
     background-color: #d9d9d9;
@@ -219,13 +230,14 @@ NAVBAR
     display: none;
 }
 
+
 /****************************
 FOOTER
 *****************************/
 footer {
     font-size: 0.75em;
     text-align: center;
-    padding-top: 50px;
+    padding: 10px;
     color: #6b6b47;
     clear: both; /*Para que no tenga ningun elemento a la izquierda ni a la derecha*/
 }

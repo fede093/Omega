@@ -35,5 +35,20 @@ namespace NEGOCIO
             DatosPais da = new DatosPais();
             return da.agregarPais(pais);
         }
+
+        public bool existePais(String pais)
+        {
+            DatosPais da = new DatosPais();
+            return da.paisExiste(pais);
+        }
+
+        public String getTablaPorNombre(String nombre)
+        {
+            String cod = "";
+            DatosPais da = new DatosPais();
+            DataTable dt = da.getTablaPaisNombre(nombre);
+            cod = dt.Rows[0][0].ToString();
+            return cod;
+        }
     }
 }

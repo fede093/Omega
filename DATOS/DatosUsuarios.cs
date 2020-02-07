@@ -37,6 +37,12 @@ namespace DATOS
             return tabla;
         }
 
+        //public DataTable getTablaUsuarioIndividual(String usuario)
+        //{
+        //    DataTable tabla = ds.ObtenerTabla("Genero", "Select * from Usuario where Usuario='" + usuario + "'");
+        //    return tabla;
+        //}
+
         public DataTable getJuegosComprados(String usuario)
         {
             DataTable tabla = ds.ObtenerTabla("Usuario", "SELECT Juego.Imagen, Juego.Nombre, juegoXusuario.Cod_Usuario, DetallesCompra.fecha_compra, MedioPago.Cod_MPago, MedioPago.Descripcion, Juego.Id_juego FROM Juego " +
@@ -85,6 +91,37 @@ namespace DATOS
             SqlDataReader dr;
             String sql =
             "Select * From Usuario Where Usuario='" + usuario + "'";
+            if (cn != null)
+            {
+                cmd = new SqlCommand(sql, cn);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+                return false;
+        }
+
+        public bool existeUsuarioDadoBaja(String usuario)
+        {
+            SqlConnection cn = ds.ObtenerConexion();
+            SqlCommand cmd;
+            SqlDataReader dr;
+            String sql =
+            "Select * From Usuario Where Usuario='" + usuario + "'and Estado=0";
             if (cn != null)
             {
                 cmd = new SqlCommand(sql, cn);

@@ -19,6 +19,12 @@ namespace DATOS
             return tabla;
         }
 
+        public DataTable getTablaMedioDescripcion(String descripcion)
+        {
+            DataTable tabla = ds.ObtenerTabla("MedioPago", "Select * from MedioPago where Descripcion='" + descripcion + "'");
+            return tabla;
+        }
+
         public void armarParametros(ref SqlCommand Comando, MedioPago medio)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -74,6 +80,37 @@ namespace DATOS
                 {
                     cmd.ExecuteNonQuery();
                     return true;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+                return false;
+        }
+
+        public bool medioExiste(String medio)
+        {
+            SqlConnection cn = ds.ObtenerConexion();
+            SqlCommand cmd;
+            SqlDataReader dr;
+            String sql =
+            "Select * From MedioPago Where Descripcion='" + medio + "'and Estado=0";
+            if (cn != null)
+            {
+                cmd = new SqlCommand(sql, cn);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
                 }
                 catch (SqlException ex)
                 {
