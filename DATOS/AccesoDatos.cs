@@ -89,9 +89,19 @@ namespace DATOS
             cmd.Connection = Conexion;
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = NombreSP;
-            FilasCambiadas = cmd.ExecuteNonQuery();
-            Conexion.Close();
-            return FilasCambiadas;
+            try
+            {
+                FilasCambiadas = cmd.ExecuteNonQuery();
+                return FilasCambiadas;
+            }
+            catch (SqlException ex)
+            {
+                return 0;
+            }
+            finally
+            {
+                Conexion.Close();
+            }                        
         }
     }
 }
