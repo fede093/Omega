@@ -106,10 +106,10 @@ namespace PRESENTACION
                     }
                     else
                     {
+                        vaciarTextBox();
                         lblExito.Text = "Error al agregar.";
                         lblExito.ForeColor = System.Drawing.Color.Red;
-                    }
-                    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Alerta", "alert('Pasa por aca')", true);
+                    }                    
                 }
                 else
                 {
@@ -123,6 +123,7 @@ namespace PRESENTACION
 
                     else
                     {
+                        vaciarTextBox();
                         lblExito.Text = "Error al agregar.";
                         lblExito.ForeColor = System.Drawing.Color.Red;
                     }

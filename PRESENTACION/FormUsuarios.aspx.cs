@@ -143,6 +143,7 @@ namespace PRESENTACION
                     }
                     else
                     {
+                        vaciarTextBox();
                         lblExito.Text = "Error al agregar.";
                         lblExito.ForeColor = System.Drawing.Color.Red;
                     }
@@ -159,6 +160,7 @@ namespace PRESENTACION
                     }
                     else
                     {
+                        vaciarTextBox();
                         lblExito.Text = "Error al agregar.";
                         lblExito.ForeColor = System.Drawing.Color.Red;
                     }
