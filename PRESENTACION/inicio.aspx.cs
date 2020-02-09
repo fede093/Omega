@@ -43,7 +43,7 @@ namespace PRESENTACION
         public void cargarList(int id)
         {
             n_Juego n_juego = new n_Juego();
-            lvJuegos.DataSource = n_juego.getTabla(id);
+            lvJuegos.DataSource = n_juego.getTablaPorGenero(id);           
             lvJuegos.DataBind();
         }
 
@@ -58,7 +58,7 @@ namespace PRESENTACION
         {
             if (e.CommandName == "comando")
             {
-                int id = int.Parse(e.CommandArgument.ToString());
+                int id = int.Parse(e.CommandArgument.ToString());                
                 cargarList(id);
             }
         }
@@ -79,7 +79,7 @@ namespace PRESENTACION
         {
             if (e.CommandName == "imageClick")
             {
-                Response.Redirect("juego.aspx?cod=" + e.CommandArgument.ToString());
+                Response.Redirect("juego.aspx?cod=" + e.CommandArgument.ToString());                
             }
         }
     }

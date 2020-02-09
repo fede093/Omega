@@ -14,7 +14,7 @@ namespace DATOS
         AccesoDatos ds = new AccesoDatos();
         public DataTable getTablaUsuarios()
         {
-            DataTable tabla = ds.ObtenerTabla("Usuario", "Select * from Usuario where estado=1");
+            DataTable tabla = ds.ObtenerTabla("Usuario", "Select * from Usuario INNER JOIN Pais on Usuario.Cod_Pais = Pais.Cod_Pais where Usuario.Estado=1");
             return tabla;
         }
 
@@ -36,12 +36,6 @@ namespace DATOS
                 " where Usuario='" + Usuario + "' and Usuario.estado=1");
             return tabla;
         }
-
-        //public DataTable getTablaUsuarioIndividual(String usuario)
-        //{
-        //    DataTable tabla = ds.ObtenerTabla("Genero", "Select * from Usuario where Usuario='" + usuario + "'");
-        //    return tabla;
-        //}
 
         public DataTable getJuegosComprados(String usuario)
         {

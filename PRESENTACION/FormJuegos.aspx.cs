@@ -71,10 +71,10 @@ namespace PRESENTACION
             String s_Fecha = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtFecha_edit")).Text;
             String s_Desarrollador = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtDesarrollador_edit")).Text;
             String s_Distribuidor = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtDestribuidor_edit")).Text;
-            String s_Genero = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtGenero_edit")).Text;
+            String s_Genero = ((DropDownList)gvJuegos.Rows[e.RowIndex].FindControl("DDLGeneros")).SelectedValue;
             String s_Idioma = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtIdioma_edit")).Text;
             String s_Precio = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtPrecio_edit")).Text;
-            String s_Ruta = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtRuta_edit")).Text;
+            String s_Ruta = ((Label)gvJuegos.Rows[e.RowIndex].FindControl("lblRutaEdit")).Text;
             String s_Clasificacion = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtClasificacion_edit")).Text;
             String s_Pagina = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtPagina_edit")).Text;
 
@@ -85,7 +85,7 @@ namespace PRESENTACION
             juego.fecha_lanzamiento = DateTime.Parse(s_Fecha);
             juego.desarrollador = s_Desarrollador;
             juego.distribuidor = s_Distribuidor;
-            juego.cod_genero = int.Parse(s_Genero); ///va a tirar error
+            juego.cod_genero = int.Parse(s_Genero);
             juego.idioma = s_Idioma;
             juego.precio = float.Parse(s_Precio);
             juego.ruta_imagen = s_Ruta;

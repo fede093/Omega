@@ -24,6 +24,7 @@ namespace PRESENTACION
             if (!IsPostBack)
             {
                 String id = Request.QueryString["cod"];
+                //System.Diagnostics.Debug.WriteLine(id);
 
                 cargarImagen(int.Parse(id));
                 cargarDetalles(int.Parse(id));

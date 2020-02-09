@@ -259,7 +259,8 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Genero">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtGenero_edit" runat="server" Text='<%# Bind("Genero") %>'></asp:TextBox>
+                        <asp:DropDownList ID="DDLGeneros" runat="server" DataSourceID="SqlDataSource1" DataTextField="NombreGenero" DataValueField="Cod_Genero">
+                        </asp:DropDownList>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lblGenero" runat="server" Text='<%# Bind("NombreGenero") %>'></asp:Label>
@@ -278,18 +279,22 @@
                         <asp:TextBox ID="txtPrecio_edit" runat="server" Text='<%# Bind("Precio") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
+                        <a>$</a>
                         <asp:Label ID="lblPrecio" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Ruta Imagen">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtRuta_edit" runat="server" Text='<%# Bind("Imagen") %>'></asp:TextBox>
+                        <asp:Label ID="lblRutaEdit" runat="server" Text='<%# Bind("Imagen") %>'></asp:Label>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lblRuta" runat="server" Text='<%# Bind("Imagen") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Imagen">
+                    <EditItemTemplate>
+                        <asp:FileUpload ID="fuImagen_Edit" runat="server" />
+                    </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Image ID="img" runat="server" ImageUrl='<%# Bind("Imagen") %>' Width="100px" Height="100px" />
                     </ItemTemplate>
@@ -315,4 +320,5 @@
             <PagerStyle BackColor="Red" />
         </asp:GridView>
     </div>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:TablaGeneros %>" SelectCommand="SELECT [Cod_Genero], [NombreGenero] FROM Genero where Estado=1"></asp:SqlDataSource>
 </asp:Content>

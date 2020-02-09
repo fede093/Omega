@@ -12,27 +12,34 @@ namespace DATOS
     public class DatosJuego
     {
         AccesoDatos ds = new AccesoDatos();
-        public DataTable getTablaJuegos()
+        public DataTable getTablaJuegos() ////TRAE TODOS LOS JUEGOS EN ALTA
         {
             DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego inner join Genero on Juego.Genero = Genero.Cod_Genero where Juego.Estado=1");
             return tabla;
         }
 
-        public DataTable getTablaJuegos(String nombre)
+        public DataTable getTablaJuegos(String nombre) ////TRAE LOS JUEGOS POR EL NOMBRE DEL JUEGO
         {
             DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego inner join " +
                 "Genero on Juego.Genero = Genero.Cod_Genero where Juego.Nombre='" + nombre + "' and Juego.Estado=1");
             return tabla;
         }
 
-        public DataTable getTablaJuegos(int id)
+        public DataTable getTablaJuegos(int id)         ////TRAE LOS JUEGOS POR EL CODIGO DEL JUEGO
         {
             DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego inner join " +
-                "Genero on Juego.Genero = Genero.Cod_Genero where id_juego='" + id + "' and Juego.Estado=1");
+                "Genero on Juego.Genero = Genero.Cod_Genero where Id_juego=" + id + " and Juego.Estado=1");
             return tabla;
         }
 
-        public DataTable getTablaJuegoNombre(String nombre)
+        public DataTable getTablaJuegosPorGenero(int id) ////TRAE LOS JUEGOS POR EL CODIGO DEL GENERO
+        {
+            DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego inner join " +
+                "Genero on Juego.Genero = Genero.Cod_Genero where Cod_Genero=" + id + " and Juego.Estado=1");            
+            return tabla;
+        }
+
+        public DataTable getTablaJuegoNombre(String nombre) /////////TRAE LOS JUEGOS INCLUSO LOS ELIMINADOS
         {
             DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego where Nombre='" + nombre + "'");
             return tabla;

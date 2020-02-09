@@ -33,7 +33,7 @@
                     &nbsp;<asp:Label ID="Label13" runat="server" Text='<%# Bind("Idioma") %>'></asp:Label>
                     <br />
                     <asp:Label ID="Label23" runat="server" Font-Bold="True" Text="Precio:"></asp:Label>
-                    &nbsp;<asp:Label ID="Label14" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
+                    &nbsp;$<asp:Label ID="Label14" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
                     <br />
                     <asp:Label ID="Label24" runat="server" Font-Bold="True" Text="Clasificación:"></asp:Label>
                     &nbsp;<asp:Label ID="Label15" runat="server" Text='<%# Bind("Clasificacion") %>'></asp:Label>

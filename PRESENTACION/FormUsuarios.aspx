@@ -216,10 +216,11 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Pais">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtPais_edit" runat="server" Text='<%# Bind("Cod_Pais") %>'></asp:TextBox>
+                        <asp:DropDownList ID="DDLPais" runat="server" DataSourceID="SqlDataSource1" DataTextField="Nombre" DataValueField="Cod_Pais">
+                        </asp:DropDownList>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lblPais" runat="server" Text='<%# Bind("Cod_Pais") %>'></asp:Label>
+                        <asp:Label ID="lblPais" runat="server" Text='<%# Bind("Nombre1") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Administrador">
@@ -234,5 +235,7 @@
             <HeaderStyle BackColor="Red" />
             <PagerStyle BackColor="Red" />
         </asp:GridView>
+        &nbsp;
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Omega %>" SelectCommand="SELECT [Cod_Pais], [Nombre] FROM Pais where Estado=1"></asp:SqlDataSource>
     </div>
 </asp:Content>

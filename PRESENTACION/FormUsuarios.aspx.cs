@@ -70,7 +70,7 @@ namespace PRESENTACION
             String s_Apellido = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtApellido_edit")).Text;
             String s_Email = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtEmail_edit")).Text;
             String s_Telefono = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtTelefono_edit")).Text;
-            String s_Cod = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtPais_edit")).Text;
+            String s_Cod = ((DropDownList)gvUsuarios.Rows[e.RowIndex].FindControl("DDLPais")).SelectedValue;           
             String s_Administrador = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtAdmi_edit")).Text;
 
             Usuario usuario = new Usuario();
