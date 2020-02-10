@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admi.Master" AutoEventWireup="true" CodeBehind="FormMedio.aspx.cs" Inherits="PRESENTACION.FormMedio" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            height: 34px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="div_label">
@@ -11,14 +16,15 @@
     <div class="tabla">
         <table class="auto-style1">
             <tr>
-                <td class="auto-style3">
+                <td class="auto-style1">
                     <asp:Label ID="Label1" runat="server" Text="Medio de pago"></asp:Label>
                     :</td>
-                <td class="auto-style6">
+                <td class="auto-style1">
                     <asp:TextBox ID="txtNombre" runat="server" Width="211px" Height="24px"></asp:TextBox>
                 </td>
-                <td class="auto-style2">
+                <td class="auto-style1">
                     <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ErrorMessage="Campo Requerido" ForeColor="Red" ValidationGroup="addValidation"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revMedio" runat="server" ControlToValidate="txtNombre" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="^[A-Za-z ]+$" ValidationGroup="addValidation"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>

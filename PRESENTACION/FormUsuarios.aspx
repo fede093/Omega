@@ -67,6 +67,7 @@
                 </td>
                 <td class="auto-style8">
                     <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txtNombre" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                &nbsp;<asp:RegularExpressionValidator ID="revNombre" runat="server" ControlToValidate="txtNombre" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="^[A-Za-z ]+$" ValidationGroup="add"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -78,6 +79,7 @@
                 </td>
                 <td class="auto-style8">
                     <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="txtApellido" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                &nbsp;<asp:RegularExpressionValidator ID="revApellido" runat="server" ControlToValidate="txtApellido" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="^[A-Za-z ]+$" ValidationGroup="add"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -89,6 +91,7 @@
                 </td>
                 <td class="auto-style8">
                     <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
+                &nbsp;<asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="add"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -111,8 +114,7 @@
                 </td>
                 <td class="auto-style8">
                     <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="txtContra_repit" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
-&nbsp;
-                    <asp:CompareValidator ID="cmv1" runat="server" ControlToCompare="txtContra" ControlToValidate="txtContra_repit" ErrorMessage="Contraseñas distintas" ForeColor="Red" ValidationGroup="add"></asp:CompareValidator>
+&nbsp;<asp:CompareValidator ID="cmv1" runat="server" ControlToCompare="txtContra" ControlToValidate="txtContra_repit" ErrorMessage="Contraseñas distintas" ForeColor="Red" ValidationGroup="add"></asp:CompareValidator>
                 </td>
             </tr>
             <tr>
@@ -124,7 +126,8 @@
                 </td>
                 <td class="auto-style8">
                     <asp:RequiredFieldValidator ID="rfv7" runat="server" ControlToValidate="txtTelefono" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>
-                &nbsp;</td>
+                &nbsp;<asp:RegularExpressionValidator ID="revTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="^[0-9]*$" ValidationGroup="add"></asp:RegularExpressionValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style2">

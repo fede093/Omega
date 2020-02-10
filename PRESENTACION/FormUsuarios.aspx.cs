@@ -118,7 +118,8 @@ namespace PRESENTACION
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && rfv6
-                .IsValid && rfv7.IsValid && rfv8.IsValid && rfv9.IsValid && cmv1.IsValid)
+                .IsValid && rfv7.IsValid && rfv8.IsValid && rfv9.IsValid && cmv1.IsValid && revApellido.IsValid
+                && revEmail.IsValid && revNombre.IsValid && revTelefono.IsValid)
             {
                 Usuario usuario = new Usuario();
                 n_Usuario n_usuario = new n_Usuario();

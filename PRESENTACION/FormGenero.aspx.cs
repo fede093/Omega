@@ -53,11 +53,12 @@ namespace PRESENTACION
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (rfvNombre.IsValid == true)
+            if (rfvNombre.IsValid && revGenero.IsValid)
             {
                 Genero gen = new Genero();
                 n_Genero n_gen = new n_Genero();
-                
+                System.Diagnostics.Debug.WriteLine(revGenero.IsValid.ToString());
+
                 gen.nombre = txtNombre.Text;
                 gen.cod_genero = 0;
                 gen.estado = true;
@@ -96,6 +97,10 @@ namespace PRESENTACION
                         lblExito.ForeColor = System.Drawing.Color.Red;
                     }
                 }
+            }
+            else
+            {
+                lblExito.Text = "";
             }
         }
 

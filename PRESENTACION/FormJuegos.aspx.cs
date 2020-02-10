@@ -129,7 +129,7 @@ namespace PRESENTACION
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && rfv6.IsValid && rfv7.IsValid
-                && rfv8.IsValid && rfv9.IsValid && rfv10.IsValid && rfv11.IsValid && revFecha.IsValid)
+                && rfv8.IsValid && rfv9.IsValid && rfv10.IsValid && rfv11.IsValid && revFecha.IsValid && revPrecio.IsValid)
             {
                 String pathCarpeta = @"img\covers\";
                 String savePath = Server.MapPath("~") + pathCarpeta;

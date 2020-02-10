@@ -86,7 +86,7 @@ namespace PRESENTACION
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (rfvNombre.IsValid == true)
+            if (rfvNombre.IsValid && revPais.IsValid)
             {
                 Pais pais = new Pais();
                 n_Pais n_pais = new n_Pais();
@@ -120,14 +120,17 @@ namespace PRESENTACION
                         vaciarTextBox();
                         cargarGrilla();
                     }
-
                     else
                     {
                         vaciarTextBox();
-                        lblExito.Text = "Error al agregar.";
+                        lblExito.Text = "Error al agregar.";                        
                         lblExito.ForeColor = System.Drawing.Color.Red;
                     }
                 }                
+            }
+            else
+            {
+                lblExito.Text = "";
             }
         }
 
