@@ -86,7 +86,7 @@ namespace PRESENTACION
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (rfvNombre.IsValid == true)
+            if (rfvNombre.IsValid && revMedio.IsValid)
             {
                 MedioPago medio = new MedioPago();
                 n_Medio n_medio = new n_Medio();
@@ -107,6 +107,7 @@ namespace PRESENTACION
                     }
                     else
                     {
+                        vaciarTextBox();
                         lblExito.Text = "Error al agregar.";
                         lblExito.ForeColor = System.Drawing.Color.Red;
                     }
@@ -123,10 +124,15 @@ namespace PRESENTACION
 
                     else
                     {
+                        vaciarTextBox();
                         lblExito.Text = "Error al agregar.";
                         lblExito.ForeColor = System.Drawing.Color.Red;
                     }
                 }                
+            }
+            else
+            {
+                lblExito.Text = "";
             }
         }
 

@@ -33,6 +33,7 @@
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ErrorMessage="Campo Obligatorio" ForeColor="Red" ControlToValidate="txtPais" ValidationGroup="addValidation"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revPais" runat="server" ControlToValidate="txtPais" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="^[A-Za-z ]+$" ValidationGroup="addValidation"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>

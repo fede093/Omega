@@ -25,11 +25,11 @@
 
         .auto-style6 {
             height: 26px;
-            width: 250px;
+            width: 245px;
         }
 
         .auto-style7 {
-            width: 250px;
+            width: 245px;
         }
     </style>
 </asp:Content>
@@ -51,6 +51,7 @@
                 </td>
                 <td class="auto-style2">
                     <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ErrorMessage="Campo Requerido" ForeColor="Red"  ValidationGroup="addValidation"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revGenero" runat="server" ControlToValidate="txtNombre" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="^[A-Za-z ]+$" ValidationGroup="addValidation"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>

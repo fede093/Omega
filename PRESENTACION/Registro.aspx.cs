@@ -32,7 +32,8 @@ namespace PRESENTACION
 
         protected void btnCrear_Click(object sender, EventArgs e)
         {
-            if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && rvf6.IsValid && rfv7.IsValid)
+            if (rfv1.IsValid && rfv2.IsValid && rfv3.IsValid && rfv4.IsValid && rfv5.IsValid && rvf6.IsValid && rfv7.IsValid
+                && revEmail.IsValid && revTelefono.IsValid)
             {
                 Usuario usuario = new Usuario();
                 usuario.usuario = txtUsuario.Text;
