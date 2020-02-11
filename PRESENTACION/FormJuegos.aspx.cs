@@ -34,6 +34,13 @@ namespace PRESENTACION
             gvJuegos.DataBind();
         }
 
+        public void cargarGrilla(String nombre)
+        {
+            n_Juego n_juego = new n_Juego();
+            gvJuegos.DataSource = n_juego.getTabla(nombre);
+            gvJuegos.DataBind();
+        }
+
         public void cargarDDL()
         {
             n_Genero n_genero = new n_Genero();
@@ -212,6 +219,12 @@ namespace PRESENTACION
             txtPagina.Text = "";
             ddlGenero.SelectedIndex = 0;
             fileImagen.Dispose();
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            String nombre = txtBuscar.Text;
+            cargarGrilla(nombre);
         }
     }
 }
