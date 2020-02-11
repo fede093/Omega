@@ -36,6 +36,7 @@ namespace PRESENTACION
                 && revEmail.IsValid && revTelefono.IsValid)
             {
                 Usuario usuario = new Usuario();
+                n_Usuario n_usuario = new n_Usuario();
                 usuario.usuario = txtUsuario.Text;
                 usuario.nombre = txtNombre.Text;
                 usuario.apelido = txtApellido.Text;
@@ -46,23 +47,35 @@ namespace PRESENTACION
                 usuario.cod_pais = int.Parse(ddlPais.SelectedValue);
                 usuario.estado = true;
 
-                n_Usuario n_usuario = new n_Usuario();
-
-                //////////AGREGAR AQUI CORRECCION
-
-                if (n_usuario.agregarUsuario(usuario))
+                if (n_usuario.existeDadoBaja(usuario.usuario))
                 {
-                    lblError.Text = "Exito al agregar";
-                    lblError.ForeColor = System.Drawing.Color.Green;
-                    //lblValidacion.Text = "";
+                    if (n_usuario.editarUsuario(usuario))
+                    {
+                        lblError.Text = "Exito al agregar";
+                        lblError.ForeColor = System.Drawing.Color.Green;
+                        //vaciarTextBox();                        
+                    }
+                    else
+                    {
+                        //vaciarTextBox();
+                        lblError.Text = "Error al agregar.";
+                        lblError.ForeColor = System.Drawing.Color.Red;
+                    }
                 }
                 else
                 {
-                    lblError.Text = "Error al agregar.";
-                    lblError.ForeColor = System.Drawing.Color.Red;
-                }
+                    if (n_usuario.agregarUsuario(usuario))
+                    {
+                        lblError.Text = "Exito al agregar";
+                        lblError.ForeColor = System.Drawing.Color.Green;
+                    }
+                    else
+                    {
+                        lblError.Text = "Error al agregar.";
+                        lblError.ForeColor = System.Drawing.Color.Red;
+                    }
+                }                
             }
-
         }
     }
 }
