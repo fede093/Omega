@@ -202,8 +202,17 @@
                 <td class="auto-style8">&nbsp;</td>
             </tr>
         </table>
+        <br />
+        <div>
+            <asp:TextBox ID="txtBuscar" runat="server" Width="50%" Height="36px" type="text" placeholder="Nombre del juego"></asp:TextBox>
+            <asp:Button ID="btnBuscar" runat="server" Text="Buscar" Width="10%" CssClass="btn btn-default" Height="36px" style="margin-top: 0px"/>
+            <%--<button runat="server" onServerClick="ButtonRefresh_Click">
+                    <span class="glyphicon glyphicon-refresh"></span>
+            </button>--%>
+        </div>
     </div>
     <div class="Label">
+        <br />
         <asp:Label ID="Label3" runat="server" Text="Listado de juegos" Font-Bold="True"></asp:Label>
     </div>
     <div>
