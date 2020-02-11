@@ -53,11 +53,11 @@ namespace PRESENTACION
                     {
                         lblError.Text = "Exito al agregar";
                         lblError.ForeColor = System.Drawing.Color.Green;
-                        //vaciarTextBox();                        
+                        vaciarTextBox();                        
                     }
                     else
                     {
-                        //vaciarTextBox();
+                        vaciarTextBox();
                         lblError.Text = "Error al agregar.";
                         lblError.ForeColor = System.Drawing.Color.Red;
                     }
@@ -68,14 +68,27 @@ namespace PRESENTACION
                     {
                         lblError.Text = "Exito al agregar";
                         lblError.ForeColor = System.Drawing.Color.Green;
+                        vaciarTextBox();
                     }
                     else
                     {
                         lblError.Text = "Error al agregar.";
                         lblError.ForeColor = System.Drawing.Color.Red;
+                        vaciarTextBox();
                     }
                 }                
             }
+        }
+
+        public void vaciarTextBox()
+        {
+            txtApellido.Text = "";
+            txtContra.Text = "";
+            txtEmail.Text = "";
+            txtNombre.Text = "";
+            txtTelefono.Text = "";
+            txtUsuario.Text = "";
+            ddlPais.SelectedIndex = 0;
         }
     }
 }
