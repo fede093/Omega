@@ -9,8 +9,10 @@
             <asp:RequiredFieldValidator ID="rfv1" runat="server" ErrorMessage="Usuario Requerido" CssClass="rfv" ControlToValidate="txtUsuario" Font-Size="12px" ForeColor="#CC0000" ValidationGroup="add"></asp:RequiredFieldValidator>
             <asp:TextBox ID="txtNombre" runat="server" placeholder="Nombre"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfv2" runat="server" ErrorMessage="Nombre Requerido" CssClass="rfv" ControlToValidate="txtNombre" Font-Size="12px" ForeColor="#CC0000" ValidationGroup="add"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="revNombre" runat="server" ControlToValidate="txtNombre" CssClass="rfv" ErrorMessage="Formato incorrecto" Font-Size="12px" ForeColor="#CC0000" ValidationExpression="^[A-Za-z ]+$" ValidationGroup="add"></asp:RegularExpressionValidator>
             <asp:TextBox ID="txtApellido" runat="server" placeholder="Apellido"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfv3" runat="server" ErrorMessage="Apellido Requerido" CssClass="rfv" ControlToValidate="txtApellido" Font-Size="12px" ForeColor="#CC0000" ValidationGroup="add"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="revApellido" runat="server" ControlToValidate="txtApellido" CssClass="rfv" ErrorMessage="Formato incorrecto" Font-Size="12px" ForeColor="#CC0000" ValidationExpression="^[A-Za-z ]+$" ValidationGroup="add"></asp:RegularExpressionValidator>
             <asp:TextBox ID="txtContra" runat="server" placeholder="Contraseña" TextMode="Password"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfv4" runat="server" ErrorMessage="Contraseña Requerida" CssClass="rfv" ControlToValidate="txtContra" Font-Size="12px" ForeColor="#CC0000" ValidationGroup="add"></asp:RequiredFieldValidator>
             <asp:TextBox ID="txtEmail" runat="server" placeholder="E-Mail"></asp:TextBox>
