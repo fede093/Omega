@@ -24,7 +24,7 @@
             </div>
             <asp:ListView ID="lvUsuarios" runat="server" DataKeyNames="Usuario" GroupItemCount="3">
                 <AlternatingItemTemplate>
-                    <td runat="server" style="">&nbsp;<asp:LinkButton ID="lb" runat="server" CommandArgument='<%# Bind("Usuario") %>' CommandName="LB" OnCommand="lb_Command" Text='<%# Bind("Usuario") %>'></asp:LinkButton>
+                    <td runat="server" style=""><asp:LinkButton ID="lb" runat="server" CommandArgument='<%# Bind("Usuario") %>' CommandName="LB" OnCommand="lb_Command" Text='<%# Bind("Usuario") %>'></asp:LinkButton>
                         <br />
                         Nombre:
                         <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
@@ -74,7 +74,7 @@
                         <br /></td>
                 </InsertItemTemplate>
                 <ItemTemplate>
-                    <td runat="server" style="">&nbsp;<asp:LinkButton ID="lb" runat="server" CommandArgument='<%# Bind("Usuario") %>' CommandName="LB" OnCommand="lb_Command" Text='<%# Bind("Usuario") %>'></asp:LinkButton>
+                    <td runat="server" style=""><asp:LinkButton ID="lb" runat="server" CommandArgument='<%# Bind("Usuario") %>' CommandName="LB" OnCommand="lb_Command" Text='<%# Bind("Usuario") %>'></asp:LinkButton>
                         <br />
                         Nombre:
                         <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
