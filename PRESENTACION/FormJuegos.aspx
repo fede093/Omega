@@ -204,11 +204,10 @@
         </table>
         <br />
         <div>
+            <asp:RequiredFieldValidator ID="rfvBuscar" runat="server" ValidationGroup="buscar" ControlToValidate="txtBuscar"></asp:RequiredFieldValidator>
             <asp:TextBox ID="txtBuscar" runat="server" Width="50%" Height="36px" type="text" placeholder="Nombre del juego"></asp:TextBox>
-            <asp:Button ID="btnBuscar" runat="server" Text="Buscar" Width="10%" CssClass="btn btn-default" Height="36px" style="margin-top: 0px" OnClick="btnBuscar_Click"/>
-            <%--<button runat="server" onServerClick="ButtonRefresh_Click">
-                    <span class="glyphicon glyphicon-refresh"></span>
-            </button>--%>
+            <asp:Button ID="btnBuscar" runat="server" Text="Buscar" Width="10%" CssClass="btn btn-default" Height="36px" style="margin-top: 0px" OnClick="btnBuscar_Click" ValidationGroup="buscar"/>
+            <asp:Button ID="btnActualizar" runat="server" Text="Actualizar grilla" Width="10%" Height="36px" OnClick="btnActualizar_Click" />
         </div>
     </div>
     <div class="Label">

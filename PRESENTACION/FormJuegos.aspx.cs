@@ -223,8 +223,17 @@ namespace PRESENTACION
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            String nombre = txtBuscar.Text;
-            cargarGrilla(nombre);
+            if(rfvBuscar.IsValid) 
+            {
+                String nombre = txtBuscar.Text;
+                cargarGrilla(nombre);
+            }            
+        }
+
+        protected void btnActualizar_Click(object sender, EventArgs e)
+        {
+            cargarGrilla();
+            txtBuscar.Text = "";
         }
     }
 }
