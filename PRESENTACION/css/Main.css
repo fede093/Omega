@@ -31,6 +31,17 @@ Input[type='image'] {
     background-color: #d9d9d9;
 }
 
+/*********************************************
+PERFIL.ASPX
+*********************************************/
+#ContentPlaceHolder1_dlUsuario span{
+    padding-left: 10px;
+}
+
+#ContentPlaceHolder1_dlDetalles td{
+    padding: 10px;
+}
+
 /****************************
 DISEÑO DE LOS DIV
 *****************************/
