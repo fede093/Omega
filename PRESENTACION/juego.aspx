@@ -49,8 +49,7 @@
             <br />
             <asp:DataList ID="dlDescripcion" runat="server">
                 <ItemTemplate>
-                    <asp:Label ID="Label100" runat="server" Font-Bold="True" Text=""></asp:Label>
-                    &nbsp;<asp:Label ID="Label856" runat="server" Text='<%# Bind("Descripcion") %>'></asp:Label>
+                    <asp:Label ID="Label856" runat="server" Text='<%# Bind("Descripcion") %>'></asp:Label>
                     <br />
                 </ItemTemplate>
             </asp:DataList>

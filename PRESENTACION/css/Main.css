@@ -42,6 +42,18 @@ PERFIL.ASPX
     padding: 10px;
 }
 
+/*********************************************
+JUEGO.ASPX
+*********************************************/
+
+#ContentPlaceHolder1_dlImagen_Image1_0 {
+    padding: 4%;
+}
+
+#descripcion_juego span{
+    padding: 10px;
+}
+
 /****************************
 DISEÑO DE LOS DIV
 *****************************/
@@ -119,6 +131,7 @@ DISEÑO DE LOS DIV
     height: 200px;
     float: left;
     background-color: #e6e6e6;
+    padding: 3%;
 }
 
 #compra{
