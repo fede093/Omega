@@ -29,8 +29,8 @@ namespace PRESENTACION
                 perfilUsuario.Visible = false;
                 adminLink.Visible = false;
                 log_out.Visible = false;
+                carritoCompras.Visible = false;
             }
-
         }
 
         protected void lbLogOut_Click(object sender, EventArgs e)

@@ -76,6 +76,11 @@
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
+            <div class="nav navbar-nav" id="carritoCompras" runat="server">
+                <a class="user_link" href="carritoCompras.aspx">
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                </a>
+            </div>
             <div class="nav navbar-nav" id="adminLink" runat="server">
                 <a class="user_link" href="FormJuegos.aspx">
                     <span class="glyphicon glyphicon-cog"></span>
