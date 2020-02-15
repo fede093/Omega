@@ -13,5 +13,10 @@ namespace PRESENTACION
         {
 
         }
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
