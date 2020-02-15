@@ -11,10 +11,6 @@ namespace NEGOCIO
 {
     public class n_Compra
     {
-        public DataTable getTabla()
-        {
-            DatosCompra da = new DatosCompra();
-            return da.getTablaCompras();
-        }
+
     }
 }
