@@ -11,6 +11,11 @@ namespace NEGOCIO
 {
     public class n_Compra
     {
-
+        public static DataTable CrearCarrito()
+        {
+            DataTable dt = new DataTable();
+            dt = DatosCompra.CrearCarrito();
+            return dt;
+        }
     }
 }

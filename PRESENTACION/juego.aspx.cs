@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using NEGOCIO;
+using System.Data;
 
 namespace PRESENTACION
 {
@@ -83,8 +84,25 @@ namespace PRESENTACION
         protected void btnAgregarCarrito_Click(object sender, EventArgs e)
         {
             String id_juego = Request.QueryString["cod"];
-            //Response.Redirect("CarritoCompras.aspx?cod=" + id_juego); ESTA MAL
-            //Session["CarritoCompras"] = 
+            if (Session["carritoCompras"] == null)
+            {
+                Session["carritoCompras"] = n_Compra.CrearCarrito();                
+            }
+
+            visibleCarrito();
+            Response.Redirect("CarritoCompras.aspx?cod=" + id_juego);
+        }
+
+        public void visibleCarrito()
+        {
+            if (Session["carritoCompras"] == null || ((DataTable)Session["carritoCompras"]).Rows.Count == 0)
+            {
+                ///ACA SE CONTROLA LA VISIBILIDAD DEL BOTON CARRITO
+            }
+            else
+            {
+                ///ACA SE CONTROLA LA VISIBILIDAD DEL BOTON CARRITO
+            }
         }
     }
 }
