@@ -56,7 +56,7 @@
         </div>
         <div id="controles_compra">
             <div id="compra" runat="server">           
-                <asp:Button ID="btnAgregarCarrito" runat="server" Text="Agregar al carrito" CssClass="btn btn-success" />
+                <asp:Button ID="btnAgregarCarrito" runat="server" Text="Agregar al carrito" CssClass="btn btn-success" OnClick="btnAgregarCarrito_Click" />
                 <asp:Label ID="lblEstado" runat="server"></asp:Label>
             </div>
         </div>

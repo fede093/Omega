@@ -79,5 +79,12 @@ namespace PRESENTACION
                 Response.Redirect("inicio.aspx");
             }
         }
+
+        protected void btnAgregarCarrito_Click(object sender, EventArgs e)
+        {
+            String id_juego = Request.QueryString["cod"];
+            //Response.Redirect("CarritoCompras.aspx?cod=" + id_juego); ESTA MAL
+            //Session["CarritoCompras"] = 
+        }
     }
 }
