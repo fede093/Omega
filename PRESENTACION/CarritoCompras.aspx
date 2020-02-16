@@ -15,13 +15,13 @@
             <asp:Label ID="lblTotal" runat="server"></asp:Label>
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" Text="Seleione un medio de pago"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="Seleione un medio de pago: "></asp:Label>
             <asp:DropDownList ID="ddlMedios" runat="server"></asp:DropDownList>
             <br />
             <asp:Button ID="btnAceptar" runat="server" Text="Comprar" OnClick="btnAceptar_Click" />            
             <br />
             <br />
-            <asp:LinkButton ID="lbSeguirComprando" runat="server">Seguir comprando</asp:LinkButton>
+            <asp:LinkButton ID="lbSeguirComprando" href="inicio.aspx" runat="server">Seguir comprando</asp:LinkButton>
         </div>
     </div>
 </asp:Content>

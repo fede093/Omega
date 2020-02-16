@@ -17,14 +17,11 @@ namespace PRESENTACION
             {
                 Session["carritoCompras"] = n_Compra.CrearCarrito();
             }
+
             if (!IsPostBack)
-            {
-                n_Compra n_compra = new n_Compra();
-                n_Juego n_juego = new n_Juego();
-
-                String id_juego = Request.QueryString["cod"];
-                n_compra.agregarCarrito((DataTable)Session["carritoCompras"], n_juego.ObtenerJuegoId(int.Parse(id_juego)));
-
+            {            
+                agregarCarrito();
+                cargarDropDown();
                 actualizarCarrito();
             }
         }
@@ -34,10 +31,29 @@ namespace PRESENTACION
 
         }
 
+        public void agregarCarrito()
+        {
+            n_Compra n_compra = new n_Compra();
+            n_Juego n_juego = new n_Juego();
+
+            String id_juego = Request.QueryString["cod"];
+            n_compra.agregarCarrito((DataTable)Session["carritoCompras"], n_juego.ObtenerJuegoId(int.Parse(id_juego)));
+        }
+
         public void actualizarCarrito()
         {
             gvCarrito.DataSource = (DataTable)Session["carritoCompras"];
             gvCarrito.DataBind();
+        }
+
+        public void cargarDropDown()
+        {
+            n_Medio n_medioPago = new n_Medio();
+            ddlMedios.DataTextField = "Descripcion";
+            ddlMedios.DataValueField = "Cod_MPago";
+            ddlMedios.DataSource = n_medioPago.getTabla();
+            ddlMedios.DataBind();
+            ddlMedios.Items.Insert(0, "---Nada selecionado---");
         }
     }
 }
