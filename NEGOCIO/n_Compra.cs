@@ -17,5 +17,11 @@ namespace NEGOCIO
             dt = DatosCompra.CrearCarrito();
             return dt;
         }
+
+        public void agregarCarrito(DataTable carrito, Juego juego)
+        {
+            DatosCompra dc = new DatosCompra();
+            dc.AgregarCarrito(carrito, juego);
+        }
     }
 }

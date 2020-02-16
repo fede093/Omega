@@ -84,12 +84,6 @@ namespace PRESENTACION
         protected void btnAgregarCarrito_Click(object sender, EventArgs e)
         {
             String id_juego = Request.QueryString["cod"];
-            if (Session["carritoCompras"] == null)
-            {
-                Session["carritoCompras"] = n_Compra.CrearCarrito();                
-            }
-
-            visibleCarrito();
             Response.Redirect("CarritoCompras.aspx?cod=" + id_juego);
         }
 
