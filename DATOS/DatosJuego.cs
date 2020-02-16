@@ -67,7 +67,8 @@ namespace DATOS
                         juego.distribuidor = (String)dr["Distribuidor"];
                         juego.cod_genero = (int)dr["Genero"];
                         juego.idioma = (String)dr["Idioma"];
-                        //juego.precio = (float)dr["Precio"];
+                        String codigo = dr["Precio"].ToString();
+                        juego.precio = float.Parse(codigo);
                         juego.ruta_imagen = (String)dr["Imagen"];
                         juego.clasificacion = (String)dr["Clasificacion"];
                         juego.pagina = (String)dr["Pagina_oficial"];
