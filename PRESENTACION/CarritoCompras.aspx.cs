@@ -55,5 +55,16 @@ namespace PRESENTACION
             ddlMedios.DataBind();
             ddlMedios.Items.Insert(0, "---Nada selecionado---");
         }
+
+        protected void gvCarrito_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Select")
+            {
+                int pos = int.Parse(e.CommandArgument.ToString());
+                n_Compra n_compra = new n_Compra();
+                n_compra.eliminarCarrito((DataTable)Session["carritoCompras"], pos);
+                actualizarCarrito();
+            }
+        }
     }
 }

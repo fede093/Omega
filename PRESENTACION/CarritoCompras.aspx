@@ -6,7 +6,7 @@
         <div>
             <asp:Label ID="Label2" runat="server" Text="Carrito de compras"></asp:Label>
             <br />
-            <asp:GridView ID="gvCarrito" runat="server">
+            <asp:GridView ID="gvCarrito" runat="server" OnRowCommand="gvCarrito_RowCommand">
                 <Columns>
                     <asp:CommandField SelectText="Eliminar" ShowSelectButton="True" />
                 </Columns>
