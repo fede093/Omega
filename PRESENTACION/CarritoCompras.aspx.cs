@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using NEGOCIO;
+using ENTIDAD;
 using System.Data;
 
 namespace PRESENTACION
@@ -24,11 +25,6 @@ namespace PRESENTACION
                 cargarDropDown();
                 actualizarCarrito();
             }
-        }
-
-        protected void btnAceptar_Click(object sender, EventArgs e)
-        {
-
         }
 
         public void agregarCarrito()
@@ -65,6 +61,28 @@ namespace PRESENTACION
                 n_compra.eliminarCarrito((DataTable)Session["carritoCompras"], pos);
                 actualizarCarrito();
             }
+        }
+
+        protected void btnEjecutarCompra_Click(object sender, EventArgs e)
+        {
+            n_Compra n_compra = new n_Compra();
+            Compra compra = new Compra();
+
+            DataTable carrito = (DataTable)Session["carritoCompras"];
+
+            compra = armarCompra((DataTable)Session["carritoCompras"]);
+            n_compra.ejecutarCompra((DataTable)Session["carritoCompras"], compra);
+        }
+
+        public Compra armarCompra(DataTable carrito)
+        {
+            Compra compra = new Compra();
+            compra.cod_compra = 0; //NO SE USA
+            compra.cod_medio = int.Parse(ddlMedios.SelectedValue);
+            compra.fecha_compra = DateTime.Now;
+            compra.numero_juegos = carrito.Rows.Count;
+            compra.estado = true;
+            return compra;
         }
     }
 }

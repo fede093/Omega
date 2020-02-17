@@ -29,5 +29,11 @@ namespace NEGOCIO
             DatosCompra dc = new DatosCompra();
             dc.EliminaCarrito(carrito, posicion);
         }
+
+        public void ejecutarCompra(DataTable carrito, Compra compra)
+        {
+            DatosCompra dc = new DatosCompra();            
+            dc.EjecutarCompra(carrito, compra);
+        }
     }
 }

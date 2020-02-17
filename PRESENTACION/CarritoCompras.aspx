@@ -18,7 +18,7 @@
             <asp:Label ID="Label1" runat="server" Text="Seleione un medio de pago: "></asp:Label>
             <asp:DropDownList ID="ddlMedios" runat="server"></asp:DropDownList>
             <br />
-            <asp:Button ID="btnAceptar" runat="server" Text="Comprar" OnClick="btnAceptar_Click" />            
+            <asp:Button ID="btnEjecutarCompra" runat="server" Text="Comprar" OnClick="btnEjecutarCompra_Click" />            
             <br />
             <br />
             <asp:LinkButton ID="lbSeguirComprando" href="inicio.aspx" runat="server">Seguir comprando</asp:LinkButton>
