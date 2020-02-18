@@ -43,6 +43,7 @@
     <Compile Include="n_Compra.cs" />
     <Compile Include="n_Genero.cs" />
     <Compile Include="n_Juego.cs" />
+    <Compile Include="n_JuegosUsuarios.cs" />
     <Compile Include="n_Medio.cs" />
     <Compile Include="n_Pais.cs" />
     <Compile Include="n_Review.cs" />

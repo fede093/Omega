@@ -31,7 +31,7 @@ namespace NEGOCIO
         }
 
         public void ejecutarCompra(Compra compra)
-        {
+        {           
             DatosCompra dc = new DatosCompra();            
             dc.InsertaCompra(compra);
         }
