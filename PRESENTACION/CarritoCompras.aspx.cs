@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using NEGOCIO;
 using ENTIDAD;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace PRESENTACION
 {
@@ -68,10 +69,9 @@ namespace PRESENTACION
             n_Compra n_compra = new n_Compra();
             Compra compra = new Compra();
 
-            DataTable carrito = (DataTable)Session["carritoCompras"];
-
+            DataTable carrito = (DataTable)Session["carritoCompras"]; 
             compra = armarCompra((DataTable)Session["carritoCompras"]);
-            n_compra.ejecutarCompra((DataTable)Session["carritoCompras"], compra);
+            n_compra.ejecutarCompra((DataTable)Session["carritoCompras"], compra); /////AGREGA LA COMPRA A LA BASE DE DATOS
         }
 
         public Compra armarCompra(DataTable carrito)

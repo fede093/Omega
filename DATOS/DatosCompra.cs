@@ -29,24 +29,21 @@ namespace DATOS
             return dt;
         }
 
-        public void EjecutarCompra(DataTable carrito, Compra compra)
+        public void InsertaCompra(DataTable carrito, Compra compra)
         {
             AccesoDatos datos = new AccesoDatos();
             SqlConnection conexion = datos.ObtenerConexion();
-            //inserta un registro en la tabla de ventas
-            //por cada elemento del DataTable cesta
-            for (int i = 0; i < carrito.Rows.Count; i++)
-            {
-                String sql = "Insert into Compra ";
-                sql += "(cod_medio, fecha_compra, Numero_juegos, Estado) ";
-                sql += "values (";
-                sql += compra.cod_medio + ",";
-                sql += "'" + compra.fecha_compra + "'";   ////POSIBLEMENTE DE ERROR FECHA==STRING??
-                sql += "," + compra.numero_juegos + ",";
-                sql += "'" + compra.estado + "')";
-                SqlCommand cmd = new SqlCommand(sql, conexion);
-                cmd.ExecuteNonQuery();
-            }
+
+            String sql = "Insert into Compra ";
+            sql += "(cod_medio, fecha_compra, Numero_juegos, Estado) ";
+            sql += "values (";
+            sql += compra.cod_medio + ",";
+            sql += "'" + compra.fecha_compra + "'";   
+            sql += "," + compra.numero_juegos + ",";
+            sql += "'" + compra.estado + "')";
+            SqlCommand cmd = new SqlCommand(sql, conexion);
+            cmd.ExecuteNonQuery();
+
             conexion.Close();
         }
 

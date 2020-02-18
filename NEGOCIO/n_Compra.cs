@@ -33,7 +33,7 @@ namespace NEGOCIO
         public void ejecutarCompra(DataTable carrito, Compra compra)
         {
             DatosCompra dc = new DatosCompra();            
-            dc.EjecutarCompra(carrito, compra);
+            dc.InsertaCompra(carrito, compra);
         }
     }
 }
