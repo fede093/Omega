@@ -30,10 +30,10 @@ namespace NEGOCIO
             dc.EliminaCarrito(carrito, posicion);
         }
 
-        public void ejecutarCompra(DataTable carrito, Compra compra)
+        public void ejecutarCompra(Compra compra)
         {
             DatosCompra dc = new DatosCompra();            
-            dc.InsertaCompra(carrito, compra);
+            dc.InsertaCompra(compra);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace DATOS
             return dt;
         }
 
-        public void InsertaCompra(DataTable carrito, Compra compra)
+        public void InsertaCompra(Compra compra)
         {
             AccesoDatos datos = new AccesoDatos();
             SqlConnection conexion = datos.ObtenerConexion();

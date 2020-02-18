@@ -71,7 +71,7 @@ namespace PRESENTACION
 
             DataTable carrito = (DataTable)Session["carritoCompras"]; 
             compra = armarCompra((DataTable)Session["carritoCompras"]);
-            n_compra.ejecutarCompra((DataTable)Session["carritoCompras"], compra); /////AGREGA LA COMPRA A LA BASE DE DATOS
+            n_compra.ejecutarCompra(compra); /////AGREGA LA COMPRA A LA BASE DE DATOS
         }
 
         public Compra armarCompra(DataTable carrito)
