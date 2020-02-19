@@ -35,5 +35,11 @@ namespace NEGOCIO
             DatosCompra dc = new DatosCompra();            
             dc.InsertaCompra(compra);
         }
+
+        public Compra ObtenerUltimaCompra()
+        {
+            DatosCompra dc = new DatosCompra();
+            return dc.ObtenerUltimaCompra();
+        }
     }
 }

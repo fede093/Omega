@@ -22,7 +22,7 @@ namespace DATOS
                 sql += "(Cod_Compra, Id_juego, Cod_Usuario) ";
                 sql += "values (";
                 sql += juego_usuario.cod_compra + ",";
-                sql += juego_usuario.id_juego + ",";                
+                sql += carrito.Rows[i]["Codigo del juego"] + ",";                
                 sql += "'" + juego_usuario.usuario + "')";
                 SqlCommand cmd = new SqlCommand(sql, conexion);
                 cmd.ExecuteNonQuery();

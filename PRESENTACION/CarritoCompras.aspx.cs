@@ -67,15 +67,21 @@ namespace PRESENTACION
         protected void btnEjecutarCompra_Click(object sender, EventArgs e)
         {
             n_Compra n_compra = new n_Compra();
+            n_JuegosUsuarios n_JuegoUsuario = new n_JuegosUsuarios();
             Compra compra = new Compra();
+            juegoXusuario juego_usuario = new juegoXusuario();
 
-            DataTable carrito = (DataTable)Session["carritoCompras"]; 
+            DataTable carrito = (DataTable)Session["carritoCompras"];
             compra = armarCompra((DataTable)Session["carritoCompras"]);
             n_compra.ejecutarCompra(compra); /////AGREGA LA COMPRA A LA BASE DE DATOS
 
             ////OBTENER EL CODIGO DEL ULTIMO REGISTRO
             ///ARMAR EL JUEGO USUARIO
             ///INSERTAR
+            compra = n_compra.ObtenerUltimaCompra(); ///SE EJECUTA 1 OCACION
+
+            juego_usuario = armarJuegoUsuario(compra.cod_compra);
+            n_JuegoUsuario.InsertaCompra((DataTable)Session["carritoCompras"], juego_usuario);
         }
 
         public Compra armarCompra(DataTable carrito)
@@ -87,6 +93,18 @@ namespace PRESENTACION
             compra.numero_juegos = carrito.Rows.Count;
             compra.estado = true;
             return compra;
+        }
+
+        public juegoXusuario armarJuegoUsuario(int cod)
+        {
+            String id_juego = Request.QueryString["cod"]; ///ESTA MAL, TIENEN QUE AGARRAR DIFERENTE CODIGO
+            juegoXusuario juego_usuario = new juegoXusuario();
+
+            juego_usuario.cod_compra = cod;
+            juego_usuario.id_juego = int.Parse(id_juego);
+            juego_usuario.usuario = Session["UsuarioLogeado"].ToString();
+
+            return juego_usuario;
         }
     }
 }
