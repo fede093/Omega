@@ -67,22 +67,37 @@ namespace DATOS
             return dt;
         }
 
-        public void InsertaCompra(Compra compra)
+        public bool InsertaCompra(Compra compra)
         {
             AccesoDatos datos = new AccesoDatos();
             SqlConnection conexion = datos.ObtenerConexion();
+            if (conexion != null)
+            {
+                String sql = "Insert into Compra ";
+                sql += "(cod_medio, fecha_compra, Numero_juegos, Estado) ";
+                sql += "values (";
+                sql += compra.cod_medio + ",";
+                sql += "'" + compra.fecha_compra + "'";
+                sql += "," + compra.numero_juegos + ",";
+                sql += "'" + compra.estado + "')";
+                SqlCommand cmd = new SqlCommand(sql, conexion);
 
-            String sql = "Insert into Compra ";
-            sql += "(cod_medio, fecha_compra, Numero_juegos, Estado) ";
-            sql += "values (";
-            sql += compra.cod_medio + ",";
-            sql += "'" + compra.fecha_compra + "'";   
-            sql += "," + compra.numero_juegos + ",";
-            sql += "'" + compra.estado + "')";
-            SqlCommand cmd = new SqlCommand(sql, conexion);
-            cmd.ExecuteNonQuery();
-
-            conexion.Close();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    conexion.Close();
+                }                
+            }
+            else
+                return false;
         }
 
         public void AgregarCarrito(DataTable Carrito, Juego juego)

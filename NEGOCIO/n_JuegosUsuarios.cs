@@ -11,10 +11,10 @@ namespace NEGOCIO
 {
     public class n_JuegosUsuarios
     {
-        public void InsertaCompra(DataTable carrito, juegoXusuario juego_usuario)
+        public bool InsertaCompra(DataTable carrito, juegoXusuario juego_usuario)
         {
             DatosJuegosUsuarios datosJuegoUsuario = new DatosJuegosUsuarios();
-            datosJuegoUsuario.InsertaCompra(carrito, juego_usuario);
+            return datosJuegoUsuario.InsertaCompra(carrito, juego_usuario);
         }
     }
 }

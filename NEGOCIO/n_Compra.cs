@@ -30,10 +30,10 @@ namespace NEGOCIO
             dc.EliminaCarrito(carrito, posicion);
         }
 
-        public void ejecutarCompra(Compra compra)
+        public bool ejecutarCompra(Compra compra)
         {           
             DatosCompra dc = new DatosCompra();            
-            dc.InsertaCompra(compra);
+            return dc.InsertaCompra(compra);
         }
 
         public Compra ObtenerUltimaCompra()

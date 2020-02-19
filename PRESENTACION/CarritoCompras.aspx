@@ -13,6 +13,8 @@
             </asp:GridView>
             <br />
             <asp:Label ID="lblTotal" runat="server"></asp:Label>
+            &nbsp;
+            <asp:Label ID="lblEstado" runat="server"></asp:Label>
             <br />
             <br />
             <asp:Label ID="Label1" runat="server" Text="Seleione un medio de pago: "></asp:Label>

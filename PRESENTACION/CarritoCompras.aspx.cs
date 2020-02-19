@@ -87,7 +87,17 @@ namespace PRESENTACION
 
                 compra = n_compra.ObtenerUltimaCompra(); 
                 juego_usuario = armarJuegoUsuario(compra.cod_compra);
-                n_JuegoUsuario.InsertaCompra((DataTable)Session["carritoCompras"], juego_usuario);
+
+                if (n_JuegoUsuario.InsertaCompra((DataTable)Session["carritoCompras"], juego_usuario))
+                {
+                    lblEstado.Text = "Compra exitosa";
+                    lblEstado.ForeColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    lblEstado.Text = "Error al comprar";
+                    lblEstado.ForeColor = System.Drawing.Color.Red;
+                }                
             }
         }
 
