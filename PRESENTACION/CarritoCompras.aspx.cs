@@ -21,8 +21,16 @@ namespace PRESENTACION
             }
 
             if (!IsPostBack)
-            {            
-                agregarCarrito();
+            {
+                if (Session["ClickCarrito"] == null || (bool)Session["ClickCarrito"] == false)
+                {
+                    agregarCarrito();
+                }
+                else
+                {
+                    Session["ClickCarrito"] = false;
+                }
+                
                 cargarDropDown();
                 actualizarCarrito();
             }

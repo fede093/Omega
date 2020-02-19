@@ -54,5 +54,11 @@ namespace PRESENTACION
             //Page.Response.Redirect(Page.Request.Url.ToString(), true);
             Response.Redirect("inicio.aspx");
         }
+
+        protected void ButtonCarrito_Click(object sender, EventArgs e)
+        {
+            Session["ClickCarrito"] = true;
+            Response.Redirect("CarritoCompras.aspx");            
+        }
     }
 }
