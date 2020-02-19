@@ -17,8 +17,9 @@
             <br />
             <asp:Label ID="Label1" runat="server" Text="Seleione un medio de pago: "></asp:Label>
             <asp:DropDownList ID="ddlMedios" runat="server"></asp:DropDownList>
+            <asp:RequiredFieldValidator ID="rfvMedio" runat="server" ErrorMessage="Selecione medio de pago" ControlToValidate="ddlMedios" ForeColor="Red" InitialValue="---Nada selecionado---" ValidationGroup="medio"></asp:RequiredFieldValidator>
             <br />
-            <asp:Button ID="btnEjecutarCompra" runat="server" Text="Comprar" OnClick="btnEjecutarCompra_Click" />            
+            <asp:Button ID="btnEjecutarCompra" runat="server" Text="Comprar" OnClick="btnEjecutarCompra_Click" ValidationGroup="medio" />            
             <br />
             <br />
             <asp:LinkButton ID="lbSeguirComprando" href="inicio.aspx" runat="server">Seguir comprando</asp:LinkButton>

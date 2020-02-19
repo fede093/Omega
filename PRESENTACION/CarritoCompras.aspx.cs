@@ -71,17 +71,16 @@ namespace PRESENTACION
             Compra compra = new Compra();
             juegoXusuario juego_usuario = new juegoXusuario();
 
-            DataTable carrito = (DataTable)Session["carritoCompras"];
-            compra = armarCompra((DataTable)Session["carritoCompras"]);
-            n_compra.ejecutarCompra(compra); /////AGREGA LA COMPRA A LA BASE DE DATOS
+            if (rfvMedio.IsValid)
+            {
+                DataTable carrito = (DataTable)Session["carritoCompras"];
+                compra = armarCompra((DataTable)Session["carritoCompras"]);
+                n_compra.ejecutarCompra(compra); /////AGREGA LA COMPRA A LA BASE DE DATOS
 
-            ////OBTENER EL CODIGO DEL ULTIMO REGISTRO
-            ///ARMAR EL JUEGO USUARIO
-            ///INSERTAR
-            compra = n_compra.ObtenerUltimaCompra(); ///SE EJECUTA 1 OCACION
-
-            juego_usuario = armarJuegoUsuario(compra.cod_compra);
-            n_JuegoUsuario.InsertaCompra((DataTable)Session["carritoCompras"], juego_usuario);
+                compra = n_compra.ObtenerUltimaCompra(); 
+                juego_usuario = armarJuegoUsuario(compra.cod_compra);
+                n_JuegoUsuario.InsertaCompra((DataTable)Session["carritoCompras"], juego_usuario);
+            }
         }
 
         public Compra armarCompra(DataTable carrito)
