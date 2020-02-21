@@ -26,5 +26,13 @@ namespace PRESENTACION
             gvCompras.DataSource = n_compra.getTablaCompra();
             gvCompras.DataBind();
         }
+
+        protected void LinkButton1_Command(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "cod_compra")
+            {
+                Response.Redirect("FormCompraIndividual.aspx?cod=" + e.CommandArgument.ToString());
+            }
+        }
     }
 }

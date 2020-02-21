@@ -13,7 +13,7 @@
             <Columns>
                 <asp:TemplateField HeaderText="Codigo de compra">
                     <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton1" runat="server" Text='<%# Bind("cod_compra") %>'></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Bind("cod_compra") %>' CommandName="cod_compra" OnCommand="LinkButton1_Command" Text='<%# Bind("cod_compra") %>'></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Medio de pago">
