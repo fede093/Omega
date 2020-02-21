@@ -22,9 +22,9 @@ namespace PRESENTACION
 
         public void cargarGrilla()
         {
-            //n_Compra n_compra= new n_Compra();
-            //gvCompras.DataSource = n_compra.getTabla();
-            //gvCompras.DataBind();
+            n_Compra n_compra= new n_Compra();
+            gvCompras.DataSource = n_compra.getTablaCompra();
+            gvCompras.DataBind();
         }
     }
 }

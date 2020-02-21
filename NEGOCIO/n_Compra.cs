@@ -11,6 +11,12 @@ namespace NEGOCIO
 {
     public class n_Compra
     {
+        public DataTable getTablaCompra()
+        {
+            DatosCompra dc = new DatosCompra();
+            return dc.getTablaCompra();
+        }
+
         public static DataTable CrearCarrito()
         {
             DataTable dt = new DataTable();
