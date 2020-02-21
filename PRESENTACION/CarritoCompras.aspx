@@ -10,6 +10,7 @@
                 <Columns>
                     <asp:CommandField SelectText="Eliminar" ShowSelectButton="True" />
                 </Columns>
+                <RowStyle HorizontalAlign="Center" />
             </asp:GridView>
             <br />
             <asp:Label ID="lblTotal" runat="server"></asp:Label>

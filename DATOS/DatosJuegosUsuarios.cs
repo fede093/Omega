@@ -11,9 +11,10 @@ namespace DATOS
 {
     public class DatosJuegosUsuarios
     {
+        AccesoDatos datos = new AccesoDatos();
+
         public bool InsertaCompra(DataTable carrito, juegoXusuario juego_usuario)
-        {
-            AccesoDatos datos = new AccesoDatos();
+        {            
             SqlConnection conexion = datos.ObtenerConexion();
             if (conexion != null)
             {
@@ -40,6 +41,37 @@ namespace DATOS
                 {
                     conexion.Close();
                 }                
+            }
+            else
+                return false;
+        }
+
+        public bool JuegoUsuarioExiste(juegoXusuario juego_usuario)
+        {
+            SqlConnection cn = datos.ObtenerConexion();
+            SqlCommand cmd;
+            SqlDataReader dr;
+            String sql =
+            "select * from juegoXusuario where Id_juego=" + juego_usuario.id_juego + "AND Cod_Usuario='" + juego_usuario.usuario + "'";
+            if (cn != null)
+            {
+                cmd = new SqlCommand(sql, cn);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
             }
             else
                 return false;

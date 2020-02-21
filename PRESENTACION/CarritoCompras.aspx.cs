@@ -68,6 +68,7 @@ namespace PRESENTACION
                 int pos = int.Parse(e.CommandArgument.ToString());
                 n_Compra n_compra = new n_Compra();
                 n_compra.eliminarCarrito((DataTable)Session["carritoCompras"], pos);
+                lblEstado.Text = "";
                 actualizarCarrito();
             }
         }
@@ -81,23 +82,31 @@ namespace PRESENTACION
 
             if (rfvMedio.IsValid)
             {
-                DataTable carrito = (DataTable)Session["carritoCompras"];
-                compra = armarCompra((DataTable)Session["carritoCompras"]);
-                n_compra.ejecutarCompra(compra); /////AGREGA LA COMPRA A LA BASE DE DATOS
-
-                compra = n_compra.ObtenerUltimaCompra(); 
-                juego_usuario = armarJuegoUsuario(compra.cod_compra);
-
-                if (n_JuegoUsuario.InsertaCompra((DataTable)Session["carritoCompras"], juego_usuario))
+                if (!exiteCompra(Session["UsuarioLogeado"].ToString(), (DataTable)Session["carritoCompras"]))
                 {
-                    lblEstado.Text = "Compra exitosa";
-                    lblEstado.ForeColor = System.Drawing.Color.Green;
+                    DataTable carrito = (DataTable)Session["carritoCompras"];
+                    compra = armarCompra((DataTable)Session["carritoCompras"]);
+                    n_compra.ejecutarCompra(compra); /////AGREGA LA COMPRA A LA BASE DE DATOS
+
+                    compra = n_compra.ObtenerUltimaCompra();
+                    juego_usuario = armarJuegoUsuario(compra.cod_compra);
+
+                    if (n_JuegoUsuario.InsertaCompra((DataTable)Session["carritoCompras"], juego_usuario))
+                    {
+                        lblEstado.Text = "Compra exitosa";
+                        lblEstado.ForeColor = System.Drawing.Color.Green;
+                    }
+                    else
+                    {
+                        lblEstado.Text = "Error al comprar";
+                        lblEstado.ForeColor = System.Drawing.Color.Red;
+                    }
                 }
                 else
                 {
-                    lblEstado.Text = "Error al comprar";
+                    lblEstado.Text = "Juego o juegos ya comprados";
                     lblEstado.ForeColor = System.Drawing.Color.Red;
-                }                
+                }  
             }
         }
 
@@ -113,15 +122,30 @@ namespace PRESENTACION
         }
 
         public juegoXusuario armarJuegoUsuario(int cod)
-        {
-            String id_juego = Request.QueryString["cod"]; ///ESTA MAL, TIENEN QUE AGARRAR DIFERENTE CODIGO
+        {            
             juegoXusuario juego_usuario = new juegoXusuario();
 
             juego_usuario.cod_compra = cod;
-            juego_usuario.id_juego = int.Parse(id_juego);
+            juego_usuario.id_juego = 0; //NO SE USA
             juego_usuario.usuario = Session["UsuarioLogeado"].ToString();
 
             return juego_usuario;
+        }
+
+        public bool exiteCompra(String usuario, DataTable carrito)
+        {
+            bool bandera = false;            
+            n_JuegosUsuarios n_juegoUsuario = new n_JuegosUsuarios();
+
+            for(int i=0;i<carrito.Rows.Count;i++)
+            {
+                int cod = int.Parse(carrito.Rows[i]["Codigo del juego"].ToString());                
+                bandera = n_juegoUsuario.ExisteCompra(usuario, cod);
+                System.Diagnostics.Debug.WriteLine(bandera.ToString());
+                if (bandera == true)
+                    break;                
+            }
+            return bandera;
         }
     }
 }
