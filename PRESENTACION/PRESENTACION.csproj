@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CarritoCompras.aspx" />
     <Content Include="css\Admin.css" />
     <Content Include="css\CssLogin.css" />
     <Content Include="css\InicioCss.css" />
@@ -103,6 +104,13 @@
     </Compile>
     <Compile Include="Admi.Master.designer.cs">
       <DependentUpon>Admi.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CarritoCompras.aspx.cs">
+      <DependentUpon>CarritoCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarritoCompras.aspx.designer.cs">
+      <DependentUpon>CarritoCompras.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormCompras.aspx.cs">
       <DependentUpon>FormCompras.aspx</DependentUpon>

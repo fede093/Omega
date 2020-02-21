@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using NEGOCIO;
+using System.Data;
 
 namespace PRESENTACION
 {
@@ -78,6 +79,12 @@ namespace PRESENTACION
             {
                 Response.Redirect("inicio.aspx");
             }
+        }
+
+        protected void btnAgregarCarrito_Click(object sender, EventArgs e)
+        {
+            String id_juego = Request.QueryString["cod"];
+            Response.Redirect("CarritoCompras.aspx?cod=" + id_juego);
         }
     }
 }

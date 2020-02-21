@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using NEGOCIO;
 using ENTIDAD;
+using System.Data;
 
 namespace PRESENTACION
 {
@@ -23,14 +24,28 @@ namespace PRESENTACION
                 }
                 else
                     adminLink.Visible = false;
+
+                visibleCarrito();
             }
             else
             {
                 perfilUsuario.Visible = false;
                 adminLink.Visible = false;
                 log_out.Visible = false;
+                carritoCompras.Visible = false;
             }
+        }
 
+        public void visibleCarrito()
+        {
+            if (Session["carritoCompras"] == null || ((DataTable)Session["carritoCompras"]).Rows.Count == 0)
+            {
+                carritoCompras.Visible = false;
+            }
+            else
+            {
+                carritoCompras.Visible = true;
+            }
         }
 
         protected void lbLogOut_Click(object sender, EventArgs e)
@@ -38,6 +53,12 @@ namespace PRESENTACION
             Session["UsuarioLogeado"] = null;
             //Page.Response.Redirect(Page.Request.Url.ToString(), true);
             Response.Redirect("inicio.aspx");
+        }
+
+        protected void ButtonCarrito_Click(object sender, EventArgs e)
+        {
+            Session["ClickCarrito"] = true;
+            Response.Redirect("CarritoCompras.aspx");            
         }
     }
 }

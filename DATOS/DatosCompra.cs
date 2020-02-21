@@ -12,13 +12,109 @@ namespace DATOS
     public class DatosCompra
     {
         AccesoDatos ds = new AccesoDatos();
-        public DataTable getTablaCompras()
+
+        public Compra ObtenerUltimaCompra()
         {
-            ///////////////MODIFICAR ESTO
-            List<Compra> lista = new List<Compra>();
-            DataTable tabla = ds.ObtenerTabla("Compra", "SELECT DetallesCompra.cod_compra, cod_medio, fecha_compra, Id_juego, Cod_Usuario " +
-                "FROM DetallesCompra INNER JOIN juegoXusuario ON DetallesCompra.cod_compra = juegoXusuario.Cod_Compra;");
-            return tabla;
+            SqlConnection conexion = ds.ObtenerConexion();
+            SqlDataReader dr;
+            String consulta = "select top 1 * from Compra order by cod_compra desc";
+            if (conexion != null)
+            {
+                SqlCommand cmd = new SqlCommand(consulta, conexion);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        Compra com = new Compra();
+                        com.cod_compra = (int)dr["cod_compra"];
+                        com.cod_medio = (int)dr["cod_medio"];
+                        com.fecha_compra = (DateTime)dr["fecha_compra"];
+                        com.numero_juegos = (int)dr["Numero_juegos"];
+                        com.estado = (bool)dr["Estado"];
+
+                        return com;
+                    }
+                    else
+                        return null;
+                }
+                catch (SqlException ex)
+                {
+                    return null;
+                }
+                finally
+                {
+                    conexion.Close();
+                }
+            }
+            else
+                return null;
+        }
+
+        public static DataTable CrearCarrito()
+        {
+            DataTable dt = new DataTable();
+            //el DataTable de la cesta tendrá
+            //tres campos: idLibro, titulo y precio
+            DataColumn dc = new DataColumn("Codigo del juego", System.Type.GetType("System.Int32"));
+            dt.Columns.Add(dc);
+            dc = new DataColumn("Nombre juego", System.Type.GetType("System.String"));
+            dt.Columns.Add(dc);
+            dc = new DataColumn("Precio", System.Type.GetType("System.Decimal"));
+            dt.Columns.Add(dc);
+            dc = new DataColumn("Desarrollador", System.Type.GetType("System.String"));
+            dt.Columns.Add(dc);
+            return dt;
+        }
+
+        public bool InsertaCompra(Compra compra)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            SqlConnection conexion = datos.ObtenerConexion();
+            if (conexion != null)
+            {
+                String sql = "Insert into Compra ";
+                sql += "(cod_medio, fecha_compra, Numero_juegos, Estado) ";
+                sql += "values (";
+                sql += compra.cod_medio + ",";
+                sql += "'" + compra.fecha_compra + "'";
+                sql += "," + compra.numero_juegos + ",";
+                sql += "'" + compra.estado + "')";
+                SqlCommand cmd = new SqlCommand(sql, conexion);
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    conexion.Close();
+                }                
+            }
+            else
+                return false;
+        }
+
+        public void AgregarCarrito(DataTable Carrito, Juego juego)
+        {
+            DataRow dr = Carrito.NewRow();
+            dr["Codigo del juego"] = juego.id_juego;
+            dr["Nombre juego"] = juego.nombre;
+            dr["Precio"] = juego.precio;
+            dr["Desarrollador"] = juego.desarrollador;
+            Carrito.Rows.Add(dr);
+        }
+
+        public void EliminaCarrito(DataTable Carrito, int posicion)
+        {
+            Carrito.Rows.RemoveAt(posicion);
+            if (Carrito.Rows.Count == 0)
+                Carrito = null;
         }
     }
 }

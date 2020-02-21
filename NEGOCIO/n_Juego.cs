@@ -67,5 +67,13 @@ namespace NEGOCIO
             DatosJuego da = new DatosJuego();
             return da.juegoExiste(juego);
         }
+
+        public Juego ObtenerJuegoId(int Id_juego)
+        {
+            DatosJuego dj = new DatosJuego();
+            Juego juego = new Juego();
+            juego = dj.obtenerJuegoId(Id_juego);
+            return juego;
+        }
     }
 }

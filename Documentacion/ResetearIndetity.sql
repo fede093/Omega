@@ -1,0 +1,2 @@
+DBCC CHECKIDENT ('Compra', RESEED, 1002)  
+DBCC CHECKIDENT ('Compra')

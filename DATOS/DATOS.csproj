@@ -44,6 +44,7 @@
     <Compile Include="DatosCompra.cs" />
     <Compile Include="DatosGenero.cs" />
     <Compile Include="DatosJuego.cs" />
+    <Compile Include="DatosJuegosUsuarios.cs" />
     <Compile Include="DatosMedios.cs" />
     <Compile Include="DatosPais.cs" />
     <Compile Include="DatosReview.cs" />

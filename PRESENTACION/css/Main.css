@@ -134,35 +134,13 @@ DISEÑO DE LOS DIV
     padding: 3%;
 }
 
-#compra{
-    text-align:center;
-    float: left;
+#controles_compra {
+    padding: 20px 3.5% 20px 3.5%;   /****TOP RIGTH BOTTOM LEFT****/
     width: 100%;
-    height: 500px;
-}
-
-#dropDown{
-    width: 40%;
     float: left;
-    height: 100px;
-}
-
-.MediosdePago{
-    float:right;
-}
-
-#dataCompra {
-    width: 60%;
-    height: 100px;
-    float: right;
-}
-
-.DDLCompra{
-    float:left;
 }
 
 /************PERFIL.ASPX*****************/
-
 #usuario_icon {
     width: 20%;
     height: 100px;
@@ -235,6 +213,11 @@ NAVBAR
 
 #perfilUsuario{
     float: right;
+}
+
+#carritoCompras {
+    float: right;
+    background-color: #0ac238;
 }
 
 #adminLink {

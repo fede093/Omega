@@ -81,6 +81,11 @@
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
             </div>
+            <div class="nav navbar-nav" id="carritoCompras" runat="server">
+                <asp:LinkButton ID="lbCarrito" runat="server" CssClass="user_link" OnClick="ButtonCarrito_Click">                
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                </asp:LinkButton>
+            </div>
             <ul class="nav navbar-nav navbar-right" style="margin: 0 20px;" id="userLogin" runat="server">
                 <a href="Login.aspx" id="iconLogin"><span class="glyphicon glyphicon-log-in" style="margin: 0 10px;"></span>Iniciar sesión</a>
                 <a href="Registro.aspx" id="iconLogin"><span class="glyphicon glyphicon-user" style="margin: 0 10px;"></span>Registrarse</a>

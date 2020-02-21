@@ -11,10 +11,35 @@ namespace NEGOCIO
 {
     public class n_Compra
     {
-        public DataTable getTabla()
+        public static DataTable CrearCarrito()
         {
-            DatosCompra da = new DatosCompra();
-            return da.getTablaCompras();
+            DataTable dt = new DataTable();
+            dt = DatosCompra.CrearCarrito();
+            return dt;
+        }
+
+        public void agregarCarrito(DataTable carrito, Juego juego)
+        {
+            DatosCompra dc = new DatosCompra();
+            dc.AgregarCarrito(carrito, juego);
+        }
+
+        public void eliminarCarrito(DataTable carrito, int posicion)
+        {
+            DatosCompra dc = new DatosCompra();
+            dc.EliminaCarrito(carrito, posicion);
+        }
+
+        public bool ejecutarCompra(Compra compra)
+        {           
+            DatosCompra dc = new DatosCompra();            
+            return dc.InsertaCompra(compra);
+        }
+
+        public Compra ObtenerUltimaCompra()
+        {
+            DatosCompra dc = new DatosCompra();
+            return dc.ObtenerUltimaCompra();
         }
     }
 }

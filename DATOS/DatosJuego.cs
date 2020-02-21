@@ -45,6 +45,53 @@ namespace DATOS
             return tabla;
         }
 
+        public Juego obtenerJuegoId(int idJuego)
+        {
+            SqlConnection conexion = ds.ObtenerConexion();
+            SqlDataReader dr;
+            String consulta = "Select * from Juego where Id_juego=" + idJuego;
+            if (conexion != null)
+            {
+                SqlCommand cmd = new SqlCommand(consulta, conexion);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        Juego juego = new Juego();
+                        juego.id_juego = (int)dr["Id_juego"];
+                        juego.nombre = (String)dr["Nombre"];
+                        juego.descripcion = (String)dr["Descripcion"];
+                        juego.fecha_lanzamiento = (DateTime)dr["Fecha_Lanzamiento"];
+                        juego.desarrollador = (String)dr["Desarrollador"];
+                        juego.distribuidor = (String)dr["Distribuidor"];
+                        juego.cod_genero = (int)dr["Genero"];
+                        juego.idioma = (String)dr["Idioma"];
+                        String codigo = dr["Precio"].ToString();
+                        juego.precio = float.Parse(codigo);
+                        juego.ruta_imagen = (String)dr["Imagen"];
+                        juego.clasificacion = (String)dr["Clasificacion"];
+                        juego.pagina = (String)dr["Pagina_oficial"];
+                        juego.estado = (bool)dr["Estado"];
+
+                        return juego;
+                    }
+                    else
+                        return null;
+                }
+                catch (SqlException ex)
+                {
+                    return null;
+                }
+                finally
+                {
+                    conexion.Close();
+                }
+            }
+            else
+                return null;
+        }
+
         public void armarParametros(ref SqlCommand Comando, Juego juego)
         {
             SqlParameter SqlParametros = new SqlParameter();

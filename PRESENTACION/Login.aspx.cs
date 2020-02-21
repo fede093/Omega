@@ -24,7 +24,7 @@ namespace PRESENTACION
             if (n_usuario.estaRegistrado(usuario, clave))
             {
                 Session["UsuarioLogeado"] = txtNombre.Text;
-                Response.Redirect("inicio.aspx");
+                Response.Redirect("inicio.aspx");                
             }              
             else
             {
