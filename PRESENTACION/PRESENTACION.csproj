@@ -73,6 +73,7 @@
     <Content Include="css\CssLogin.css" />
     <Content Include="css\InicioCss.css" />
     <Content Include="css\Main.css" />
+    <Content Include="FormCompraIndividual.aspx" />
     <Content Include="FormCompras.aspx" />
     <Content Include="FormGenero.aspx" />
     <Content Include="FormJuegos.aspx" />
@@ -111,6 +112,13 @@
     </Compile>
     <Compile Include="CarritoCompras.aspx.designer.cs">
       <DependentUpon>CarritoCompras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormCompraIndividual.aspx.cs">
+      <DependentUpon>FormCompraIndividual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormCompraIndividual.aspx.designer.cs">
+      <DependentUpon>FormCompraIndividual.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormCompras.aspx.cs">
       <DependentUpon>FormCompras.aspx</DependentUpon>

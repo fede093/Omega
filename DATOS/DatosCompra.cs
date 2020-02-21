@@ -13,6 +13,13 @@ namespace DATOS
     {
         AccesoDatos ds = new AccesoDatos();
 
+        public DataTable getTablaCompra()
+        {            
+            DataTable tabla = ds.ObtenerTabla("Pais", "Select * from Compra inner join MedioPago on " +
+                "Compra.cod_medio = MedioPago.Cod_MPago where Compra.Estado=1");
+            return tabla;
+        }
+
         public Compra ObtenerUltimaCompra()
         {
             SqlConnection conexion = ds.ObtenerConexion();

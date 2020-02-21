@@ -22,9 +22,17 @@ namespace PRESENTACION
 
         public void cargarGrilla()
         {
-            //n_Compra n_compra= new n_Compra();
-            //gvCompras.DataSource = n_compra.getTabla();
-            //gvCompras.DataBind();
+            n_Compra n_compra= new n_Compra();
+            gvCompras.DataSource = n_compra.getTablaCompra();
+            gvCompras.DataBind();
+        }
+
+        protected void LinkButton1_Command(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "cod_compra")
+            {
+                Response.Redirect("FormCompraIndividual.aspx?cod=" + e.CommandArgument.ToString());
+            }
         }
     }
 }

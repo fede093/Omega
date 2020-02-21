@@ -11,6 +11,12 @@ namespace NEGOCIO
 {
     public class n_JuegosUsuarios
     {
+        public DataTable getTablaCompraIndividual(int cod)
+        {
+            DatosJuegosUsuarios dju = new DatosJuegosUsuarios();
+            return dju.getTablaCompraIndividual(cod);
+        }
+
         public bool InsertaCompra(DataTable carrito, juegoXusuario juego_usuario)
         {
             DatosJuegosUsuarios datosJuegoUsuario = new DatosJuegosUsuarios();

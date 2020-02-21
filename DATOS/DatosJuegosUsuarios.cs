@@ -13,6 +13,13 @@ namespace DATOS
     {
         AccesoDatos datos = new AccesoDatos();
 
+        public DataTable getTablaCompraIndividual(int cod)
+        {
+            DataTable tabla = datos.ObtenerTabla("Pais", "select juegoXusuario.Cod_Compra, juegoXusuario.Cod_Usuario, Juego.Nombre from juegoXusuario " +
+                "inner join Juego on juegoXusuario.Id_juego = Juego.Id_juego where Cod_Compra =" + cod);
+            return tabla;
+        }
+
         public bool InsertaCompra(DataTable carrito, juegoXusuario juego_usuario)
         {            
             SqlConnection conexion = datos.ObtenerConexion();
