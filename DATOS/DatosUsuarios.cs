@@ -39,11 +39,9 @@ namespace DATOS
 
         public DataTable getJuegosComprados(String usuario)
         {
-            DataTable tabla = ds.ObtenerTabla("Usuario", "SELECT Juego.Imagen, Juego.Nombre, juegoXusuario.Cod_Usuario, DetallesCompra.fecha_compra, MedioPago.Cod_MPago, MedioPago.Descripcion, Juego.Id_juego FROM Juego " +
-                "INNER JOIN juegoXusuario ON Juego.Id_juego = juegoXusuario.Id_juego " +
-                "INNER JOIN DetallesCompra ON juegoXusuario.Cod_Compra = DetallesCompra.cod_compra " +
-                "INNER JOIN MedioPago ON DetallesCompra.cod_medio = MedioPago.Cod_MPago WHERE Cod_Usuario = '" + usuario + "' and " +
-                "DetallesCompra.Estado = 1 and Juego.Estado = 1");
+            DataTable tabla = ds.ObtenerTabla("Usuario", "select Usuario.Usuario, Juego.Nombre, Juego.Imagen, juegoXusuario.Id_juego from Usuario inner join juegoXusuario " +
+                "on Usuario.Usuario = juegoXusuario.Cod_Usuario inner join Juego on " +
+                "juegoXusuario.Id_juego = Juego.Id_juego where usuario = '" + usuario + "'");
             return tabla;
         }
 

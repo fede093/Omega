@@ -30,7 +30,7 @@ namespace PRESENTACION
                 }
                 cargarLabelUsuario(usuario);
                 cargarListDetalles(usuario);
-                //cargarListComprados(usuario);
+                cargarListComprados(usuario);
                 Session["clickPerfil"] = null;
             }
         }
@@ -49,12 +49,12 @@ namespace PRESENTACION
             dlDetalles.DataBind();
         }
 
-        //public void cargarListComprados(String usuario)
-        //{
-        //    n_Usuario n_usuario = new n_Usuario();
-        //    lvComprados.DataSource = n_usuario.getJuegosComprados(usuario);
-        //    lvComprados.DataBind();
-        //}
+        public void cargarListComprados(String usuario)
+        {
+            n_Usuario n_usuario = new n_Usuario();
+            lvJuegosComprados.DataSource = n_usuario.getJuegosComprados(usuario);
+            lvJuegosComprados.DataBind();
+        }
 
         protected void ImageButton2_Command(object sender, CommandEventArgs e)
         {
@@ -115,6 +115,14 @@ namespace PRESENTACION
             {
                 Button btn = (Button)e.Item.FindControl("Button1");
                 btn.Visible = false;
+            }
+        }
+
+        protected void ImageButton1_Command(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "imageClick")
+            {
+                Response.Redirect("juego.aspx?cod=" + e.CommandArgument.ToString());
             }
         }
     }
