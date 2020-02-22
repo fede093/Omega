@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using NEGOCIO;
+using ENTIDAD;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -69,7 +70,43 @@ namespace PRESENTACION
             {
                 dlDetalles.EditItemIndex = e.Item.ItemIndex;
                 cargarListDetalles(usuario);
-            }            
+            }
+            if (e.CommandName == "cancelar-edit")
+            {
+                dlDetalles.EditItemIndex = -1;
+                cargarListDetalles(usuario);
+            }
+            if (e.CommandName == "aceptar-edit")
+            {                
+                Usuario usu = new Usuario();
+                n_Usuario n_usuario = new n_Usuario();
+                
+                usu = armarUsuario();
+                if (n_usuario.editarUsuario(usu))
+                {
+                    Response.Redirect("perfil.aspx");
+                }                
+            }
+        }
+
+        public Usuario armarUsuario()
+        {
+            Usuario usuario = new Usuario();
+            n_Usuario n_usuario = new n_Usuario();
+
+            var dataListItem = dlDetalles.Items[dlDetalles.EditItemIndex];
+            usuario.usuario = Session["UsuarioLogeado"].ToString();
+            usuario.nombre = ((TextBox)dataListItem.FindControl("txtNombre")).Text;
+            usuario.apelido = ((TextBox)dataListItem.FindControl("txtApellido")).Text;
+            usuario.email = ((TextBox)dataListItem.FindControl("txtEmail")).Text;
+            usuario.telefono = ((TextBox)dataListItem.FindControl("txtTelefono")).Text;
+            usuario.estado = true;
+            usuario.contra = ((TextBox)dataListItem.FindControl("txtContra")).Text;
+            String cod = ((DropDownList)dataListItem.FindControl("ddlContra")).SelectedValue;
+            usuario.cod_pais = int.Parse(cod);
+            usuario.administrador = n_usuario.esAdministrador(Session["UsuarioLogeado"].ToString());
+
+            return usuario;
         }
     }
 }
