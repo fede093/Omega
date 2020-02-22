@@ -22,10 +22,11 @@ namespace PRESENTACION
                 if (Session["clickPerfil"] != null)
                 {
                     usuario = Request.QueryString["usu"];
+
                 }
                 else
                 {
-                    usuario = Session["UsuarioLogeado"].ToString();
+                    usuario = Session["UsuarioLogeado"].ToString();                    
                 }
                 cargarLabelUsuario(usuario);
                 cargarListDetalles(usuario);
@@ -92,8 +93,7 @@ namespace PRESENTACION
         public Usuario armarUsuario()
         {
             Usuario usuario = new Usuario();
-            n_Usuario n_usuario = new n_Usuario();
-
+            n_Usuario n_usuario = new n_Usuario();            
             var dataListItem = dlDetalles.Items[dlDetalles.EditItemIndex];
             usuario.usuario = Session["UsuarioLogeado"].ToString();
             usuario.nombre = ((TextBox)dataListItem.FindControl("txtNombre")).Text;
@@ -107,6 +107,15 @@ namespace PRESENTACION
             usuario.administrador = n_usuario.esAdministrador(Session["UsuarioLogeado"].ToString());
 
             return usuario;
+        }
+
+        protected void dlDetalles_ItemDataBound(object sender, DataListItemEventArgs e)
+        {                        
+            if(e.Item.ItemType == ListItemType.Item && Session["clickPerfil"] != null)
+            {
+                Button btn = (Button)e.Item.FindControl("Button1");
+                btn.Visible = false;
+            }
         }
     }
 }

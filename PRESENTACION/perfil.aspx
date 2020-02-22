@@ -21,7 +21,7 @@
             </asp:DataList>
         </div>
         <div id="detalles_usuarios">
-            <asp:DataList ID="dlDetalles" runat="server" CssClass="auto-style2" OnItemCommand="dlDetalles_ItemCommand">
+            <asp:DataList ID="dlDetalles" runat="server" CssClass="auto-style2" OnItemCommand="dlDetalles_ItemCommand" OnItemDataBound="dlDetalles_ItemDataBound">
                 <EditItemTemplate>
                     Nombre:
                     <asp:TextBox ID="txtNombre" runat="server" Text='<%# Bind("Nombre") %>'></asp:TextBox>
