@@ -21,7 +21,31 @@
             </asp:DataList>
         </div>
         <div id="detalles_usuarios">
-            <asp:DataList ID="dlDetalles" runat="server" CssClass="auto-style2">
+            <asp:DataList ID="dlDetalles" runat="server" CssClass="auto-style2" OnItemCommand="dlDetalles_ItemCommand" OnItemDataBound="dlDetalles_ItemDataBound">
+                <EditItemTemplate>
+                    Nombre:
+                    <asp:TextBox ID="txtNombre" runat="server" Text='<%# Bind("Nombre") %>'></asp:TextBox>
+                    <br />
+                    Apellido:
+                    <asp:TextBox ID="txtApellido" runat="server" Text='<%# Bind("Apellido") %>'></asp:TextBox>
+                    <br />
+                    Telefono:
+                    <asp:TextBox ID="txtTelefono" runat="server" Text='<%# Bind("Telefono") %>'></asp:TextBox>
+                    <br />
+                    Email:
+                    <asp:TextBox ID="txtEmail" runat="server" Text='<%# Bind("Email") %>'></asp:TextBox>
+                    <br />
+                    Pais:
+                    <asp:DropDownList ID="ddlContra" runat="server" DataSourceID="SqlDataSource1" DataTextField="Nombre" DataValueField="Cod_Pais">
+                    </asp:DropDownList>
+                    <br />
+                    Contraseña:
+                    <asp:TextBox ID="txtContra" runat="server" Text='<%# Bind("Contraseña") %>'></asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Button ID="Button3" runat="server" CommandName="aceptar-edit" CssClass="btn btn-success" Text="Aceptar" />
+                    <asp:Button ID="Button2" runat="server" CommandName="cancelar-edit" CssClass="btn btn-danger" Text="Cancelar" />
+                </EditItemTemplate>
                 <ItemTemplate>
                     Nombre:
                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
@@ -37,10 +61,13 @@
                     <br />
                     Pais:
                     <asp:Label ID="Label8" runat="server" Text='<%# Bind("Nombre1") %>'></asp:Label>
+                    <br />
+                    <br />
+                    <asp:Button ID="Button1" runat="server" CommandName="editar" CssClass="btn btn-default" Text="Editar datos"/>
                 </ItemTemplate>
             </asp:DataList>
         </div>
-        <div id="juegos_comprados">
+        <%--<div id="juegos_comprados">
             <asp:ListView ID="lvComprados" runat="server" GroupItemCount="3">
                 <AlternatingItemTemplate>
                     <td runat="server" style="">
@@ -177,8 +204,8 @@
                     </td>
                 </SelectedItemTemplate>
             </asp:ListView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OmegaConnectionString %>" SelectCommand="SELECT Juego.Imagen, Juego.Nombre, juegoXusuario.Cod_Usuario, DetallesCompra.fecha_compra, MedioPago.Cod_MPago, MedioPago.Descripcion FROM Juego INNER JOIN juegoXusuario ON Juego.Id_juego = juegoXusuario.Id_juego 
-INNER JOIN DetallesCompra ON juegoXusuario.Cod_Compra = DetallesCompra.cod_compra INNER JOIN MedioPago ON DetallesCompra.cod_medio = MedioPago.Cod_MPago "></asp:SqlDataSource>
-        </div>
+        </div>--%>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Omega %>" SelectCommand="SELECT [Cod_Pais], [Nombre] FROM [Pais]"></asp:SqlDataSource>
+
     </div>
 </asp:Content>
