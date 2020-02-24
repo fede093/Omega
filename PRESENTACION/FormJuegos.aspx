@@ -243,7 +243,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Fecha de lanzamiento">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtFecha_edit" runat="server" Text='<%# Bind("Fecha_Lanzamiento") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtFecha_edit" runat="server" Text='<%# Bind("Fecha_Lanzamiento", "{0:dd/MM/yyyy}") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lblFecha" runat="server" Text='<%# Bind("Fecha_Lanzamiento", "{0:dd/MM/yyyy}") %>'></asp:Label>
