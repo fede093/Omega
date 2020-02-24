@@ -140,6 +140,12 @@ DISEÑO DE LOS DIV
     float: left;
 }
 
+#controles-review {
+    padding: 20px 3.5% 20px 3.5%;
+    width: 100%;
+    float: left;
+}
+
 /************PERFIL.ASPX*****************/
 #usuario_icon {
     width: 20%;

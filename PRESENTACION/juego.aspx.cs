@@ -86,5 +86,10 @@ namespace PRESENTACION
             String id_juego = Request.QueryString["cod"];
             Response.Redirect("CarritoCompras.aspx?cod=" + id_juego);
         }
+
+        protected void btnPublicar_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
