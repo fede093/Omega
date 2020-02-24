@@ -13,8 +13,7 @@ namespace DATOS
     {
         AccesoDatos ds = new AccesoDatos();
         public DataTable getTablaReviews()
-        {
-            List<Review> lista = new List<Review>();
+        {            
             DataTable tabla = ds.ObtenerTabla("Review", "Select * from Review");
             return tabla;
         }
@@ -32,6 +31,35 @@ namespace DATOS
 
             SqlParametros = Comando.Parameters.Add("@COD_REVIEW", SqlDbType.Int);
             SqlParametros.Value = review.cod_review;
+        }
+
+        public bool insertarReview(Review review)
+        {
+            SqlConnection cn = ds.ObtenerConexion();
+
+            if (cn != null)
+            {
+                SqlCommand cmd;
+                String sql = "INSERT INTO Review(Detalle, Fecha_review, Estado) values('" 
+                    + review.detalle + "', '" + review.fecha_review + "', '" + review.estado + "')";
+
+                cmd = new SqlCommand(sql, cn);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+                return false;
         }
     }
 }

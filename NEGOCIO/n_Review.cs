@@ -23,5 +23,11 @@ namespace NEGOCIO
             DatosReview da = new DatosReview();
             return da.eliminarReviews(review);
         }
+
+        public bool insertarReview(Review review)
+        {
+            DatosReview dr = new DatosReview();
+            return dr.insertarReview(review);
+        }
     }
 }
