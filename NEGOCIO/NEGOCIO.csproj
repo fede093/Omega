@@ -47,6 +47,7 @@
     <Compile Include="n_Medio.cs" />
     <Compile Include="n_Pais.cs" />
     <Compile Include="n_Review.cs" />
+    <Compile Include="n_ReviewJuego.cs" />
     <Compile Include="n_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
