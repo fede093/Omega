@@ -61,5 +61,42 @@ namespace DATOS
             else
                 return false;
         }
+
+        public Review ObtenerUltimoReview()
+        {
+            SqlConnection conexion = ds.ObtenerConexion();
+            SqlDataReader dr;
+            String consulta = "select top 1 * from Review order by Cod_review desc";
+            if (conexion != null)
+            {
+                SqlCommand cmd = new SqlCommand(consulta, conexion);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        Review review = new Review();
+                        review.cod_review = (int)dr["Cod_review"];
+                        review.detalle = (string)dr["Detalle"];
+                        review.fecha_review = (DateTime)dr["Fecha_review"];
+                        review.estado = (bool)dr["Estado"];
+
+                        return review;
+                    }
+                    else
+                        return null;
+                }
+                catch (SqlException ex)
+                {
+                    return null;
+                }
+                finally
+                {
+                    conexion.Close();
+                }
+            }
+            else
+                return null;
+        }
     }
 }

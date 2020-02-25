@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using NEGOCIO;
+using ENTIDAD;
 using System.Data;
 
 namespace PRESENTACION
@@ -89,7 +90,43 @@ namespace PRESENTACION
 
         protected void btnPublicar_Click(object sender, EventArgs e)
         {
-            
+            n_Review n_review = new n_Review();
+            Review review = new Review();
+
+            review = armarReview();
+            n_review.insertarReview(review);
+
+            n_ReviewJuego n_reviewJuego = new n_ReviewJuego();
+            Review_Juego review_juego = new Review_Juego();
+
+            review_juego = armarReviewJuego();
+            n_reviewJuego.InsertarReviewJuego(review_juego);
+        }
+
+        public Review armarReview()
+        {
+            Review review = new Review();
+            review.cod_review = 0; ///NO SE USA
+            review.detalle = txtReview.Text;
+            review.estado = true;
+            review.fecha_review = DateTime.Now;
+            return review;
+        }
+
+        public Review_Juego armarReviewJuego()
+        {
+            Review_Juego review_juego = new Review_Juego();
+            n_Review n_review = new n_Review();
+            Review review = new Review();
+
+            String id = Request.QueryString["cod"];
+            review = n_review.ObtenerUltimoReview();
+
+            review_juego.cod_juego = int.Parse(id);
+            review_juego.cod_usuario = Session["UsuarioLogeado"].ToString();
+            review_juego.cod_review = review.cod_review;
+
+            return review_juego;
         }
     }
 }
