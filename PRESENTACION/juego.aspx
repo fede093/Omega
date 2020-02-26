@@ -61,7 +61,7 @@
             </div>
         </div>
         <div id="controles-review">
-            <div id="escribir-review">
+            <div id="EscribirReview" runat="server">
                 <asp:Label ID="Label1" runat="server" Text="Escribir review" Font-Size="Large"></asp:Label>
                 <br />
                 <br />

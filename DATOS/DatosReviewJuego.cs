@@ -41,5 +41,36 @@ namespace DATOS
             else
                 return false;
         }
+
+        public bool ExisteReviewJuego(Review_Juego review_juego)
+        {
+            SqlConnection cn = ds.ObtenerConexion();
+            SqlCommand cmd;
+            SqlDataReader dr;
+            String sql =
+            "select * from RevXJue where Id_juego=" + review_juego.cod_juego + "AND Cod_Usuario='" + review_juego.cod_usuario + "'";
+            if (cn != null)
+            {
+                cmd = new SqlCommand(sql, cn);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+                return false;
+        }
     }
 }

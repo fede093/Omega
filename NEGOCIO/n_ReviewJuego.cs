@@ -16,5 +16,11 @@ namespace NEGOCIO
             DatosReviewJuego rj = new DatosReviewJuego();
             return rj.InsertarReviewJuego(review_juego);
         }
+
+        public bool ExisteReviewJuego(Review_Juego review_juego)
+        {
+            DatosReviewJuego djr = new DatosReviewJuego();
+            return djr.ExisteReviewJuego(review_juego);
+        }
     }
 }
