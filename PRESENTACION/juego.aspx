@@ -60,5 +60,19 @@
                 <asp:Label ID="lblEstado" runat="server"></asp:Label>
             </div>
         </div>
+        <div id="controles-review">
+            <div id="EscribirReview" runat="server">
+                <asp:Label ID="Label1" runat="server" Text="Escribir review" Font-Size="Large"></asp:Label>
+                <br />
+                <br />
+                <asp:TextBox ID="txtReview" runat="server" TextMode="MultiLine" Width="800px" Height="150px"></asp:TextBox>
+                <br />
+                <asp:Button ID="btnPublicar" runat="server" Text="Publicar review" OnClick="btnPublicar_Click" CssClass="btn btn-success" />
+                <asp:Label ID="lblEstadoReview" runat="server"></asp:Label>
+            </div>
+            <div id="lista-review">
+
+            </div>
+        </div>
      </div>
 </asp:Content>

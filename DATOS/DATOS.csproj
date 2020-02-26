@@ -48,6 +48,7 @@
     <Compile Include="DatosMedios.cs" />
     <Compile Include="DatosPais.cs" />
     <Compile Include="DatosReview.cs" />
+    <Compile Include="DatosReviewJuego.cs" />
     <Compile Include="DatosUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

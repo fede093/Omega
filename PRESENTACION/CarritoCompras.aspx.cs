@@ -141,7 +141,7 @@ namespace PRESENTACION
             {
                 int cod = int.Parse(carrito.Rows[i]["Codigo del juego"].ToString());                
                 bandera = n_juegoUsuario.ExisteCompra(usuario, cod);
-                System.Diagnostics.Debug.WriteLine(bandera.ToString());
+                //System.Diagnostics.Debug.WriteLine(bandera.ToString())
                 if (bandera == true)
                     break;                
             }
