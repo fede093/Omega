@@ -25,7 +25,27 @@
                 </Titles>
             </asp:Chart>
         </div>
-        <div id="derecha_superior"></div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Omega %>" SelectCommand="select * from Usuario inner join Pais on Usuario.Cod_Pais=Pais.Cod_Pais"></asp:SqlDataSource>
+        <div id="derecha_superior">
+            <asp:Chart ID="Chart1" runat="server" BackColor="204, 204, 204" DataSourceID="SqlDataSource2" Width="500px">
+                <Series>
+                    <asp:Series Name="Series1" ChartArea="Genero" ChartType="Doughnut" Legend="Legend1" Font="Century Gothic, 8.25pt" XValueMember="NombreGenero" YValueMembers="Cod_Genero"></asp:Series>
+                </Series>
+                <ChartAreas>
+                    <asp:ChartArea Name="Genero" BackColor="204, 204, 204"></asp:ChartArea>
+                </ChartAreas>
+                <Legends>
+                    <asp:Legend Font="Century Gothic, 8.25pt" IsTextAutoFit="False" Name="Legend1" BackColor="41, 44, 51" ForeColor="204, 204, 204">
+                    </asp:Legend>
+                </Legends>
+                <Titles>
+                    <asp:Title Font="Century Gothic, 12pt" Name="Title1" Text="Cantidad de juegos por generos">
+                    </asp:Title>
+                </Titles>
+            </asp:Chart>
+        </div>
+        <div>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Omega %>" SelectCommand="select * from Usuario inner join Pais on Usuario.Cod_Pais=Pais.Cod_Pais"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Omega %>" SelectCommand="select * from Juego inner join Genero on Juego.Genero=Genero.Cod_Genero"></asp:SqlDataSource>
+        </div>
     </div>
 </asp:Content>
