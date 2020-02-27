@@ -92,8 +92,15 @@ DISEÑO DE LOS DIV
     text-align: center;
 }
 
-/************JUEGO.ASPX*****************/
+#ContentPlaceHolder1_cReporte1 {
+    padding-top: 20px;
+}
 
+#ContentPlaceHolder1_Chart1{
+    padding-top: 20px;
+}
+
+/************JUEGO.ASPX*****************/
 .div_principal {
     height: 1000px;
     width: 100%;
