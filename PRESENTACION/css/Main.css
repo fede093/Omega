@@ -81,25 +81,12 @@ DISEÑO DE LOS DIV
     background-color: #d9d9d9;
     float: left;
     width: 50%;
+    text-align: center;
 }
 
 #derecha_superior {
     height: 400px;
     background-color: #e6e6e6;
-    float: right;
-    width: 50%;
-}
-
-#izquierda_inferior {
-    height: 400px;
-    background-color: #e6e6e6;
-    float: left;
-    width: 50%;
-}
-
-#derecha_inferior {
-    height: 400px;
-    background-color: #d9d9d9;
     float: right;
     width: 50%;
 }
