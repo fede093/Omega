@@ -125,6 +125,7 @@ namespace PRESENTACION
             compra.fecha_compra = DateTime.Now;
             compra.numero_juegos = carrito.Rows.Count;
             compra.estado = true;
+            compra.precioTotal = int.Parse(lblTotal.Text);
             return compra;
         }
 
