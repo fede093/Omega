@@ -81,31 +81,26 @@ DISEÑO DE LOS DIV
     background-color: #d9d9d9;
     float: left;
     width: 50%;
+    text-align: center;
 }
 
 #derecha_superior {
     height: 400px;
-    background-color: #e6e6e6;
-    float: right;
-    width: 50%;
-}
-
-#izquierda_inferior {
-    height: 400px;
-    background-color: #e6e6e6;
-    float: left;
-    width: 50%;
-}
-
-#derecha_inferior {
-    height: 400px;
     background-color: #d9d9d9;
     float: right;
     width: 50%;
+    text-align: center;
+}
+
+#ContentPlaceHolder1_cReporte1 {
+    padding-top: 20px;
+}
+
+#ContentPlaceHolder1_Chart1{
+    padding-top: 20px;
 }
 
 /************JUEGO.ASPX*****************/
-
 .div_principal {
     height: 1000px;
     width: 100%;
