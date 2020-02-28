@@ -33,7 +33,14 @@ namespace PRESENTACION
                 
                 cargarDropDown();
                 actualizarCarrito();
+                cargarLabelPrecio();
             }
+        }
+
+        public void cargarLabelPrecio()
+        {
+            DataTable carrito = (DataTable)Session["carritoCompras"];
+            lblTotal.Text = precioTotal(carrito).ToString();
         }
 
         public void agregarCarrito()
@@ -146,6 +153,18 @@ namespace PRESENTACION
                     break;                
             }
             return bandera;
+        }
+
+        public int precioTotal(DataTable carrito)
+        {
+            int precioTotal = 0;
+            int precioIndividual = 0;
+            for(int i = 0; i < carrito.Rows.Count; i++)
+            {
+                precioIndividual = int.Parse(carrito.Rows[i]["Precio"].ToString());
+                precioTotal += precioIndividual;
+            }
+            return precioTotal;
         }
     }
 }

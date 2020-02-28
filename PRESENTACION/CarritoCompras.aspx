@@ -13,7 +13,10 @@
                 <RowStyle HorizontalAlign="Center" />
             </asp:GridView>
             <br />
-            <asp:Label ID="lblTotal" runat="server"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="Precio total de la compra: "></asp:Label>
+            <b>
+            $<asp:Label ID="lblTotal" runat="server" Font-Bold="True"></asp:Label>
+            </b>
             &nbsp;
             <asp:Label ID="lblEstado" runat="server"></asp:Label>
             <br />
