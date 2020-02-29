@@ -14,7 +14,9 @@ namespace DATOS
         AccesoDatos ds = new AccesoDatos();
         public DataTable getTablaReviews()
         {            
-            DataTable tabla = ds.ObtenerTabla("Review", "Select * from Review");
+            DataTable tabla = ds.ObtenerTabla("Review", "select RevXJue.Cod_Review, Juego.Nombre, RevXJue.Cod_Usuario, " +
+                "Review.Detalle, Review.Fecha_review from Review inner join RevXJue on Review.Cod_review=RevXjue.Cod_Review " +
+                "inner join Juego on Juego.Id_juego=RevXJue.Id_juego");
             return tabla;
         }
 
