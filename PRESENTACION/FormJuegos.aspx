@@ -326,6 +326,7 @@
             </Columns>
             <HeaderStyle BackColor="Red" />
             <PagerStyle BackColor="Red" />
+            <RowStyle HorizontalAlign="Center" />
         </asp:GridView>
     </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:TablaGeneros %>" SelectCommand="SELECT [Cod_Genero], [NombreGenero] FROM Genero where Estado=1"></asp:SqlDataSource>

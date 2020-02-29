@@ -237,6 +237,7 @@
             </Columns>
             <HeaderStyle BackColor="Red" />
             <PagerStyle BackColor="Red" />
+            <RowStyle HorizontalAlign="Center" />
         </asp:GridView>
         &nbsp;
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Omega %>" SelectCommand="SELECT [Cod_Pais], [Nombre] FROM Pais where Estado=1"></asp:SqlDataSource>
