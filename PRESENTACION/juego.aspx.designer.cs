@@ -49,13 +49,13 @@ namespace PRESENTACION {
         protected global::System.Web.UI.WebControls.DataList dlDescripcion;
         
         /// <summary>
-        /// Control compra.
+        /// Control controles_compra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl compra;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl controles_compra;
         
         /// <summary>
         /// Control btnAgregarCarrito.

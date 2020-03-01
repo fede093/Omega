@@ -54,8 +54,8 @@
                 </ItemTemplate>
             </asp:DataList>
         </div>
-        <div id="controles_compra" class="panel panel-default">
-            <div id="compra" runat="server">           
+        <div id="controles_compra" class="panel panel-default"  runat="server">
+            <div id="compra">           
                 <asp:Button ID="btnAgregarCarrito" runat="server" Text="Agregar al carrito" CssClass="btn btn-success" OnClick="btnAgregarCarrito_Click" />
                 <asp:Label ID="lblEstado" runat="server"></asp:Label>
             </div>

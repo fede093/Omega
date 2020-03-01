@@ -15,12 +15,12 @@ namespace PRESENTACION
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UsuarioLogeado"] == null)
-            {
-                compra.Visible = false;                
+            {                
+                controles_compra.Visible = false;
             }
             else
-            {
-                compra.Visible = true;
+            {                
+                controles_compra.Visible = true;
             }
 
             VisibilidadReview();
