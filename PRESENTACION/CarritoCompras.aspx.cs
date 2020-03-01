@@ -103,7 +103,7 @@ namespace PRESENTACION
                         lblEstado.Text = "Compra exitosa";
                         lblEstado.ForeColor = System.Drawing.Color.Green;
                         Session["carritoCompras"] = null;
-                        Response.AppendHeader("Refresh", "5;url=inicio.aspx");
+                        Response.AppendHeader("Refresh", "3;url=inicio.aspx");
                     }
                     else
                     {
