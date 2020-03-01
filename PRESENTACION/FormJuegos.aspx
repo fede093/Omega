@@ -235,7 +235,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Descripcion">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtDescrip_edit" runat="server" Text='<%# Bind("Descripcion") %>' Height="52px" TextMode="MultiLine" Width="211px"></asp:TextBox>
+                        <asp:TextBox ID="txtDescrip_edit" runat="server" Text='<%# Bind("Descripcion") %>' Height="100px" TextMode="MultiLine" Width="300px"></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:TextBox ID="TextBox1" runat="server" Height="100px" ReadOnly="True" Text='<%# Bind("Descripcion") %>' TextMode="MultiLine" Width="300px"></asp:TextBox>

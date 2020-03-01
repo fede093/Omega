@@ -9,7 +9,7 @@
         <asp:Label ID="Label3" runat="server" Text="Listado de reviews" Font-Bold="True"></asp:Label>
     </div>
     <div>
-        <asp:GridView ID="gvReviews" runat="server" AllowPaging="True" AutoGenerateColumns="False" PageSize="5" CssClass="auto-style5" OnPageIndexChanging="gvReviews_PageIndexChanging" style="margin-top: 0px">
+        <asp:GridView ID="gvReviews" runat="server" AllowPaging="True" AutoGenerateColumns="False" PageSize="5" CssClass="auto-style5" OnPageIndexChanging="gvReviews_PageIndexChanging" style="margin-top: 0px" AutoGenerateEditButton="True" OnRowCancelingEdit="gvReviews_RowCancelingEdit" OnRowEditing="gvReviews_RowEditing" OnRowUpdating="gvReviews_RowUpdating">
             <Columns>
                 <asp:TemplateField HeaderText="Codigo de review">
                     <ItemTemplate>
@@ -27,11 +27,17 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Review">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtDetalle_edit" runat="server" Height="100px" Text='<%# Bind("Detalle") %>' TextMode="MultiLine" Width="300px"></asp:TextBox>
+                    </EditItemTemplate>
                     <ItemTemplate>
                         <asp:TextBox ID="TextBox1" runat="server" Height="100px" ReadOnly="True" Text='<%# Bind("Detalle") %>' TextMode="MultiLine" Width="300px"></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Fecha del review">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtFecha_edit" runat="server" Text='<%# Bind("Fecha_review", "{0:dd/MM/yyyy}") %>'></asp:TextBox>
+                    </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label4" runat="server" Text='<%# Bind("Fecha_review", "{0:dd/MM/yyyy}") %>'></asp:Label>
                     </ItemTemplate>

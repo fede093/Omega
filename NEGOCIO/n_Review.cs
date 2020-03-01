@@ -35,5 +35,11 @@ namespace NEGOCIO
             DatosReview dr = new DatosReview();
             return dr.ObtenerUltimoReview();
         }
+
+        public int editarReview(Review review)
+        {
+            DatosReview dr = new DatosReview();
+            return dr.editarReview(review);
+        }
     }
 }

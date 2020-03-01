@@ -31,5 +31,36 @@ namespace PRESENTACION
             gvReviews.PageIndex = e.NewPageIndex;
             cargarGrilla();
         }
+
+        protected void gvReviews_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvReviews.EditIndex = -1;
+            cargarGrilla();
+        }
+
+        protected void gvReviews_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvReviews.EditIndex = e.NewEditIndex;
+            cargarGrilla();
+        }
+
+        protected void gvReviews_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            String s_detalle = ((TextBox)gvReviews.Rows[e.RowIndex].FindControl("txtDetalle_edit")).Text;
+            String s_fecha = ((TextBox)gvReviews.Rows[e.RowIndex].FindControl("txtFecha_edit")).Text;
+            String s_cod = ((Label)gvReviews.Rows[e.RowIndex].FindControl("lblCod")).Text;
+
+            Review review = new Review();
+            review.cod_review = int.Parse(s_cod);
+            review.fecha_review = DateTime.Parse(s_fecha);
+            review.detalle = s_detalle;
+            review.estado = true;
+
+            n_Review n_review = new n_Review();
+            n_review.editarReview(review);
+
+            gvReviews.EditIndex = -1;
+            cargarGrilla();
+        }
     }
 }
