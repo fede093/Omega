@@ -71,8 +71,19 @@
                 <asp:Label ID="lblEstadoReview" runat="server"></asp:Label>
             </div>
             <div id="lista-review">
-
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse1">Reviews</a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Aca van los reviews
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </div>        
      </div>
 </asp:Content>
