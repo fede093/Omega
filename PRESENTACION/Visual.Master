@@ -20,7 +20,7 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server">       
         <header>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
@@ -100,7 +100,7 @@
                 <img src="img/Link.png" alt="Linkedin Logo" class="social-icon">
             </a>
             <p>&copy; 2020 Federico Borja</p>
-        </footer>
+        </footer>           
     </form>
 </body>
 </html>

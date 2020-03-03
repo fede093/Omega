@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
     <div class="div_principal">
         <div id="imagen_juego">
             <asp:DataList ID="dlImagen" runat="server" Height="300px" Width="200px" HorizontalAlign="Center">
@@ -173,4 +174,5 @@
             </div>            
         </div>
     </div>
+        </div>
 </asp:Content>

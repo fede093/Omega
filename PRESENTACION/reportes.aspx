@@ -6,7 +6,7 @@
     <title>Omega - Reportes</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
+    <div class="container-fluid">
         <div id="izquierda_superior">
             <asp:Chart ID="cReporte1" runat="server" BackColor="204, 204, 204" Width="450px" DataSourceID="SqlDataSource1">
                 <Series>
