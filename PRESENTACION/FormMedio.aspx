@@ -68,6 +68,7 @@
             </Columns>
             <HeaderStyle BackColor="Red" />
             <PagerStyle BackColor="Red" />
+            <RowStyle HorizontalAlign="Center" />
         </asp:GridView>
     </div>
 </asp:Content>

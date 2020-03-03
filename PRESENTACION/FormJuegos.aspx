@@ -235,10 +235,10 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Descripcion">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtDescrip_edit" runat="server" Text='<%# Bind("Descripcion") %>' Height="52px" TextMode="MultiLine" Width="211px"></asp:TextBox>
+                        <asp:TextBox ID="txtDescrip_edit" runat="server" Text='<%# Bind("Descripcion") %>' Height="100px" TextMode="MultiLine" Width="300px"></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lblDescripcion" runat="server" Text='<%# Bind("Descripcion") %>'></asp:Label>
+                        <asp:TextBox ID="TextBox1" runat="server" Height="100px" ReadOnly="True" Text='<%# Bind("Descripcion") %>' TextMode="MultiLine" Width="300px"></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Fecha de lanzamiento">
@@ -326,6 +326,7 @@
             </Columns>
             <HeaderStyle BackColor="Red" />
             <PagerStyle BackColor="Red" />
+            <RowStyle HorizontalAlign="Center" />
         </asp:GridView>
     </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:TablaGeneros %>" SelectCommand="SELECT [Cod_Genero], [NombreGenero] FROM Genero where Estado=1"></asp:SqlDataSource>

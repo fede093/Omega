@@ -33,7 +33,14 @@ namespace PRESENTACION
                 
                 cargarDropDown();
                 actualizarCarrito();
+                cargarLabelPrecio();
             }
+        }
+
+        public void cargarLabelPrecio()
+        {
+            DataTable carrito = (DataTable)Session["carritoCompras"];
+            lblTotal.Text = precioTotal(carrito).ToString();
         }
 
         public void agregarCarrito()
@@ -95,6 +102,8 @@ namespace PRESENTACION
                     {
                         lblEstado.Text = "Compra exitosa";
                         lblEstado.ForeColor = System.Drawing.Color.Green;
+                        Session["carritoCompras"] = null;
+                        Response.AppendHeader("Refresh", "3;url=inicio.aspx");
                     }
                     else
                     {
@@ -118,6 +127,7 @@ namespace PRESENTACION
             compra.fecha_compra = DateTime.Now;
             compra.numero_juegos = carrito.Rows.Count;
             compra.estado = true;
+            compra.precioTotal = int.Parse(lblTotal.Text);
             return compra;
         }
 
@@ -141,11 +151,22 @@ namespace PRESENTACION
             {
                 int cod = int.Parse(carrito.Rows[i]["Codigo del juego"].ToString());                
                 bandera = n_juegoUsuario.ExisteCompra(usuario, cod);
-                //System.Diagnostics.Debug.WriteLine(bandera.ToString())
                 if (bandera == true)
                     break;                
             }
             return bandera;
+        }
+
+        public int precioTotal(DataTable carrito)
+        {
+            int precioTotal = 0;
+            int precioIndividual = 0;
+            for(int i = 0; i < carrito.Rows.Count; i++)
+            {
+                precioIndividual = int.Parse(carrito.Rows[i]["Precio"].ToString());
+                precioTotal += precioIndividual;
+            }
+            return precioTotal;
         }
     }
 }

@@ -18,6 +18,12 @@ namespace NEGOCIO
             return da.getTablaReviews();
         }
 
+        public DataTable getTablaReviewJuego(int cod)
+        {
+            DatosReview da = new DatosReview();
+            return da.getTablaReviewJuego(cod);
+        }
+
         public int eliminarReview(Review review)
         {
             DatosReview da = new DatosReview();
@@ -34,6 +40,12 @@ namespace NEGOCIO
         {
             DatosReview dr = new DatosReview();
             return dr.ObtenerUltimoReview();
+        }
+
+        public int editarReview(Review review)
+        {
+            DatosReview dr = new DatosReview();
+            return dr.editarReview(review);
         }
     }
 }

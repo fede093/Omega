@@ -228,7 +228,10 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Administrador">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtAdmi_edit" runat="server" Text='<%# Bind("Administrador") %>'></asp:TextBox>
+                        <asp:RadioButtonList ID="rblEditAdmin" runat="server" SelectedValue='<%# Bind("Administrador") %>'>
+                            <asp:ListItem>True</asp:ListItem>
+                            <asp:ListItem>False</asp:ListItem>
+                        </asp:RadioButtonList>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lblAdmi" runat="server" Text='<%# Bind("Administrador") %>'></asp:Label>
@@ -237,6 +240,7 @@
             </Columns>
             <HeaderStyle BackColor="Red" />
             <PagerStyle BackColor="Red" />
+            <RowStyle HorizontalAlign="Center" />
         </asp:GridView>
         &nbsp;
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Omega %>" SelectCommand="SELECT [Cod_Pais], [Nombre] FROM Pais where Estado=1"></asp:SqlDataSource>

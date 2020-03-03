@@ -81,12 +81,13 @@ namespace DATOS
             if (conexion != null)
             {
                 String sql = "Insert into Compra ";
-                sql += "(cod_medio, fecha_compra, Numero_juegos, Estado) ";
+                sql += "(cod_medio, fecha_compra, Numero_juegos, Estado, PrecioTotal) ";
                 sql += "values (";
                 sql += compra.cod_medio + ",";
                 sql += "'" + compra.fecha_compra + "'";
                 sql += "," + compra.numero_juegos + ",";
-                sql += "'" + compra.estado + "')";
+                sql += "'" + compra.estado + "'";
+                sql += "," + compra.precioTotal + ")";
                 SqlCommand cmd = new SqlCommand(sql, conexion);
 
                 try

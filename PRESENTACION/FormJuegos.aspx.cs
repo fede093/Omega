@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -72,6 +73,8 @@ namespace PRESENTACION
 
         protected void gvJuegos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            Juego juego = new Juego();
+
             String s_Nombre = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtNombre_edit")).Text;
             String s_Cod = ((Label)gvJuegos.Rows[e.RowIndex].FindControl("lblEditCod")).Text;
             String s_Descripcion = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtDescrip_edit")).Text;
@@ -80,12 +83,26 @@ namespace PRESENTACION
             String s_Distribuidor = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtDestribuidor_edit")).Text;
             String s_Genero = ((DropDownList)gvJuegos.Rows[e.RowIndex].FindControl("DDLGeneros")).SelectedValue;
             String s_Idioma = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtIdioma_edit")).Text;
-            String s_Precio = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtPrecio_edit")).Text;
-            String s_Ruta = ((Label)gvJuegos.Rows[e.RowIndex].FindControl("lblRutaEdit")).Text;
+            String s_Precio = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtPrecio_edit")).Text;            
             String s_Clasificacion = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtClasificacion_edit")).Text;
             String s_Pagina = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtPagina_edit")).Text;
 
-            Juego juego = new Juego();
+            String rutaBase;
+            try
+            {
+                String pathCarpeta = @"img\covers\";
+                String savePath = Server.MapPath("~") + pathCarpeta;
+                String fileName = ((FileUpload)gvJuegos.Rows[e.RowIndex].FindControl("fuImagen_Edit")).FileName;
+                String pathCompleta = savePath + fileName;
+                ((FileUpload)gvJuegos.Rows[e.RowIndex].FindControl("fuImagen_Edit")).SaveAs(pathCompleta);
+                rutaBase = "~/img/covers/" + fileName;
+            }
+            catch (DirectoryNotFoundException dirEx)
+            {
+                System.Diagnostics.Debug.WriteLine("Archivo no encontrado: " + dirEx.Message);
+                rutaBase = ((Label)gvJuegos.Rows[e.RowIndex].FindControl("lblRutaEdit")).Text;
+            }
+                           
             juego.nombre = s_Nombre;
             juego.id_juego = int.Parse(s_Cod);
             juego.descripcion = s_Descripcion;
@@ -95,10 +112,11 @@ namespace PRESENTACION
             juego.cod_genero = int.Parse(s_Genero);
             juego.idioma = s_Idioma;
             juego.precio = float.Parse(s_Precio);
-            juego.ruta_imagen = s_Ruta;
             juego.clasificacion = s_Clasificacion;
             juego.pagina = s_Pagina;
             juego.estado = true;
+            
+            juego.ruta_imagen = rutaBase;            
 
             n_Juego n_juego = new n_Juego();
             n_juego.editarJuego(juego);

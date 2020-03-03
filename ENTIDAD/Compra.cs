@@ -13,6 +13,7 @@ namespace ENTIDAD
         private DateTime d_fechaCompra;
         private int i_numeroJuegos;
         private bool b_estado;
+        private int i_precioTotal;
 
         public int cod_compra
         {
@@ -42,6 +43,12 @@ namespace ENTIDAD
         {
             set { b_estado = value; }
             get { return b_estado; }
+        }
+
+        public int precioTotal
+        {
+            set { i_precioTotal = value; }
+            get { return i_precioTotal; }
         }
     }
 }

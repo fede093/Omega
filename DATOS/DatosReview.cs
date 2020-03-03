@@ -14,7 +14,16 @@ namespace DATOS
         AccesoDatos ds = new AccesoDatos();
         public DataTable getTablaReviews()
         {            
-            DataTable tabla = ds.ObtenerTabla("Review", "Select * from Review");
+            DataTable tabla = ds.ObtenerTabla("Review", "select RevXJue.Cod_Review, Juego.Nombre, RevXJue.Cod_Usuario, " +
+                "Review.Detalle, Review.Fecha_review from Review inner join RevXJue on Review.Cod_review=RevXjue.Cod_Review " +
+                "inner join Juego on Juego.Id_juego=RevXJue.Id_juego");
+            return tabla;
+        }
+
+        public DataTable getTablaReviewJuego(int cod)
+        {
+            DataTable tabla = ds.ObtenerTabla("Review", "select Review.Detalle, Review.Fecha_review,  RevXJue.Cod_Usuario, RevXJue.Id_juego from Review " +
+                "inner join RevXJue on Review.Cod_review=RevXJue.Cod_Review where Id_juego=" + cod);
             return tabla;
         }
 
@@ -25,12 +34,23 @@ namespace DATOS
             return ds.EjecutarProcedimientoAlmacenado(comando, "spEliminarReview");
         }
 
+        public int editarReview(Review review)
+        {
+            SqlCommand comando = new SqlCommand();
+            armarParametros(ref comando, review);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "spActualizarReview");
+        }
+
         public void armarParametros(ref SqlCommand Comando, Review review)
         {
             SqlParameter SqlParametros = new SqlParameter();
 
             SqlParametros = Comando.Parameters.Add("@COD_REVIEW", SqlDbType.Int);
             SqlParametros.Value = review.cod_review;
+            SqlParametros = Comando.Parameters.Add("@FECHA", SqlDbType.Date);
+            SqlParametros.Value = review.fecha_review;
+            SqlParametros = Comando.Parameters.Add("@DETALLE", SqlDbType.NVarChar, 1000);
+            SqlParametros.Value = review.detalle;
         }
 
         public bool insertarReview(Review review)

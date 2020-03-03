@@ -50,8 +50,7 @@ namespace PRESENTACION
 
         protected void lbLogOut_Click(object sender, EventArgs e)
         {
-            Session["UsuarioLogeado"] = null;
-            //Page.Response.Redirect(Page.Request.Url.ToString(), true);
+            Session["UsuarioLogeado"] = null;            
             Response.Redirect("inicio.aspx");
         }
 

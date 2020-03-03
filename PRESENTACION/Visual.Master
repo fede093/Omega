@@ -6,7 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="css/Main.css" rel="stylesheet" />
@@ -20,7 +20,7 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server">       
         <header>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
@@ -99,8 +99,8 @@
             <a href="https://www.linkedin.com/in/federicoborja093" target="_blank">
                 <img src="img/Link.png" alt="Linkedin Logo" class="social-icon">
             </a>
-            <p>&copy; 2018 Federico Borja</p>
-        </footer>
+            <p>&copy; 2020 Federico Borja</p>
+        </footer>           
     </form>
 </body>
 </html>

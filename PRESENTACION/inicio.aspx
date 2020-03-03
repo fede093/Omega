@@ -9,7 +9,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="contenedor">
+    <div id="contenedor" class="container-fluid">
         <div id="izquierda">
             <br />
             <asp:Label ID="Label1" runat="server" Text="Generos" Font-Size="Large"></asp:Label>

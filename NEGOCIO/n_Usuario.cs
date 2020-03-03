@@ -83,15 +83,5 @@ namespace NEGOCIO
             DatosUsuarios da = new DatosUsuarios();
             return da.existeUsuarioDadoBaja(usuario);
         }
-
-        //public String getCodigoDeUsuario(String usuario)
-        //{
-        //    String cod = "";
-        //    DatosUsuarios da = new DatosUsuarios();
-        //    DataTable dt = da.getTablaUsuarioIndividual(usuario);
-        //    cod = dt.Rows[0][0].ToString();
-        //    return cod;
-        //}
-
     }
 }

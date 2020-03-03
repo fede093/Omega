@@ -70,8 +70,8 @@ namespace PRESENTACION
             String s_Apellido = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtApellido_edit")).Text;
             String s_Email = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtEmail_edit")).Text;
             String s_Telefono = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtTelefono_edit")).Text;
-            String s_Cod = ((DropDownList)gvUsuarios.Rows[e.RowIndex].FindControl("DDLPais")).SelectedValue;           
-            String s_Administrador = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtAdmi_edit")).Text;
+            String s_Cod = ((DropDownList)gvUsuarios.Rows[e.RowIndex].FindControl("DDLPais")).SelectedValue;
+            String s_Administrador = ((RadioButtonList)gvUsuarios.Rows[e.RowIndex].FindControl("rblEditAdmin")).SelectedItem.ToString();
 
             Usuario usuario = new Usuario();
             usuario.usuario = s_Usuario;
