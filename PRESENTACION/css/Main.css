@@ -171,6 +171,30 @@ DISEÑO DE LOS DIV
     float: right;
 }
 
+/************CarritoCompras.ASPX*****************/
+#carrito_compras {
+    padding: 20px;
+    float: left;
+    background-color: #c9c9c9;
+}
+
+#ContentPlaceHolder1_Label2 {
+    padding: 10px 0 10px 0%; /****TOP RIGTH BOTTOM LEFT****/
+}
+
+#tabla_carrito {
+    padding: 10px 0 10px 0%; /****TOP RIGTH BOTTOM LEFT****/
+}
+
+#boton_compra {
+    padding: 10px 0 10px 0%; /****TOP RIGTH BOTTOM LEFT****/
+}
+
+#carrito_superior {
+    width: 50%;
+    margin: 0 auto;
+}
+
 /****************************
 NAVBAR
 *****************************/
