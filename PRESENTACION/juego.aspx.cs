@@ -32,7 +32,15 @@ namespace PRESENTACION
                 cargarImagen(int.Parse(id));
                 cargarDetalles(int.Parse(id));
                 cargarDescripcion(int.Parse(id));
+                cargarListReview(int.Parse(id));
             }
+        }
+
+        public void cargarListReview(int cod)
+        {
+            n_Review n_review = new n_Review();
+            lvReview.DataSource = n_review.getTablaReviewJuego(cod);
+            lvReview.DataBind();
         }
 
         public void VisibilidadReview()

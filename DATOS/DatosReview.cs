@@ -20,6 +20,13 @@ namespace DATOS
             return tabla;
         }
 
+        public DataTable getTablaReviewJuego(int cod)
+        {
+            DataTable tabla = ds.ObtenerTabla("Review", "select Review.Detalle, Review.Fecha_review,  RevXJue.Cod_Usuario, RevXJue.Id_juego from Review " +
+                "inner join RevXJue on Review.Cod_review=RevXJue.Cod_Review where Id_juego=" + cod);
+            return tabla;
+        }
+
         public int eliminarReviews(Review review)
         {
             SqlCommand comando = new SqlCommand();

@@ -94,6 +94,7 @@
     <Content Include="juego.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="perfil.aspx" />
+    <Content Include="PruebaListView.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="reportes.aspx" />
     <Content Include="usuarios.aspx" />
@@ -206,6 +207,13 @@
       <DependentUpon>perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PruebaListView.aspx.cs">
+      <DependentUpon>PruebaListView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PruebaListView.aspx.designer.cs">
+      <DependentUpon>PruebaListView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

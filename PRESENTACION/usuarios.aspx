@@ -24,26 +24,32 @@
             </div>
             <asp:ListView ID="lvUsuarios" runat="server" DataKeyNames="Usuario" GroupItemCount="3">
                 <AlternatingItemTemplate>
-                    <td runat="server" style=""><asp:LinkButton ID="lb" runat="server" CommandArgument='<%# Bind("Usuario") %>' CommandName="LB" OnCommand="lb_Command" Text='<%# Bind("Usuario") %>'></asp:LinkButton>
+                    <td runat="server" style="">
+                        <asp:LinkButton ID="lb" runat="server" CommandArgument='<%# Bind("Usuario") %>' CommandName="LB" OnCommand="lb_Command" Text='<%# Bind("Usuario") %>'></asp:LinkButton>
                         <br />
                         Nombre:
                         <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
-                        <br />Email:
+                        <br />
+                        Email:
                         <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
-                        <br /></td>
+                        <br />
+                    </td>
                 </AlternatingItemTemplate>
                 <EditItemTemplate>
                     <td runat="server" style="">Usuario:
                         <asp:Label ID="UsuarioLabel1" runat="server" Text='<%# Eval("Usuario") %>' />
-                        <br />Nombre:
+                        <br />
+                        Nombre:
                         <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' />
-                        <br />Email:
+                        <br />
+                        Email:
                         <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
                         <br />
                         <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
                         <br />
                         <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
-                        <br /></td>
+                        <br />
+                    </td>
                 </EditItemTemplate>
                 <EmptyDataTemplate>
                     <table runat="server" style="">
@@ -53,7 +59,7 @@
                     </table>
                 </EmptyDataTemplate>
                 <EmptyItemTemplate>
-<td runat="server" />
+                    <td runat="server" />
                 </EmptyItemTemplate>
                 <GroupTemplate>
                     <tr id="itemPlaceholderContainer" runat="server">
@@ -63,22 +69,27 @@
                 <InsertItemTemplate>
                     <td runat="server" style="">Usuario:
                         <asp:TextBox ID="UsuarioTextBox" runat="server" Text='<%# Bind("Usuario") %>' />
-                        <br />Nombre:
+                        <br />
+                        Nombre:
                         <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' />
-                        <br />Email:
+                        <br />
+                        Email:
                         <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
                         <br />
                         <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
                         <br />
                         <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
-                        <br /></td>
+                        <br />
+                    </td>
                 </InsertItemTemplate>
                 <ItemTemplate>
-                    <td runat="server" style=""><asp:LinkButton ID="lb" runat="server" CommandArgument='<%# Bind("Usuario") %>' CommandName="LB" OnCommand="lb_Command" Text='<%# Bind("Usuario") %>'></asp:LinkButton>
+                    <td runat="server" style="">
+                        <asp:LinkButton ID="lb" runat="server" CommandArgument='<%# Bind("Usuario") %>' CommandName="LB" OnCommand="lb_Command" Text='<%# Bind("Usuario") %>'></asp:LinkButton>
                         <br />
                         Nombre:
                         <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
-                        <br />Email:
+                        <br />
+                        Email:
                         <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
                     </td>
                 </ItemTemplate>
@@ -100,11 +111,14 @@
                 <SelectedItemTemplate>
                     <td runat="server" style="">Usuario:
                         <asp:Label ID="UsuarioLabel" runat="server" Text='<%# Eval("Usuario") %>' />
-                        <br />Nombre:
+                        <br />
+                        Nombre:
                         <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
-                        <br />Email:
+                        <br />
+                        Email:
                         <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
-                        <br /></td>
+                        <br />
+                    </td>
                 </SelectedItemTemplate>
             </asp:ListView>
         </div>

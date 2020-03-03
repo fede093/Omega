@@ -54,12 +54,15 @@
                 </ItemTemplate>
             </asp:DataList>
         </div>
-        <div id="controles_compra" class="panel panel-default"  runat="server">
-            <div id="compra">           
-                <asp:Button ID="btnAgregarCarrito" runat="server" Text="Agregar al carrito" CssClass="btn btn-success" OnClick="btnAgregarCarrito_Click" />
-                <asp:Label ID="lblEstado" runat="server"></asp:Label>
+
+            <div id="controles_compra" runat="server" class="panel panel-default">
+                <div id="compra">
+                    <asp:Button ID="btnAgregarCarrito" runat="server" Text="Agregar al carrito" CssClass="btn btn-success" OnClick="btnAgregarCarrito_Click" />
+                    <asp:Label ID="lblEstado" runat="server"></asp:Label>
+                </div>
             </div>
-        </div>
+        
+
         <div id="controles-review">
             <div id="EscribirReview" runat="server">
                 <asp:Label ID="Label1" runat="server" Text="Escribir review" Font-Size="Large"></asp:Label>
@@ -70,6 +73,7 @@
                 <asp:Button ID="btnPublicar" runat="server" Text="Publicar review" OnClick="btnPublicar_Click" CssClass="btn btn-success" />
                 <asp:Label ID="lblEstadoReview" runat="server"></asp:Label>
             </div>
+            <br />
             <div id="lista-review">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -79,11 +83,94 @@
                     </div>
                     <div id="collapse1" class="panel-collapse collapse">
                         <div class="panel-body">
-                            Aca van los reviews
+                            <asp:ListView ID="lvReview" runat="server">
+                                <AlternatingItemTemplate>
+                                    <li style="">
+                                        <b>Review publicado por:</b>
+                                        <asp:Label ID="Cod_UsuarioLabel" runat="server" Text='<%# Bind("Cod_Usuario") %>' />
+                                        <br />
+                                        <u>Review</u>:                                        
+                                        <asp:Label ID="DetalleLabel" runat="server" Text='<%# Bind("Detalle") %>' />
+                                        <br />
+                                        <br />
+                                        Fecha del review:
+                                        <asp:Label ID="Fecha_reviewLabel" runat="server" Text='<%# Bind("Fecha_review", "{0:dd/MM/yyyy}") %>' />                                                                                
+                                        <br />
+                                    </li>
+                                </AlternatingItemTemplate>
+                                <EditItemTemplate>
+                                    <li style="">Detalle:
+                        <asp:TextBox ID="DetalleTextBox" runat="server" Text='<%# Bind("Detalle") %>' />
+                                        <br />
+                                        Fecha_review:
+                        <asp:TextBox ID="Fecha_reviewTextBox" runat="server" Text='<%# Bind("Fecha_review") %>' />
+                                        <br />
+                                        Cod_Usuario:
+                        <asp:TextBox ID="Cod_UsuarioTextBox" runat="server" Text='<%# Bind("Cod_Usuario") %>' />
+                                        <br />
+                                        <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
+                                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
+                                    </li>
+                                </EditItemTemplate>
+                                <EmptyDataTemplate>
+                                    No se han devuelto datos.
+                                </EmptyDataTemplate>
+                                <InsertItemTemplate>
+                                    <li style="">Detalle:
+                        <asp:TextBox ID="DetalleTextBox" runat="server" Text='<%# Bind("Detalle") %>' />
+                                        <br />
+                                        Fecha_review:
+                        <asp:TextBox ID="Fecha_reviewTextBox" runat="server" Text='<%# Bind("Fecha_review", "{0:dd/MM/yyyy}") %>' />
+                                        <br />
+                                        Cod_Usuario:
+                        <asp:TextBox ID="Cod_UsuarioTextBox" runat="server" Text='<%# Bind("Cod_Usuario") %>' />
+                                        <br />
+                                        <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
+                                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
+                                    </li>
+                                </InsertItemTemplate>
+                                <ItemSeparatorTemplate>
+                                    <br />
+                                </ItemSeparatorTemplate>
+                                <ItemTemplate>
+                                    <li style="">
+                                        <b>Review publicado por:</b>
+                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Cod_Usuario") %>' />
+                                        <br />
+                                        <u>Review</u>:
+                                        <asp:Label ID="DetalleLabel" runat="server" Text='<%# Bind("Detalle") %>' />
+                                        <br />
+                                        <br />
+                                        Fecha del review:
+                                        <asp:Label ID="Fecha_reviewLabel" runat="server" Text='<%# Bind("Fecha_review", "{0:dd/MM/yyyy}") %>' />
+                                        <br />                                                                               
+                                    </li>
+                                </ItemTemplate>
+                                <LayoutTemplate>
+                                    <ul id="itemPlaceholderContainer" runat="server" style="">
+                                        <li runat="server" id="itemPlaceholder" />
+                                    </ul>
+                                    <div style="">
+                                    </div>
+                                </LayoutTemplate>
+                                <SelectedItemTemplate>
+                                    <li style="">Detalle:
+                        <asp:Label ID="DetalleLabel" runat="server" Text='<%# Eval("Detalle") %>' />
+                                        <br />
+                                        Fecha_review:
+                        <asp:Label ID="Fecha_reviewLabel" runat="server" Text='<%# Eval("Fecha_review") %>' />
+                                        <br />
+                                        Cod_Usuario:
+                        <asp:Label ID="Cod_UsuarioLabel" runat="server" Text='<%# Eval("Cod_Usuario") %>' />
+                                        <br />
+                                    </li>
+                                </SelectedItemTemplate>
+                            </asp:ListView>
                         </div>
                     </div>
+
                 </div>
-            </div>
-        </div>        
-     </div>
+            </div>            
+        </div>
+    </div>
 </asp:Content>
