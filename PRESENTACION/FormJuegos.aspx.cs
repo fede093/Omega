@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -72,10 +73,7 @@ namespace PRESENTACION
 
         protected void gvJuegos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            String pathCarpeta = @"img\covers\";
-            String savePath = Server.MapPath("~") + pathCarpeta;
-            String fileName = ((FileUpload)gvJuegos.Rows[e.RowIndex].FindControl("fuImagen_Edit")).FileName;
-            String pathCompleta = savePath + fileName;            
+            Juego juego = new Juego();
 
             String s_Nombre = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtNombre_edit")).Text;
             String s_Cod = ((Label)gvJuegos.Rows[e.RowIndex].FindControl("lblEditCod")).Text;
@@ -89,7 +87,22 @@ namespace PRESENTACION
             String s_Clasificacion = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtClasificacion_edit")).Text;
             String s_Pagina = ((TextBox)gvJuegos.Rows[e.RowIndex].FindControl("txtPagina_edit")).Text;
 
-            Juego juego = new Juego();
+            String rutaBase;
+            try
+            {
+                String pathCarpeta = @"img\covers\";
+                String savePath = Server.MapPath("~") + pathCarpeta;
+                String fileName = ((FileUpload)gvJuegos.Rows[e.RowIndex].FindControl("fuImagen_Edit")).FileName;
+                String pathCompleta = savePath + fileName;
+                ((FileUpload)gvJuegos.Rows[e.RowIndex].FindControl("fuImagen_Edit")).SaveAs(pathCompleta);
+                rutaBase = "~/img/covers/" + fileName;
+            }
+            catch (DirectoryNotFoundException dirEx)
+            {
+                System.Diagnostics.Debug.WriteLine("Archivo no encontrado: " + dirEx.Message);
+                rutaBase = ((Label)gvJuegos.Rows[e.RowIndex].FindControl("lblRutaEdit")).Text;
+            }
+                           
             juego.nombre = s_Nombre;
             juego.id_juego = int.Parse(s_Cod);
             juego.descripcion = s_Descripcion;
@@ -102,11 +115,8 @@ namespace PRESENTACION
             juego.clasificacion = s_Clasificacion;
             juego.pagina = s_Pagina;
             juego.estado = true;
-
-            String rutaBase = "~/img/covers/" + fileName;
-            juego.ruta_imagen = rutaBase;
-
-            ((FileUpload)gvJuegos.Rows[e.RowIndex].FindControl("fuImagen_Edit")).SaveAs(pathCompleta);
+            
+            juego.ruta_imagen = rutaBase;            
 
             n_Juego n_juego = new n_Juego();
             n_juego.editarJuego(juego);
