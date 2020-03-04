@@ -78,7 +78,7 @@ namespace PRESENTACION
                 cargarListDetalles(usuario);
             }
             if (e.CommandName == "aceptar-edit")
-            {                
+            {
                 Usuario usu = new Usuario();
                 n_Usuario n_usuario = new n_Usuario();
                 

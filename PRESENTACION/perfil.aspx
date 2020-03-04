@@ -22,19 +22,26 @@
                 </asp:DataList>
             </div>
             <div id="detalles_usuarios">
-                <asp:DataList ID="dlDetalles" runat="server" CssClass="auto-style2" OnItemCommand="dlDetalles_ItemCommand" OnItemDataBound="dlDetalles_ItemDataBound">
+                <asp:DataList ID="dlDetalles" runat="server" CssClass="auto-style2" OnItemCommand="dlDetalles_ItemCommand" OnItemDataBound="dlDetalles_ItemDataBound" Width="50%">
                     <EditItemTemplate>
                         Nombre:
                     <asp:TextBox ID="txtNombre" runat="server" Text='<%# Bind("Nombre") %>'></asp:TextBox>
+                        &nbsp;<asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ErrorMessage="*" ForeColor="Red" ValidationGroup="edit"></asp:RequiredFieldValidator>
+                        &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtNombre" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="^[A-Za-z ]+$" ValidationGroup="edit"></asp:RegularExpressionValidator>
                         <br />
                         Apellido:
                     <asp:TextBox ID="txtApellido" runat="server" Text='<%# Bind("Apellido") %>'></asp:TextBox>
+                        &nbsp;<asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="txtApellido" ErrorMessage="*" ForeColor="Red" ValidationGroup="edit"></asp:RequiredFieldValidator>
+                        &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtApellido" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="^[A-Za-z ]+$" ValidationGroup="edit"></asp:RegularExpressionValidator>
                         <br />
                         Telefono:
                     <asp:TextBox ID="txtTelefono" runat="server" Text='<%# Bind("Telefono") %>'></asp:TextBox>
+                        &nbsp;<asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="*" ForeColor="Red" ValidationGroup="edit"></asp:RequiredFieldValidator>
+                        &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtTelefono" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="^[0-9]*$" ValidationGroup="edit"></asp:RegularExpressionValidator>
                         <br />
                         Email:
                     <asp:TextBox ID="txtEmail" runat="server" Text='<%# Bind("Email") %>'></asp:TextBox>
+                        &nbsp;<asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" ForeColor="Red" ValidationGroup="edit"></asp:RequiredFieldValidator>
                         <br />
                         Pais:
                     <asp:DropDownList ID="ddlContra" runat="server" DataSourceID="SqlDataSource1" DataTextField="Nombre" DataValueField="Cod_Pais">
@@ -42,9 +49,10 @@
                         <br />
                         Contraseña:
                     <asp:TextBox ID="txtContra" runat="server" Text='<%# Bind("Contraseña") %>'></asp:TextBox>
+                        &nbsp;<asp:RequiredFieldValidator ID="rfvContra" runat="server" ControlToValidate="txtContra" ErrorMessage="*" ForeColor="Red" ValidationGroup="edit"></asp:RequiredFieldValidator>
                         <br />
                         <br />
-                        <asp:Button ID="Button3" runat="server" CommandName="aceptar-edit" CssClass="btn btn-success" Text="Aceptar" />
+                        <asp:Button ID="Button3" runat="server" CommandName="aceptar-edit" CssClass="btn btn-success" Text="Aceptar" ValidationGroup="edit" />
                         <asp:Button ID="Button2" runat="server" CommandName="cancelar-edit" CssClass="btn btn-danger" Text="Cancelar" />
                     </EditItemTemplate>
                     <ItemTemplate>
