@@ -77,7 +77,7 @@
                     <asp:Label ID="Label5" runat="server" Text="Descripcion:"></asp:Label>
                 </td>
                 <td class="auto-style7">
-                    <asp:TextBox ID="txtDescripcion" runat="server" Width="211px" Height="24px"></asp:TextBox>
+                    <asp:TextBox ID="txtDescripcion" runat="server" Width="211px" Height="60px" TextMode="MultiLine"></asp:TextBox>
                 </td>
                 <td class="auto-style9">
                     <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txtDescripcion" ErrorMessage="*" ForeColor="Red" ValidationGroup="add"></asp:RequiredFieldValidator>

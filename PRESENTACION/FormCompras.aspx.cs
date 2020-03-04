@@ -34,5 +34,11 @@ namespace PRESENTACION
                 Response.Redirect("FormCompraIndividual.aspx?cod=" + e.CommandArgument.ToString());
             }
         }
+
+        protected void gvCompras_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvCompras.PageIndex = e.NewPageIndex;
+            cargarGrilla();
+        }
     }
 }

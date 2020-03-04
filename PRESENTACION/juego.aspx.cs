@@ -117,7 +117,8 @@ namespace PRESENTACION
                 {
                     lblEstadoReview.Text = "Exito al publicar el review";
                     lblEstadoReview.ForeColor = System.Drawing.Color.Green;                    
-                    txtReview.Text = "";                   
+                    txtReview.Text = "";
+                    Response.AppendHeader("Refresh", "3");
                 }
                 else
                 {
