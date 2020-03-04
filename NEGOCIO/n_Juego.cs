@@ -75,5 +75,11 @@ namespace NEGOCIO
             juego = dj.obtenerJuegoId(Id_juego);
             return juego;
         }
+
+        public bool JuegoEliminado(int cod)
+        {
+            DatosJuego dj = new DatosJuego();
+            return dj.juegoEliminado(cod);
+        }
     }
 }

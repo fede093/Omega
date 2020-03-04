@@ -24,6 +24,7 @@ namespace PRESENTACION
             }
 
             VisibilidadReview();
+            visibilidadJuegoEliminado(); 
 
             if (!IsPostBack)
             {
@@ -34,6 +35,14 @@ namespace PRESENTACION
                 cargarDescripcion(int.Parse(id));
                 cargarListReview(int.Parse(id));
             }
+        }
+
+        public void visibilidadJuegoEliminado()
+        {
+            String id = Request.QueryString["cod"];
+            n_Juego n_juego = new n_Juego();
+            
+            controles_compra.Visible = !n_juego.JuegoEliminado(int.Parse(id));
         }
 
         public void cargarListReview(int cod)

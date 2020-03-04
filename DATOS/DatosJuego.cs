@@ -28,7 +28,7 @@ namespace DATOS
         public DataTable getTablaJuegos(int id)         ////TRAE LOS JUEGOS POR EL CODIGO DEL JUEGO
         {
             DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juego inner join " +
-                "Genero on Juego.Genero = Genero.Cod_Genero where Id_juego=" + id + " and Juego.Estado=1");
+                "Genero on Juego.Genero = Genero.Cod_Genero where Id_juego=" + id);
             return tabla;
         }
 
@@ -170,6 +170,37 @@ namespace DATOS
             SqlDataReader dr;
             String sql =
             "Select * From Juego Where Nombre='" + juego + "'and Estado=0";
+            if (cn != null)
+            {
+                cmd = new SqlCommand(sql, cn);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+                return false;
+        }
+
+        public bool juegoEliminado(int cod_juego)
+        {
+            SqlConnection cn = ds.ObtenerConexion();
+            SqlCommand cmd;
+            SqlDataReader dr;
+            String sql =
+            "Select * From Juego Where Id_juego='" + cod_juego + "'and Estado=0";
             if (cn != null)
             {
                 cmd = new SqlCommand(sql, cn);
