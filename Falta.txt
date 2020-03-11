@@ -5,9 +5,4 @@
 -Falta trabajar con reviews en usuario comun
 -Falta reportes
 -Hacer un carrito de compras, que el usuario selecione, elimine productos que no quiera, corfirma la compra, etc
--Editar datos personales del usuario
-
----------Errores mios----------
--agregar validaciones telefono, numero, email, etc.
--descripcion en compras y review(admin)
--Poder modificcar imagenes
+-Editar datos personales del usuario.
